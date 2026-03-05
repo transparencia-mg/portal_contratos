@@ -6,7 +6,8 @@
     {
       "description": "Insira a descrição/explicação detalhada deste recurso.",
       "dialect": {
-        "delimiter": ";"
+        "delimiter": ";",
+        "quoteChar": "\""
       },
       "encoding": "utf-8-sig",
       "format": "csv",
