@@ -744,6 +744,84 @@
             background: var(--accent-red);
         }
 
+        /* ==================== SELETOR DE COLUNAS ==================== */
+        .column-selector-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .column-selector-btn {
+            background: white;
+            border: 2px solid var(--primary-darker);
+            color: var(--primary-darker);
+            padding: 8px 15px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 13px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+            height: 38px;
+            white-space: nowrap;
+        }
+
+        .column-selector-btn:hover {
+            background: var(--primary-darker);
+            color: white;
+        }
+
+        .column-selector-menu {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            padding: 10px;
+            z-index: 1000;
+            min-width: 280px;
+            max-width: 350px;
+            max-height: 400px;
+            overflow-y: auto;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .column-selector-menu.show {
+            display: block;
+        }
+
+        .column-selector-item {
+            display: flex;
+            align-items: center;
+            padding: 8px 10px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+
+        .column-selector-item:hover {
+            background: var(--background-light);
+        }
+
+        .column-selector-item input {
+            margin-right: 10px;
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
+        }
+
+        .column-selector-item label {
+            font-size: 13px;
+            cursor: pointer;
+            margin: 0;
+            color: var(--primary-dark);
+            font-weight: 500;
+            flex: 1;
+        }
+
         /* ==================== NAVEGAÇÃO ==================== */
         .nav-tabs-container {
             background: transparent;
@@ -1118,6 +1196,27 @@
         pagamentos: { paginaAtual: 1, itensPorPagina: 50, totalPaginas: 1, busca: '' }
     };
 
+    // Configuração de colunas visíveis
+    let colunasVisiveis = {
+        contratos: {
+            'numero_contrato': true,
+            'numero_processo_formatado': true,
+            'nome_orgao_entidade_contratante': true,
+            'descricao_tipo_de_contrato': true,
+            'situacao_contrato': true,
+            'data_assinatura_contrato': true,
+            'data_vigencia_inicio': true,
+            'data_vigencia_fim': true,
+            'objeto_contrato': true,
+            'nome_empresarial_nome_fornecedor': true,
+            'tipo_pessoa_fornecedor': true,
+            'procedimento_contratacao_grupo': true,
+            'procedimento_contratacao_detalhamento_1': true,
+            'procedimento_contratacao_especializacao': true,
+            'valor_total_atualizado': true
+        }
+    };
+
     // Cache para autocomplete
     let autocompleteData = {
         numerosContrato: [],
@@ -1129,6 +1228,7 @@
         procedimentos: [],
         detalhamentos: [],
         especializacoes: [],
+        tiposPessoa: [],
         codigosItem: [],
         descricoesItem: []
     };
@@ -1322,6 +1422,7 @@
         autocompleteData.procedimentos = [...new Set(dadosConsolidados.contratos.map(c => c['procedimento_contratacao_grupo']).filter(Boolean))].sort();
         autocompleteData.detalhamentos = [...new Set(dadosConsolidados.contratos.map(c => c['procedimento_contratacao_detalhamento_1']).filter(Boolean))].sort();
         autocompleteData.especializacoes = [...new Set(dadosConsolidados.contratos.map(c => c['procedimento_contratacao_especializacao']).filter(Boolean))].sort();
+        autocompleteData.tiposPessoa = [...new Set(dadosConsolidados.contratos.map(c => c['tipo_pessoa_fornecedor']).filter(Boolean))].sort();
         
         autocompleteData.codigosItem = [...new Set(dadosConsolidados.itens.map(i => i['codigo_item_material_servico_numerico']).filter(Boolean))].sort();
         autocompleteData.descricoesItem = [...new Set(dadosConsolidados.itens.map(i => i['item_material_servico']).filter(Boolean))].sort();
@@ -1399,6 +1500,10 @@
         const situacao = document.getElementById('filtroSituacaoCC')?.value;
         const tipo = document.getElementById('filtroTipoCC')?.value;
         const fornecedor = document.getElementById('filtroFornecedorCC')?.value;
+        const tipoPessoa = document.getElementById('filtroTipoPessoaCC')?.value;
+        const procedimento = document.getElementById('filtroProcedimentoCC')?.value;
+        const detalhamento = document.getElementById('filtroDetalhamentoCC')?.value;
+        const especializacao = document.getElementById('filtroEspecializacaoCC')?.value;
         const busca = paginacao.contratos.busca.toLowerCase();
         
         return dadosConsolidados.contratos.filter(c => {
@@ -1409,6 +1514,10 @@
             if (situacao && c['situacao_contrato'] !== situacao) return false;
             if (tipo && c['descricao_tipo_de_contrato'] !== tipo) return false;
             if (fornecedor && !String(c['nome_empresarial_nome_fornecedor'] || '').toLowerCase().includes(fornecedor.toLowerCase())) return false;
+            if (tipoPessoa && c['tipo_pessoa_fornecedor'] !== tipoPessoa) return false;
+            if (procedimento && c['procedimento_contratacao_grupo'] !== procedimento) return false;
+            if (detalhamento && c['procedimento_contratacao_detalhamento_1'] !== detalhamento) return false;
+            if (especializacao && c['procedimento_contratacao_especializacao'] !== especializacao) return false;
             
             if (busca) {
                 return String(c['numero_contrato'] || '').toLowerCase().includes(busca) ||
@@ -1495,6 +1604,86 @@
     }
 
     // ============================================
+    // FUNÇÕES DO SELETOR DE COLUNAS
+    // ============================================
+    function toggleColumnSelector() {
+        const menu = document.getElementById('columnSelectorMenu');
+        if (menu) {
+            menu.classList.toggle('show');
+        }
+    }
+
+    function toggleColumn(coluna) {
+        colunasVisiveis.contratos[coluna] = !colunasVisiveis.contratos[coluna];
+        atualizarTabelaConsultaContrato();
+        
+        // Salvar preferência no localStorage
+        try {
+            localStorage.setItem('colunasVisiveisContratos', JSON.stringify(colunasVisiveis.contratos));
+        } catch (e) {}
+    }
+
+    function carregarPreferenciasColunas() {
+        try {
+            const salvo = localStorage.getItem('colunasVisiveisContratos');
+            if (salvo) {
+                const preferencias = JSON.parse(salvo);
+                colunasVisiveis.contratos = { ...colunasVisiveis.contratos, ...preferencias };
+            }
+        } catch (e) {}
+    }
+
+    function renderizarColumnSelector() {
+        const container = document.getElementById('columnSelectorContainer');
+        if (!container) return;
+        
+        const colunas = [
+            { id: 'numero_contrato', label: 'Contrato' },
+            { id: 'numero_processo_formatado', label: 'Processo' },
+            { id: 'nome_orgao_entidade_contratante', label: 'Órgão' },
+            { id: 'descricao_tipo_de_contrato', label: 'Tipo' },
+            { id: 'situacao_contrato', label: 'Situação' },
+            { id: 'data_assinatura_contrato', label: 'Data Assinatura' },
+            { id: 'data_vigencia_inicio', label: 'Início Vigência' },
+            { id: 'data_vigencia_fim', label: 'Fim Vigência' },
+            { id: 'objeto_contrato', label: 'Objeto' },
+            { id: 'nome_empresarial_nome_fornecedor', label: 'Fornecedor' },
+            { id: 'tipo_pessoa_fornecedor', label: 'Tipo Pessoa' },
+            { id: 'procedimento_contratacao_grupo', label: 'Proced. Grupo' },
+            { id: 'procedimento_contratacao_detalhamento_1', label: 'Detalhamento 1' },
+            { id: 'procedimento_contratacao_especializacao', label: 'Especialização' },
+            { id: 'valor_total_atualizado', label: 'Valor' }
+        ];
+        
+        container.innerHTML = `
+            <div class="column-selector-dropdown">
+                <button class="column-selector-btn" onclick="toggleColumnSelector()">
+                    <i class="material-icons" style="font-size: 18px;">view_column</i> Colunas
+                </button>
+                <div class="column-selector-menu" id="columnSelectorMenu">
+                    ${colunas.map(col => `
+                        <div class="column-selector-item" onclick="event.stopPropagation(); toggleColumn('${col.id}')">
+                            <input type="checkbox" 
+                                   ${colunasVisiveis.contratos[col.id] ? 'checked' : ''} 
+                                   onclick="event.stopPropagation(); toggleColumn('${col.id}')">
+                            <label onclick="event.stopPropagation();">${col.label}</label>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+        `;
+        
+        // Fechar o menu ao clicar fora
+        document.addEventListener('click', function(event) {
+            const menu = document.getElementById('columnSelectorMenu');
+            const btn = event.target.closest('.column-selector-btn');
+            if (!btn && menu && menu.classList.contains('show')) {
+                menu.classList.remove('show');
+            }
+        });
+    }
+
+    // ============================================
     // CARREGAMENTO DE DADOS
     // ============================================
     async function carregarTodosDados() {
@@ -1549,6 +1738,7 @@
             
             metricaGeral = calcularMetricas(dadosFiltrados.contratos);
             
+            carregarPreferenciasColunas();
             renderizarVisaoGeral();
             renderizarConsultaContrato();
             renderizarConsultaItem();
@@ -1960,6 +2150,40 @@
                         </datalist>
                     </div>
                     
+                    <div class="filter-group">
+                        <label class="filter-label">TIPO PESSOA</label>
+                        <input type="text" class="form-control" id="filtroTipoPessoaCC" list="tiposPessoaListCC" placeholder="Digite ou selecione..." autocomplete="off">
+                        <datalist id="tiposPessoaListCC">
+                            ${autocompleteData.tiposPessoa.map(tp => `<option value="${tp}">`).join('')}
+                        </datalist>
+                    </div>
+                </div>
+                
+                <div class="filters-row">
+                    <div class="filter-group">
+                        <label class="filter-label">PROCED. GRUPO</label>
+                        <input type="text" class="form-control" id="filtroProcedimentoCC" list="procedimentosListCC" placeholder="Digite ou selecione..." autocomplete="off">
+                        <datalist id="procedimentosListCC">
+                            ${autocompleteData.procedimentos.map(p => `<option value="${p}">`).join('')}
+                        </datalist>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label class="filter-label">DETALHAMENTO 1</label>
+                        <input type="text" class="form-control" id="filtroDetalhamentoCC" list="detalhamentosListCC" placeholder="Digite ou selecione..." autocomplete="off">
+                        <datalist id="detalhamentosListCC">
+                            ${autocompleteData.detalhamentos.map(d => `<option value="${d}">`).join('')}
+                        </datalist>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label class="filter-label">ESPECIALIZAÇÃO</label>
+                        <input type="text" class="form-control" id="filtroEspecializacaoCC" list="especializacoesListCC" placeholder="Digite ou selecione..." autocomplete="off">
+                        <datalist id="especializacoesListCC">
+                            ${autocompleteData.especializacoes.map(e => `<option value="${e}">`).join('')}
+                        </datalist>
+                    </div>
+                    
                     <div class="filter-buttons-group">
                         <button class="btn-pesquisa" onclick="aplicarFiltrosCC()"><i class="material-icons me-2">search</i>Pesquisar</button>
                         <button class="btn-secondary-custom" onclick="limparFiltrosCC()"><i class="material-icons me-2">clear</i>Limpar Filtros</button>
@@ -1986,6 +2210,7 @@
                             <option value="100" ${paginacao.contratos.itensPorPagina == 100 ? 'selected' : ''}>100</option>
                         </select>
                     </div>
+                    <div id="columnSelectorContainer"></div>
                     <span class="table-badge" id="totalContratosBadge">${contratosFiltrados.length} contratos</span>
                 </div>
             </div>
@@ -1994,17 +2219,7 @@
                 <div class="table-fixed-header-container">
                     <table class="table" id="contratosTable">
                         <thead>
-                            <tr>
-                                <th class="sortable-header" onclick="toggleSortCC('numero_contrato')">Contrato <i class="material-icons">unfold_more</i></th>
-                                <th class="sortable-header" onclick="toggleSortCC('numero_processo_formatado')">Processo <i class="material-icons">unfold_more</i></th>
-                                <th class="sortable-header" onclick="toggleSortCC('nome_orgao_entidade_contratante')">Órgão <i class="material-icons">unfold_more</i></th>
-                                <th class="sortable-header" onclick="toggleSortCC('descricao_tipo_de_contrato')">Tipo <i class="material-icons">unfold_more</i></th>
-                                <th class="sortable-header" onclick="toggleSortCC('data_assinatura_contrato')">Assinatura <i class="material-icons">unfold_more</i></th>
-                                <th class="sortable-header" onclick="toggleSortCC('objeto_contrato')">Objeto <i class="material-icons">unfold_more</i></th>
-                                <th class="sortable-header" onclick="toggleSortCC('nome_empresarial_nome_fornecedor')">Fornecedor <i class="material-icons">unfold_more</i></th>
-                                <th class="sortable-header text-right" onclick="toggleSortCC('valor_total_atualizado')">Valor <i class="material-icons">unfold_more</i></th>
-				<th class="text-center">Ações</th> 
-                            </tr>
+                            <tr id="contratosTableHeader"></tr>
                         </thead>
                         <tbody id="contratosTableBody"></tbody>
                     </table>
@@ -2013,6 +2228,7 @@
             </div>
         `;
         
+        renderizarColumnSelector();
         contratosFiltrados = filtrarContratos();
         paginacao.contratos.totalPaginas = Math.ceil(contratosFiltrados.length / paginacao.contratos.itensPorPagina);
         atualizarTabelaConsultaContrato();
@@ -2052,36 +2268,89 @@
     };
 
     function atualizarTabelaConsultaContrato() {
-        if (!document.getElementById('contratosTableBody')) return;
+        if (!document.getElementById('contratosTableBody') || !document.getElementById('contratosTableHeader')) return;
         
+        // Definir cabeçalhos
+        const headerRow = document.getElementById('contratosTableHeader');
+        headerRow.innerHTML = '';
+        
+        const colunas = [
+            { id: 'numero_contrato', label: 'Contrato' },
+            { id: 'numero_processo_formatado', label: 'Processo' },
+            { id: 'nome_orgao_entidade_contratante', label: 'Órgão' },
+            { id: 'descricao_tipo_de_contrato', label: 'Tipo' },
+            { id: 'situacao_contrato', label: 'Situação' },
+            { id: 'data_assinatura_contrato', label: 'Assinatura' },
+            { id: 'data_vigencia_inicio', label: 'Início Vig.' },
+            { id: 'data_vigencia_fim', label: 'Fim Vig.' },
+            { id: 'objeto_contrato', label: 'Objeto' },
+            { id: 'nome_empresarial_nome_fornecedor', label: 'Fornecedor' },
+            { id: 'tipo_pessoa_fornecedor', label: 'Tipo Pessoa' },
+            { id: 'procedimento_contratacao_grupo', label: 'Proc. Grupo' },
+            { id: 'procedimento_contratacao_detalhamento_1', label: 'Detalhamento' },
+            { id: 'procedimento_contratacao_especializacao', label: 'Especialização' },
+            { id: 'valor_total_atualizado', label: 'Valor' }
+        ];
+        
+        colunas.forEach(col => {
+            if (colunasVisiveis.contratos[col.id]) {
+                const th = document.createElement('th');
+                th.className = 'sortable-header';
+                th.setAttribute('onclick', `toggleSortCC('${col.id}')`);
+                th.innerHTML = `${col.label} <i class="material-icons">unfold_more</i>`;
+                headerRow.appendChild(th);
+            }
+        });
+        
+        // Adicionar coluna de ações (sempre visível)
+        const thAcoes = document.createElement('th');
+        thAcoes.className = 'text-center';
+        thAcoes.textContent = 'Ações';
+        headerRow.appendChild(thAcoes);
+        
+        // Preencher dados
         const inicio = (paginacao.contratos.paginaAtual - 1) * paginacao.contratos.itensPorPagina;
         const fim = Math.min(inicio + paginacao.contratos.itensPorPagina, contratosFiltrados.length);
         const dadosPagina = contratosFiltrados.slice(inicio, fim);
         
         document.getElementById('contratosTableBody').innerHTML = dadosPagina.map(c => {
             const urlContrato = c['contrato_termoaditivo_arquivos'];
+            const emergencial = verificarEmergencial(c);
             
-            return `
-        <tr style="position: relative;">
-            <td>
-                <a href="${c['contrato_termoaditivo_arquivos'] || '#'}" target="_blank" class="contrato-link" ${!c['contrato_termoaditivo_arquivos'] ? 'onclick="return false;"' : ''}>
-                    ${c['numero_contrato'] || '-'}
-                </a>
-            </td>
-                <td>${c['numero_processo_formatado'] || '-'}</td>
-                <td>${c['nome_orgao_entidade_contratante'] || '-'}</td>
-                <td>${c['descricao_tipo_de_contrato'] || '-'} ${verificarEmergencial(c) ? '<span class="badge-emergencial">Emergencial</span>' : ''}</td>
-                <td>${formatarData(c['data_assinatura_contrato'])}</td>
-                <td>${resumirTexto(c['objeto_contrato'], 60)}</td>
-                <td>${c['nome_empresarial_nome_fornecedor'] || '-'}</td>
-                <td class="text-right">${formatarMoeda(c['valor_total_atualizado'])}</td>
-<td class="text-center">
-    <button class="btn-action" onclick="verDetalhesContrato('${c['numero_contrato']}')" title="Detalhes do Contrato">
-        <i class="material-icons">visibility</i>
-    </button>
-</td>
-            </tr>
-        `}).join('');
+            let linha = '<tr style="position: relative;">';
+            
+            colunas.forEach(col => {
+                if (colunasVisiveis.contratos[col.id]) {
+                    let valor = '';
+                    
+                    if (col.id === 'numero_contrato') {
+                        valor = `<a href="${urlContrato || '#'}" target="_blank" class="contrato-link" ${!urlContrato ? 'onclick="return false;"' : ''}>${c['numero_contrato'] || '-'}</a>`;
+                    } else if (col.id === 'descricao_tipo_de_contrato') {
+                        valor = `${c['descricao_tipo_de_contrato'] || '-'} ${emergencial ? '<span class="badge-emergencial">Emergencial</span>' : ''}`;
+                    } else if (col.id === 'objeto_contrato') {
+                        valor = resumirTexto(c['objeto_contrato'], 60);
+                    } else if (col.id.includes('data')) {
+                        valor = formatarData(c[col.id]);
+                    } else if (col.id.includes('valor')) {
+                        valor = formatarMoeda(c[col.id]);
+                    } else {
+                        valor = c[col.id] || '-';
+                    }
+                    
+                    linha += `<td>${valor}</td>`;
+                }
+            });
+            
+            linha += `
+                <td class="text-center">
+                    <button class="btn-action" onclick="verDetalhesContrato('${c['numero_contrato']}')" title="Detalhes do Contrato">
+                        <i class="material-icons">visibility</i>
+                    </button>
+                </td>
+            </tr>`;
+            
+            return linha;
+        }).join('');
         
         document.getElementById('totalContratosBadge').textContent = `${contratosFiltrados.length} contratos`;
         renderizarPaginacaoContratos();
@@ -2182,6 +2451,10 @@
         document.getElementById('filtroSituacaoCC').value = '';
         document.getElementById('filtroTipoCC').value = '';
         document.getElementById('filtroFornecedorCC').value = '';
+        document.getElementById('filtroTipoPessoaCC').value = '';
+        document.getElementById('filtroProcedimentoCC').value = '';
+        document.getElementById('filtroDetalhamentoCC').value = '';
+        document.getElementById('filtroEspecializacaoCC').value = '';
         
         contratosFiltrados = ordenarDados(dadosFiltrados.contratos, sortConfig.contratos.column, sortConfig.contratos.direction);
         paginacao.contratos.paginaAtual = 1;
@@ -2847,8 +3120,25 @@
                         <div class="info-value">${contrato['situacao_contrato'] || '-'}</div>
                         <div class="info-label mt-3">Data Assinatura</div>
                         <div class="info-value">${formatarData(contrato['data_assinatura_contrato'])}</div>
+                        <div class="info-label mt-3">Data Início Vigência</div>
+                        <div class="info-value">${formatarData(contrato['data_vigencia_inicio'])}</div>
+                        <div class="info-label mt-3">Data Fim Vigência</div>
+                        <div class="info-value">${formatarData(contrato['data_vigencia_fim'])}</div>
                         <div class="info-label mt-3">Fornecedor</div>
                         <div class="info-value">${contrato['nome_empresarial_nome_fornecedor'] || '-'}</div>
+                        <div class="info-label mt-3">Tipo Pessoa</div>
+                        <div class="info-value">${contrato['tipo_pessoa_fornecedor'] || '-'}</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-3">
+                <div class="col-md-12">
+                    <div class="info-card">
+                        <div class="info-label">Procedimento de Contratação</div>
+                        <div class="info-value"><strong>Grupo:</strong> ${contrato['procedimento_contratacao_grupo'] || '-'}</div>
+                        <div class="info-value mt-2"><strong>Detalhamento 1:</strong> ${contrato['procedimento_contratacao_detalhamento_1'] || '-'}</div>
+                        <div class="info-value mt-2"><strong>Especialização:</strong> ${contrato['procedimento_contratacao_especializacao'] || '-'}</div>
                     </div>
                 </div>
             </div>
@@ -2923,19 +3213,36 @@
     // EXPORTAÇÕES
     // ============================================
     window.exportarTabelaContratos = function() {
-        const cabecalhos = ['Contrato', 'Processo', 'Órgão', 'Tipo', 'Assinatura', 'Objeto', 'Fornecedor', 'Valor'];
+        const colunas = [
+            { id: 'numero_contrato', label: 'Contrato' },
+            { id: 'numero_processo_formatado', label: 'Processo' },
+            { id: 'nome_orgao_entidade_contratante', label: 'Órgão' },
+            { id: 'descricao_tipo_de_contrato', label: 'Tipo' },
+            { id: 'situacao_contrato', label: 'Situação' },
+            { id: 'data_assinatura_contrato', label: 'Assinatura' },
+            { id: 'data_vigencia_inicio', label: 'Início Vigência' },
+            { id: 'data_vigencia_fim', label: 'Fim Vigência' },
+            { id: 'objeto_contrato', label: 'Objeto' },
+            { id: 'nome_empresarial_nome_fornecedor', label: 'Fornecedor' },
+            { id: 'tipo_pessoa_fornecedor', label: 'Tipo Pessoa' },
+            { id: 'procedimento_contratacao_grupo', label: 'Proc. Grupo' },
+            { id: 'procedimento_contratacao_detalhamento_1', label: 'Detalhamento 1' },
+            { id: 'procedimento_contratacao_especializacao', label: 'Especialização' },
+            { id: 'valor_total_atualizado', label: 'Valor' }
+        ];
+        
+        const cabecalhos = colunas.filter(col => colunasVisiveis.contratos[col.id]).map(col => col.label);
         
         const dados = contratosFiltrados.slice(0, 10000).map(c => {
-            return [
-                c['numero_contrato'],
-                c['numero_processo_formatado'],
-                c['nome_orgao_entidade_contratante'],
-                c['descricao_tipo_de_contrato'],
-                formatarData(c['data_assinatura_contrato']),
-                c['objeto_contrato'],
-                c['nome_empresarial_nome_fornecedor'],
-                c['valor_total_atualizado']
-            ].map(valor => {
+            return colunas.filter(col => colunasVisiveis.contratos[col.id]).map(col => {
+                let valor = c[col.id];
+                
+                if (col.id.includes('data')) {
+                    valor = formatarData(valor);
+                } else if (col.id.includes('valor')) {
+                    valor = valor ? valor.toString().replace('.', ',') : '';
+                }
+                
                 if (valor && typeof valor === 'string' && (valor.includes(';') || valor.includes('"'))) {
                     return `"${valor.replace(/"/g, '""')}"`;
                 }
@@ -2955,19 +3262,48 @@
         const { jsPDF } = window.jspdf;
         const doc = new jsPDF({ orientation: 'landscape' });
         
-        const dados = contratosFiltrados.slice(0, 100).map(c => [
-            c['numero_contrato'] || '-',
-            c['numero_processo_formatado'] || '-',
-            (c['nome_orgao_entidade_contratante'] || '-').substring(0, 20),
-            (c['descricao_tipo_de_contrato'] || '-').substring(0, 15),
-            formatarData(c['data_assinatura_contrato']),
-            (c['objeto_contrato'] || '-').substring(0, 30),
-            (c['nome_empresarial_nome_fornecedor'] || '-').substring(0, 20),
-            formatarMoeda(c['valor_total_atualizado'])
-        ]);
+        const colunas = [
+            { id: 'numero_contrato', label: 'Contrato' },
+            { id: 'numero_processo_formatado', label: 'Processo' },
+            { id: 'nome_orgao_entidade_contratante', label: 'Órgão' },
+            { id: 'descricao_tipo_de_contrato', label: 'Tipo' },
+            { id: 'situacao_contrato', label: 'Situação' },
+            { id: 'data_assinatura_contrato', label: 'Assinatura' },
+            { id: 'data_vigencia_inicio', label: 'Início Vig.' },
+            { id: 'data_vigencia_fim', label: 'Fim Vig.' },
+            { id: 'objeto_contrato', label: 'Objeto' },
+            { id: 'nome_empresarial_nome_fornecedor', label: 'Fornecedor' },
+            { id: 'tipo_pessoa_fornecedor', label: 'Tipo Pessoa' },
+            { id: 'procedimento_contratacao_grupo', label: 'Proc. Grupo' },
+            { id: 'procedimento_contratacao_detalhamento_1', label: 'Detalh. 1' },
+            { id: 'procedimento_contratacao_especializacao', label: 'Espec.' },
+            { id: 'valor_total_atualizado', label: 'Valor' }
+        ];
+        
+        const cabecalhos = colunas.filter(col => colunasVisiveis.contratos[col.id]).map(col => col.label);
+        
+        const dados = contratosFiltrados.slice(0, 100).map(c => {
+            return colunas.filter(col => colunasVisiveis.contratos[col.id]).map(col => {
+                let valor = c[col.id];
+                
+                if (col.id.includes('data')) {
+                    valor = formatarData(valor);
+                } else if (col.id.includes('valor')) {
+                    valor = formatarMoeda(valor);
+                } else if (col.id === 'objeto_contrato') {
+                    valor = resumirTexto(valor, 30);
+                } else {
+                    valor = valor || '-';
+                    if (typeof valor === 'string' && valor.length > 25) {
+                        valor = valor.substring(0, 25) + '...';
+                    }
+                }
+                return valor;
+            });
+        });
         
         doc.autoTable({
-            head: [['Contrato', 'Processo', 'Órgão', 'Tipo', 'Assinatura', 'Objeto', 'Fornecedor', 'Valor']],
+            head: [cabecalhos],
             body: dados,
             didDrawPage: (data) => {
                 doc.setFontSize(10);
