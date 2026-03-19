@@ -1,10 +1,9 @@
 {
   "name": "portal_contratos",
-  "owner_org": "",
+  "owner_org": "secretaria-de-estado-de-planejamento-e-gestao-seplag",
   "profile": "data-package",
   "resources": [
     {
-      "description": "Insira a descrição/explicação detalhada deste recurso.",
       "dialect": {
         "delimiter": ";",
         "quoteChar": "\""
@@ -27,11 +26,11 @@
           },
           {
             "name": "unnamed_2",
-            "type": "any"
+            "type": "string"
           },
           {
             "name": "unnamed_3",
-            "type": "any"
+            "type": "string"
           },
           {
             "name": "nome_orgao_entidade_contratante",
@@ -39,19 +38,19 @@
           },
           {
             "name": "unnamed_5",
-            "type": "any"
+            "type": "string"
           },
           {
             "name": "unnamed_6",
-            "type": "any"
+            "type": "string"
           },
           {
             "name": "unnamed_7",
-            "type": "any"
+            "type": "string"
           },
           {
             "name": "unnamed_8",
-            "type": "any"
+            "type": "string"
           },
           {
             "name": "nome_empresarial_nome_fornecedor",
@@ -59,7 +58,7 @@
           },
           {
             "name": "unnamed_10",
-            "type": "any"
+            "type": "string"
           },
           {
             "name": "cnpj_cpf_fornecedor_formatado",
@@ -103,27 +102,27 @@
           },
           {
             "name": "unnamed_21",
-            "type": "any"
+            "type": "string"
           },
           {
             "name": "unnamed_22",
-            "type": "any"
+            "type": "string"
           },
           {
             "name": "unnamed_23",
-            "type": "any"
+            "type": "string"
           },
           {
             "name": "unnamed_24",
-            "type": "any"
+            "type": "string"
           },
           {
             "name": "unnamed_25",
-            "type": "any"
+            "type": "string"
           },
           {
             "name": "unnamed_26",
-            "type": "any"
+            "type": "string"
           },
           {
             "name": "data_assinatura_contrato",
@@ -168,10 +167,9 @@
         ]
       },
       "scheme": "file",
-      "title": "Insira um título humanamente legível para este recurso."
+      "title": "Contratos 2023"
     },
     {
-      "description": "Insira a descrição/explicação detalhada deste recurso.",
       "dialect": {
         "delimiter": ";"
       },
@@ -193,11 +191,11 @@
           },
           {
             "name": "unnamed_2",
-            "type": "any"
+            "type": "string"
           },
           {
             "name": "unnamed_3",
-            "type": "any"
+            "type": "string"
           },
           {
             "name": "nome_orgao_entidade_contratante",
@@ -205,19 +203,19 @@
           },
           {
             "name": "unnamed_5",
-            "type": "any"
+            "type": "string"
           },
           {
             "name": "unnamed_6",
-            "type": "any"
+            "type": "string"
           },
           {
             "name": "unnamed_7",
-            "type": "any"
+            "type": "string"
           },
           {
             "name": "unnamed_8",
-            "type": "any"
+            "type": "string"
           },
           {
             "name": "nome_empresarial_nome_fornecedor",
@@ -225,7 +223,7 @@
           },
           {
             "name": "unnamed_10",
-            "type": "any"
+            "type": "string"
           },
           {
             "name": "cnpj_cpf_fornecedor_formatado",
@@ -269,27 +267,27 @@
           },
           {
             "name": "unnamed_21",
-            "type": "any"
+            "type": "string"
           },
           {
             "name": "unnamed_22",
-            "type": "any"
+            "type": "string"
           },
           {
             "name": "unnamed_23",
-            "type": "any"
+            "type": "string"
           },
           {
             "name": "unnamed_24",
-            "type": "any"
+            "type": "string"
           },
           {
             "name": "unnamed_25",
-            "type": "any"
+            "type": "string"
           },
           {
             "name": "unnamed_26",
-            "type": "any"
+            "type": "string"
           },
           {
             "name": "data_assinatura_contrato",
@@ -334,10 +332,9 @@
         ]
       },
       "scheme": "file",
-      "title": "Insira um título humanamente legível para este recurso."
+      "title": "Contratos 2023"
     },
     {
-      "description": "Insira a descrição/explicação detalhada deste recurso.",
       "dialect": {
         "delimiter": ";"
       },
@@ -359,11 +356,11 @@
           },
           {
             "name": "unnamed_2",
-            "type": "any"
+            "type": "string"
           },
           {
             "name": "unnamed_3",
-            "type": "any"
+            "type": "string"
           },
           {
             "name": "nome_orgao_entidade_contratante",
@@ -371,19 +368,19 @@
           },
           {
             "name": "unnamed_5",
-            "type": "any"
+            "type": "string"
           },
           {
             "name": "unnamed_6",
-            "type": "any"
+            "type": "string"
           },
           {
             "name": "unnamed_7",
-            "type": "any"
+            "type": "string"
           },
           {
             "name": "unnamed_8",
-            "type": "any"
+            "type": "string"
           },
           {
             "name": "nome_empresarial_nome_fornecedor",
@@ -391,173 +388,7 @@
           },
           {
             "name": "unnamed_10",
-            "type": "any"
-          },
-          {
-            "name": "cnpj_cpf_fornecedor_formatado",
             "type": "string"
-          },
-          {
-            "name": "nome_empresarial_nome_fornecedor_1",
-            "type": "string"
-          },
-          {
-            "name": "unnamed_13",
-            "type": "any"
-          },
-          {
-            "name": "tipo_pessoa_fornecedor",
-            "type": "string"
-          },
-          {
-            "name": "numero_processo_formatado",
-            "type": "string"
-          },
-          {
-            "name": "numero_contrato",
-            "type": "string"
-          },
-          {
-            "name": "indicador_termo_de_contrato",
-            "type": "string"
-          },
-          {
-            "name": "contrato_termoaditivo_arquivos",
-            "type": "string"
-          },
-          {
-            "name": "situacao_contrato",
-            "type": "string"
-          },
-          {
-            "name": "descricao_tipo_de_contrato",
-            "type": "string"
-          },
-          {
-            "name": "objeto_contrato",
-            "type": "string"
-          },
-          {
-            "name": "unnamed_22",
-            "type": "any"
-          },
-          {
-            "name": "unnamed_23",
-            "type": "any"
-          },
-          {
-            "name": "unnamed_24",
-            "type": "any"
-          },
-          {
-            "name": "unnamed_25",
-            "type": "any"
-          },
-          {
-            "name": "unnamed_26",
-            "type": "any"
-          },
-          {
-            "name": "data_assinatura_contrato",
-            "type": "date"
-          },
-          {
-            "name": "data_inicio_vigencia_contrato",
-            "type": "date"
-          },
-          {
-            "name": "data_termino_vigencia_contrato",
-            "type": "date"
-          },
-          {
-            "name": "procedimento_contratacao_grupo",
-            "type": "string"
-          },
-          {
-            "name": "procedimento_contratacao_detalhamento_1",
-            "type": "string"
-          },
-          {
-            "name": "procedimento_contratacao_especializacao",
-            "type": "string"
-          },
-          {
-            "name": "contrato_termoaditivo_arquivos_1",
-            "type": "string"
-          },
-          {
-            "name": "valor_total_atualizado",
-            "type": "string"
-          },
-          {
-            "name": "valor_despesa_empenhada",
-            "type": "string"
-          },
-          {
-            "name": "valor_despesa_liquidada",
-            "type": "string"
-          }
-        ]
-      },
-      "scheme": "file",
-      "title": "Insira um título humanamente legível para este recurso."
-    },
-    {
-      "description": "Insira a descrição/explicação detalhada deste recurso.",
-      "dialect": {
-        "delimiter": ";"
-      },
-      "encoding": "utf-8-sig",
-      "format": "csv",
-      "hashing": "md5",
-      "name": "contratos2026",
-      "path": "data/contratos2026.csv",
-      "profile": "tabular-data-resource",
-      "schema": {
-        "fields": [
-          {
-            "name": "ano_criacao_processo",
-            "type": "integer"
-          },
-          {
-            "name": "codigo_orgao_entidade_contratante",
-            "type": "integer"
-          },
-          {
-            "name": "unnamed_2",
-            "type": "any"
-          },
-          {
-            "name": "unnamed_3",
-            "type": "any"
-          },
-          {
-            "name": "nome_orgao_entidade_contratante",
-            "type": "string"
-          },
-          {
-            "name": "unnamed_5",
-            "type": "any"
-          },
-          {
-            "name": "unnamed_6",
-            "type": "any"
-          },
-          {
-            "name": "unnamed_7",
-            "type": "any"
-          },
-          {
-            "name": "unnamed_8",
-            "type": "any"
-          },
-          {
-            "name": "nome_empresarial_nome_fornecedor",
-            "type": "string"
-          },
-          {
-            "name": "unnamed_10",
-            "type": "any"
           },
           {
             "name": "cnpj_cpf_fornecedor_formatado",
@@ -601,19 +432,27 @@
           },
           {
             "name": "unnamed_21",
-            "type": "any"
+            "type": "string"
           },
           {
             "name": "unnamed_22",
-            "type": "any"
+            "type": "string"
           },
           {
             "name": "unnamed_23",
-            "type": "any"
+            "type": "string"
           },
           {
             "name": "unnamed_24",
-            "type": "any"
+            "type": "string"
+          },
+          {
+            "name": "unnamed_25",
+            "type": "string"
+          },
+          {
+            "name": "unnamed_26",
+            "type": "string"
           },
           {
             "name": "data_assinatura_contrato",
@@ -658,10 +497,174 @@
         ]
       },
       "scheme": "file",
-      "title": "Insira um título humanamente legível para este recurso."
+      "title": "Contratos 2023"
     },
     {
-      "description": "Insira a descrição/explicação detalhada deste recurso.",
+      "dialect": {
+        "delimiter": ";"
+      },
+      "encoding": "utf-8-sig",
+      "format": "csv",
+      "hashing": "md5",
+      "name": "contratos2026",
+      "path": "data/contratos2026.csv",
+      "profile": "tabular-data-resource",
+      "schema": {
+        "fields": [
+          {
+            "name": "ano_criacao_processo",
+            "type": "integer"
+          },
+          {
+            "name": "codigo_orgao_entidade_contratante",
+            "type": "integer"
+          },
+          {
+            "name": "unnamed_2",
+            "type": "string"
+          },
+          {
+            "name": "unnamed_3",
+            "type": "string"
+          },
+          {
+            "name": "nome_orgao_entidade_contratante",
+            "type": "string"
+          },
+          {
+            "name": "unnamed_5",
+            "type": "string"
+          },
+          {
+            "name": "unnamed_6",
+            "type": "string"
+          },
+          {
+            "name": "unnamed_7",
+            "type": "string"
+          },
+          {
+            "name": "unnamed_8",
+            "type": "string"
+          },
+          {
+            "name": "nome_empresarial_nome_fornecedor",
+            "type": "string"
+          },
+          {
+            "name": "unnamed_10",
+            "type": "string"
+          },
+          {
+            "name": "cnpj_cpf_fornecedor_formatado",
+            "type": "string"
+          },
+          {
+            "name": "nome_empresarial_nome_fornecedor_1",
+            "type": "string"
+          },
+          {
+            "name": "tipo_pessoa_fornecedor",
+            "type": "string"
+          },
+          {
+            "name": "numero_processo_formatado",
+            "type": "string"
+          },
+          {
+            "name": "numero_contrato",
+            "type": "string"
+          },
+          {
+            "name": "indicador_termo_de_contrato",
+            "type": "string"
+          },
+          {
+            "name": "contrato_termoaditivo_arquivos",
+            "type": "string"
+          },
+          {
+            "name": "situacao_contrato",
+            "type": "string"
+          },
+          {
+            "name": "descricao_tipo_de_contrato",
+            "type": "string"
+          },
+          {
+            "name": "objeto_contrato",
+            "type": "string"
+          },
+          {
+            "name": "unnamed_21",
+            "type": "string"
+          },
+          {
+            "name": "unnamed_22",
+            "type": "string"
+          },
+          {
+            "name": "unnamed_23",
+            "type": "string"
+          },
+          {
+            "name": "unnamed_24",
+            "type": "string"
+          },
+          {
+            "name": "unnamed_25",
+            "type": "string"
+          },
+          {
+            "name": "unnamed_26",
+            "type": "string"
+          },
+          {
+            "name": "data_assinatura_contrato",
+            "type": "date"
+          },
+          {
+            "name": "data_inicio_vigencia_contrato",
+            "type": "date"
+          },
+          {
+            "name": "data_termino_vigencia_contrato",
+            "type": "date"
+          },
+          {
+            "name": "procedimento_contratacao_grupo",
+            "type": "string"
+          },
+          {
+            "name": "procedimento_contratacao_detalhamento_1",
+            "type": "string"
+          },
+          {
+            "name": "procedimento_contratacao_especializacao",
+            "type": "string"
+          },
+          {
+            "name": "contrato_termoaditivo_arquivos_1",
+            "type": "string"
+          },
+          {
+            "name": "valor_total_atualizado",
+            "type": "string"
+          },
+          {
+            "name": "valor_despesa_empenhada",
+            "type": "string"
+          },
+          {
+            "name": "valor_despesa_liquidada",
+            "type": "string"
+          }
+        ]
+      },
+      "scheme": "file",
+      "title": "Contratos 2026"
+    },
+    {
       "dialect": {
         "delimiter": ";"
       },
@@ -703,15 +706,15 @@
           },
           {
             "name": "unnamed_7",
-            "type": "any"
+            "type": "string"
           },
           {
             "name": "unnamed_8",
-            "type": "any"
+            "type": "string"
           },
           {
             "name": "unnamed_9",
-            "type": "any"
+            "type": "string"
           },
           {
             "name": "codigo_elemento_item_despesa",
@@ -736,10 +739,9 @@
         ]
       },
       "scheme": "file",
-      "title": "Insira um título humanamente legível para este recurso."
+      "title": "Itens dos Contratos 2023"
     },
     {
-      "description": "Insira a descrição/explicação detalhada deste recurso.",
       "dialect": {
         "delimiter": ";"
       },
@@ -781,15 +783,15 @@
           },
           {
             "name": "unnamed_7",
-            "type": "any"
+            "type": "string"
           },
           {
             "name": "unnamed_8",
-            "type": "any"
+            "type": "string"
           },
           {
             "name": "unnamed_9",
-            "type": "any"
+            "type": "string"
           },
           {
             "name": "codigo_elemento_item_despesa",
@@ -814,10 +816,9 @@
         ]
       },
       "scheme": "file",
-      "title": "Insira um título humanamente legível para este recurso."
+      "title": "Itens dos Contratos 2024"
     },
     {
-      "description": "Insira a descrição/explicação detalhada deste recurso.",
       "dialect": {
         "delimiter": ";"
       },
@@ -862,16 +863,16 @@
             "type": "string"
           },
           {
+            "name": "unnamed_7",
+            "type": "string"
+          },
+          {
             "name": "unnamed_8",
-            "type": "any"
+            "type": "string"
           },
           {
             "name": "unnamed_9",
-            "type": "any"
-          },
-          {
-            "name": "unnamed_10",
-            "type": "any"
+            "type": "string"
           },
           {
             "name": "codigo_elemento_item_despesa",
@@ -896,10 +897,9 @@
         ]
       },
       "scheme": "file",
-      "title": "Insira um título humanamente legível para este recurso."
+      "title": "Itens dos Contratos 2025"
     },
     {
-      "description": "Insira a descrição/explicação detalhada deste recurso.",
       "dialect": {
         "delimiter": ";"
       },
@@ -941,15 +941,15 @@
           },
           {
             "name": "unnamed_7",
-            "type": "any"
+            "type": "string"
           },
           {
             "name": "unnamed_8",
-            "type": "any"
+            "type": "string"
           },
           {
             "name": "unnamed_9",
-            "type": "any"
+            "type": "string"
           },
           {
             "name": "codigo_elemento_item_despesa",
@@ -974,8 +974,8 @@
         ]
       },
       "scheme": "file",
-      "title": "Insira um título humanamente legível para este recurso."
+      "title": "Itens dos Contratos 2026"
     }
   ],
-  "title": "Portal_contratos"
+  "title": "Consulto de Contratos - MG"
 }
