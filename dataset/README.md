@@ -2,7 +2,7 @@ Conjunto de dados que reúne informações sobre os contratos firmados pelos ór
 
 Os dados são organizados em arquivos anuais e seguem um padrão estruturado, facilitando o uso por cidadãos, pesquisadores, órgãos de controle e desenvolvedores para consulta, análise e reutilização das informações.
 
-Periodicidade de Atualização: Mensal.
+Periodicidade de Atualização: Semanal
 
 ## Como participar
 
