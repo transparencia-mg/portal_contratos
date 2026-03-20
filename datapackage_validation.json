@@ -1,6 +1,6 @@
 {
   "version": "4.16.6",
-  "time": 3.958,
+  "time": 3.896,
   "errors": [],
   "tasks": [
     {
@@ -139,7 +139,7 @@
           "rows": 5269
         }
       },
-      "time": 0.411,
+      "time": 0.42,
       "scope": [
         "hash-count-error",
         "byte-count-error",
@@ -472,7 +472,7 @@
           "rows": 5308
         }
       },
-      "time": 0.419,
+      "time": 0.413,
       "scope": [
         "hash-count-error",
         "byte-count-error",
@@ -644,7 +644,7 @@
           "rows": 5803
         }
       },
-      "time": 0.467,
+      "time": 0.46,
       "scope": [
         "hash-count-error",
         "byte-count-error",
@@ -879,15 +879,15 @@
             },
             {
               "name": "unnamed_7",
-              "type": "any"
+              "type": "string"
             },
             {
               "name": "unnamed_8",
-              "type": "any"
+              "type": "string"
             },
             {
               "name": "unnamed_9",
-              "type": "any"
+              "type": "string"
             },
             {
               "name": "codigo_elemento_item_despesa",
@@ -920,7 +920,7 @@
           "rows": 15371
         }
       },
-      "time": 0.448,
+      "time": 0.439,
       "scope": [
         "hash-count-error",
         "byte-count-error",
@@ -991,15 +991,15 @@
             },
             {
               "name": "unnamed_7",
-              "type": "any"
+              "type": "string"
             },
             {
               "name": "unnamed_8",
-              "type": "any"
+              "type": "string"
             },
             {
               "name": "unnamed_9",
-              "type": "any"
+              "type": "string"
             },
             {
               "name": "codigo_elemento_item_despesa",
@@ -1032,7 +1032,7 @@
           "rows": 15968
         }
       },
-      "time": 0.453,
+      "time": 0.448,
       "scope": [
         "hash-count-error",
         "byte-count-error",
@@ -1103,15 +1103,15 @@
             },
             {
               "name": "unnamed_7",
-              "type": "any"
+              "type": "string"
             },
             {
               "name": "unnamed_8",
-              "type": "any"
+              "type": "string"
             },
             {
               "name": "unnamed_9",
-              "type": "any"
+              "type": "string"
             },
             {
               "name": "codigo_elemento_item_despesa",
@@ -1144,7 +1144,7 @@
           "rows": 15187
         }
       },
-      "time": 0.442,
+      "time": 0.428,
       "scope": [
         "hash-count-error",
         "byte-count-error",
@@ -1203,7 +1203,7 @@
             },
             {
               "name": "unnamed_4",
-              "type": "any"
+              "type": "string"
             },
             {
               "name": "numero_item_pedido",
@@ -1218,16 +1218,16 @@
               "type": "string"
             },
             {
+              "name": "unnamed_7",
+              "type": "string"
+            },
+            {
               "name": "unnamed_8",
-              "type": "any"
+              "type": "string"
             },
             {
               "name": "unnamed_9",
-              "type": "any"
-            },
-            {
-              "name": "unnamed_10",
-              "type": "any"
+              "type": "string"
             },
             {
               "name": "codigo_elemento_item_despesa",
@@ -1260,7 +1260,7 @@
           "rows": 18442
         }
       },
-      "time": 0.543,
+      "time": 0.53,
       "scope": [
         "hash-count-error",
         "byte-count-error",
@@ -1282,11 +1282,123 @@
         "unique-error"
       ],
       "partial": false,
-      "errors": [],
+      "errors": [
+        {
+          "label": "unnamed_8",
+          "fieldName": "unnamed_7",
+          "fieldNumber": 9,
+          "fieldPosition": 9,
+          "labels": [
+            "ano_publicacao_contrato",
+            "numero_processo_formatado",
+            "numero_contrato",
+            "nome_empresarial_nome_fornecedor",
+            "unnamed_4",
+            "numero_item_pedido",
+            "codigo_item_material_servico_numerico",
+            "item_material_servico",
+            "unnamed_8",
+            "unnamed_9",
+            "unnamed_10",
+            "codigo_elemento_item_despesa",
+            "nome_elemento_item_despesa",
+            "quantidade_item_pedido",
+            "valor_unitario_referencia_item_pedido",
+            "valor_total_referencia_item_pedido"
+          ],
+          "rowPositions": [
+            1
+          ],
+          "code": "incorrect-label",
+          "name": "Incorrect Label",
+          "tags": [
+            "#table",
+            "#header",
+            "#label"
+          ],
+          "note": "",
+          "message": "Label \"unnamed_8\" in field unnamed_7 at position \"9\" does not match the field name in the schema",
+          "description": "One of the data source header does not match the field name defined in the schema."
+        },
+        {
+          "label": "unnamed_9",
+          "fieldName": "unnamed_8",
+          "fieldNumber": 10,
+          "fieldPosition": 10,
+          "labels": [
+            "ano_publicacao_contrato",
+            "numero_processo_formatado",
+            "numero_contrato",
+            "nome_empresarial_nome_fornecedor",
+            "unnamed_4",
+            "numero_item_pedido",
+            "codigo_item_material_servico_numerico",
+            "item_material_servico",
+            "unnamed_8",
+            "unnamed_9",
+            "unnamed_10",
+            "codigo_elemento_item_despesa",
+            "nome_elemento_item_despesa",
+            "quantidade_item_pedido",
+            "valor_unitario_referencia_item_pedido",
+            "valor_total_referencia_item_pedido"
+          ],
+          "rowPositions": [
+            1
+          ],
+          "code": "incorrect-label",
+          "name": "Incorrect Label",
+          "tags": [
+            "#table",
+            "#header",
+            "#label"
+          ],
+          "note": "",
+          "message": "Label \"unnamed_9\" in field unnamed_8 at position \"10\" does not match the field name in the schema",
+          "description": "One of the data source header does not match the field name defined in the schema."
+        },
+        {
+          "label": "unnamed_10",
+          "fieldName": "unnamed_9",
+          "fieldNumber": 11,
+          "fieldPosition": 11,
+          "labels": [
+            "ano_publicacao_contrato",
+            "numero_processo_formatado",
+            "numero_contrato",
+            "nome_empresarial_nome_fornecedor",
+            "unnamed_4",
+            "numero_item_pedido",
+            "codigo_item_material_servico_numerico",
+            "item_material_servico",
+            "unnamed_8",
+            "unnamed_9",
+            "unnamed_10",
+            "codigo_elemento_item_despesa",
+            "nome_elemento_item_despesa",
+            "quantidade_item_pedido",
+            "valor_unitario_referencia_item_pedido",
+            "valor_total_referencia_item_pedido"
+          ],
+          "rowPositions": [
+            1
+          ],
+          "code": "incorrect-label",
+          "name": "Incorrect Label",
+          "tags": [
+            "#table",
+            "#header",
+            "#label"
+          ],
+          "note": "",
+          "message": "Label \"unnamed_10\" in field unnamed_9 at position \"11\" does not match the field name in the schema",
+          "description": "One of the data source header does not match the field name defined in the schema."
+        }
+      ],
       "stats": {
-        "errors": 0
+        "errors": 3
       },
-      "valid": true
+      "valid": false
     },
     {
       "resource": {
@@ -1331,15 +1443,15 @@
             },
             {
               "name": "unnamed_7",
-              "type": "any"
+              "type": "string"
             },
             {
               "name": "unnamed_8",
-              "type": "any"
+              "type": "string"
             },
             {
               "name": "unnamed_9",
-              "type": "any"
+              "type": "string"
             },
             {
               "name": "codigo_elemento_item_despesa",
@@ -1372,7 +1484,7 @@
           "rows": 1896
         }
       },
-      "time": 0.074,
+      "time": 0.069,
       "scope": [
         "hash-count-error",
         "byte-count-error",
@@ -1402,8 +1514,8 @@
     }
   ],
   "stats": {
-    "errors": 0,
+    "errors": 3,
     "tasks": 10
   },
-  "valid": true
+  "valid": false
 }
