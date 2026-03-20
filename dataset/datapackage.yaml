@@ -2,8 +2,7 @@ name: portal_contratos_mg
 owner_org: secretaria-de-estado-de-planejamento-e-gestao-seplag
 profile: data-package
 resources:
-  - description: Insira a descrição/explicação detalhada deste recurso.
-    dialect:
+  - dialect:
       delimiter: ;
     encoding: utf-8-sig
     format: csv
@@ -70,9 +69,8 @@ resources:
         - name: valor_despesa_liquidada
           type: string
     scheme: file
-    title: Insira um título humanamente legível para este recurso.
-  - description: Insira a descrição/explicação detalhada deste recurso.
-    dialect:
+    title: Contratos 2022
+  - dialect:
       delimiter: ;
       quoteChar: '"'
     encoding: utf-8-sig
@@ -142,9 +140,8 @@ resources:
         - name: valor_despesa_liquidada
           type: string
     scheme: file
-    title: Insira um título humanamente legível para este recurso.
-  - description: Insira a descrição/explicação detalhada deste recurso.
-    dialect:
+    title: Contratos 2023
+  - dialect:
       delimiter: ;
     encoding: utf-8-sig
     format: csv
@@ -211,9 +208,8 @@ resources:
         - name: valor_despesa_liquidada
           type: string
     scheme: file
-    title: Insira um título humanamente legível para este recurso.
-  - description: Insira a descrição/explicação detalhada deste recurso.
-    dialect:
+    title: Contratos 2024
+  - dialect:
       delimiter: ;
     encoding: utf-8-sig
     format: csv
@@ -284,9 +280,8 @@ resources:
         - name: valor_despesa_liquidada
           type: string
     scheme: file
-    title: Insira um título humanamente legível para este recurso.
-  - description: Insira a descrição/explicação detalhada deste recurso.
-    dialect:
+    title: Contratos 2025
+  - dialect:
       delimiter: ;
     encoding: utf-8-sig
     format: csv
@@ -353,9 +348,8 @@ resources:
         - name: valor_despesa_liquidada
           type: string
     scheme: file
-    title: Insira um título humanamente legível para este recurso.
-  - description: Insira a descrição/explicação detalhada deste recurso.
-    dialect:
+    title: Contratos 2026
+  - dialect:
       delimiter: ;
     encoding: utf-8-sig
     format: csv
@@ -396,9 +390,8 @@ resources:
         - name: valor_total_referencia_item_pedido
           type: string
     scheme: file
-    title: Insira um título humanamente legível para este recurso.
-  - description: Insira a descrição/explicação detalhada deste recurso.
-    dialect:
+    title: Itens dos Contratos 2022
+  - dialect:
       delimiter: ;
     encoding: utf-8-sig
     format: csv
@@ -439,9 +432,8 @@ resources:
         - name: valor_total_referencia_item_pedido
           type: string
     scheme: file
-    title: Insira um título humanamente legível para este recurso.
-  - description: Insira a descrição/explicação detalhada deste recurso.
-    dialect:
+    title: Itens dos Contratos 2023
+  - dialect:
       delimiter: ;
     encoding: utf-8-sig
     format: csv
@@ -482,9 +474,8 @@ resources:
         - name: valor_total_referencia_item_pedido
           type: string
     scheme: file
-    title: Insira um título humanamente legível para este recurso.
-  - description: Insira a descrição/explicação detalhada deste recurso.
-    dialect:
+    title: Itens dos Contratos 2024
+  - dialect:
       delimiter: ;
     encoding: utf-8-sig
     format: csv
@@ -527,9 +518,8 @@ resources:
         - name: valor_total_referencia_item_pedido
           type: string
     scheme: file
-    title: Insira um título humanamente legível para este recurso.
-  - description: Insira a descrição/explicação detalhada deste recurso.
-    dialect:
+    title: Itens dos Contratos 2025
+  - dialect:
       delimiter: ;
     encoding: utf-8-sig
     format: csv
@@ -570,5 +560,5 @@ resources:
         - name: valor_total_referencia_item_pedido
           type: string
     scheme: file
-    title: Insira um título humanamente legível para este recurso.
-title: Portal_contratos
+    title: Itens dos Contratos 2026
+title: Portal Contratos MG
