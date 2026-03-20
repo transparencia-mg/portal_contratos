@@ -1,0 +1,574 @@
+name: portal_contratos
+owner_org: secretaria-de-estado-de-planejamento-e-gestao-seplag
+profile: data-package
+resources:
+  - description: Insira a descrição/explicação detalhada deste recurso.
+    dialect:
+      delimiter: ;
+    encoding: utf-8-sig
+    format: csv
+    hashing: md5
+    name: contratos2022
+    path: data/contratos2022.csv
+    profile: tabular-data-resource
+    schema:
+      fields:
+        - name: ano_publicacao_contrato
+          type: integer
+        - name: codigo_orgao_entidade_contratante
+          type: integer
+        - name: nome_orgao_entidade_contratante
+          type: string
+        - name: nome_empresarial_nome_fornecedor
+          type: string
+        - name: cnpj_cpf_fornecedor_formatado
+          type: string
+        - name: nome_empresarial_nome_fornecedor_1
+          type: string
+        - name: tipo_pessoa_fornecedor
+          type: string
+        - name: numero_processo_formatado
+          type: string
+        - name: numero_contrato
+          type: integer
+        - name: indicador_termo_de_contrato
+          type: string
+        - name: situacao_contrato
+          type: string
+        - name: descricao_tipo_de_contrato
+          type: string
+        - name: objeto_contrato
+          type: string
+        - name: unnamed_13
+          type: any
+        - name: unnamed_14
+          type: any
+        - name: unnamed_15
+          type: any
+        - name: unnamed_16
+          type: any
+        - name: unnamed_17
+          type: any
+        - name: data_assinatura_contrato
+          type: date
+        - name: data_inicio_vigencia_contrato
+          type: date
+        - name: data_termino_vigencia_contrato
+          type: date
+        - name: procedimento_contratacao_grupo
+          type: string
+        - name: procedimento_contratacao_detalhamento_1
+          type: string
+        - name: procedimento_contratacao_especializacao
+          type: string
+        - name: contrato_termoaditivo_arquivos
+          type: string
+        - name: valor_total_atualizado
+          type: string
+        - name: valor_despesa_empenhada
+          type: string
+        - name: valor_despesa_liquidada
+          type: string
+    scheme: file
+    title: Insira um título humanamente legível para este recurso.
+  - description: Insira a descrição/explicação detalhada deste recurso.
+    dialect:
+      delimiter: ;
+      quoteChar: '"'
+    encoding: utf-8-sig
+    format: csv
+    hashing: md5
+    name: contratos2023
+    path: data/contratos2023.csv
+    profile: tabular-data-resource
+    schema:
+      fields:
+        - name: ano_publicacao_contrato
+          type: integer
+        - name: codigo_orgao_entidade_contratante
+          type: integer
+        - name: nome_orgao_entidade_contratante
+          type: string
+        - name: nome_empresarial_nome_fornecedor
+          type: string
+        - name: cnpj_cpf_fornecedor_formatado
+          type: string
+        - name: nome_empresarial_nome_fornecedor_1
+          type: string
+        - name: tipo_pessoa_fornecedor
+          type: string
+        - name: numero_processo_formatado
+          type: string
+        - name: numero_contrato
+          type: integer
+        - name: indicador_termo_de_contrato
+          type: string
+        - name: situacao_contrato
+          type: string
+        - name: descricao_tipo_de_contrato
+          type: string
+        - name: objeto_contrato
+          type: string
+        - name: unnamed_13
+          type: any
+        - name: unnamed_14
+          type: any
+        - name: unnamed_15
+          type: any
+        - name: unnamed_16
+          type: any
+        - name: unnamed_17
+          type: any
+        - name: unnamed_18
+          type: any
+        - name: data_assinatura_contrato
+          type: date
+        - name: data_inicio_vigencia_contrato
+          type: date
+        - name: data_termino_vigencia_contrato
+          type: date
+        - name: procedimento_contratacao_grupo
+          type: string
+        - name: procedimento_contratacao_detalhamento_1
+          type: string
+        - name: procedimento_contratacao_especializacao
+          type: string
+        - name: contrato_termoaditivo_arquivos
+          type: string
+        - name: valor_total_atualizado
+          type: string
+        - name: valor_despesa_empenhada
+          type: string
+        - name: valor_despesa_liquidada
+          type: string
+    scheme: file
+    title: Insira um título humanamente legível para este recurso.
+  - description: Insira a descrição/explicação detalhada deste recurso.
+    dialect:
+      delimiter: ;
+    encoding: utf-8-sig
+    format: csv
+    hashing: md5
+    name: contratos2024
+    path: data/contratos2024.csv
+    profile: tabular-data-resource
+    schema:
+      fields:
+        - name: ano_publicacao_contrato
+          type: integer
+        - name: codigo_orgao_entidade_contratante
+          type: integer
+        - name: nome_orgao_entidade_contratante
+          type: string
+        - name: nome_empresarial_nome_fornecedor
+          type: string
+        - name: cnpj_cpf_fornecedor_formatado
+          type: string
+        - name: nome_empresarial_nome_fornecedor_1
+          type: string
+        - name: tipo_pessoa_fornecedor
+          type: string
+        - name: numero_processo_formatado
+          type: string
+        - name: numero_contrato
+          type: integer
+        - name: indicador_termo_de_contrato
+          type: string
+        - name: situacao_contrato
+          type: string
+        - name: descricao_tipo_de_contrato
+          type: string
+        - name: objeto_contrato
+          type: string
+        - name: unnamed_13
+          type: any
+        - name: unnamed_14
+          type: any
+        - name: unnamed_15
+          type: any
+        - name: unnamed_16
+          type: any
+        - name: unnamed_17
+          type: any
+        - name: data_assinatura_contrato
+          type: date
+        - name: data_inicio_vigencia_contrato
+          type: date
+        - name: data_termino_vigencia_contrato
+          type: date
+        - name: procedimento_contratacao_grupo
+          type: string
+        - name: procedimento_contratacao_detalhamento_1
+          type: string
+        - name: procedimento_contratacao_especializacao
+          type: string
+        - name: contrato_termoaditivo_arquivos
+          type: string
+        - name: valor_total_atualizado
+          type: string
+        - name: valor_despesa_empenhada
+          type: string
+        - name: valor_despesa_liquidada
+          type: string
+    scheme: file
+    title: Insira um título humanamente legível para este recurso.
+  - description: Insira a descrição/explicação detalhada deste recurso.
+    dialect:
+      delimiter: ;
+    encoding: utf-8-sig
+    format: csv
+    hashing: md5
+    name: contratos2025
+    path: data/contratos2025.csv
+    profile: tabular-data-resource
+    schema:
+      fields:
+        - name: ano_publicacao_contrato
+          type: integer
+        - name: codigo_orgao_entidade_contratante
+          type: integer
+        - name: nome_orgao_entidade_contratante
+          type: string
+        - name: nome_empresarial_nome_fornecedor
+          type: string
+        - name: cnpj_cpf_fornecedor_formatado
+          type: string
+        - name: nome_empresarial_nome_fornecedor_1
+          type: string
+        - name: unnamed_6
+          type: any
+        - name: tipo_pessoa_fornecedor
+          type: string
+        - name: numero_processo_formatado
+          type: string
+        - name: numero_contrato
+          type: integer
+        - name: indicador_termo_de_contrato
+          type: string
+        - name: situacao_contrato
+          type: string
+        - name: descricao_tipo_de_contrato
+          type: string
+        - name: objeto_contrato
+          type: string
+        - name: unnamed_14
+          type: any
+        - name: unnamed_15
+          type: any
+        - name: unnamed_16
+          type: any
+        - name: unnamed_17
+          type: any
+        - name: unnamed_18
+          type: any
+        - name: unnamed_19
+          type: any
+        - name: data_assinatura_contrato
+          type: date
+        - name: data_inicio_vigencia_contrato
+          type: date
+        - name: data_termino_vigencia_contrato
+          type: date
+        - name: procedimento_contratacao_grupo
+          type: string
+        - name: procedimento_contratacao_detalhamento_1
+          type: string
+        - name: procedimento_contratacao_especializacao
+          type: string
+        - name: contrato_termoaditivo_arquivos
+          type: string
+        - name: valor_total_atualizado
+          type: string
+        - name: valor_despesa_empenhada
+          type: string
+        - name: valor_despesa_liquidada
+          type: string
+    scheme: file
+    title: Insira um título humanamente legível para este recurso.
+  - description: Insira a descrição/explicação detalhada deste recurso.
+    dialect:
+      delimiter: ;
+    encoding: utf-8-sig
+    format: csv
+    hashing: md5
+    name: contratos2026
+    path: data/contratos2026.csv
+    profile: tabular-data-resource
+    schema:
+      fields:
+        - name: ano_publicacao_contrato
+          type: integer
+        - name: codigo_orgao_entidade_contratante
+          type: integer
+        - name: nome_orgao_entidade_contratante
+          type: string
+        - name: nome_empresarial_nome_fornecedor
+          type: string
+        - name: cnpj_cpf_fornecedor_formatado
+          type: string
+        - name: nome_empresarial_nome_fornecedor_1
+          type: string
+        - name: tipo_pessoa_fornecedor
+          type: string
+        - name: numero_processo_formatado
+          type: string
+        - name: numero_contrato
+          type: integer
+        - name: indicador_termo_de_contrato
+          type: string
+        - name: situacao_contrato
+          type: string
+        - name: descricao_tipo_de_contrato
+          type: string
+        - name: objeto_contrato
+          type: string
+        - name: unnamed_13
+          type: any
+        - name: unnamed_14
+          type: any
+        - name: unnamed_15
+          type: any
+        - name: unnamed_16
+          type: any
+        - name: unnamed_17
+          type: any
+        - name: data_assinatura_contrato
+          type: date
+        - name: data_inicio_vigencia_contrato
+          type: date
+        - name: data_termino_vigencia_contrato
+          type: date
+        - name: procedimento_contratacao_grupo
+          type: string
+        - name: procedimento_contratacao_detalhamento_1
+          type: string
+        - name: procedimento_contratacao_especializacao
+          type: string
+        - name: contrato_termoaditivo_arquivos
+          type: string
+        - name: valor_total_atualizado
+          type: string
+        - name: valor_despesa_empenhada
+          type: string
+        - name: valor_despesa_liquidada
+          type: string
+    scheme: file
+    title: Insira um título humanamente legível para este recurso.
+  - description: Insira a descrição/explicação detalhada deste recurso.
+    dialect:
+      delimiter: ;
+    encoding: utf-8-sig
+    format: csv
+    hashing: md5
+    name: itens2022
+    path: data/itens2022.csv
+    profile: tabular-data-resource
+    schema:
+      fields:
+        - name: ano_publicacao_contrato
+          type: integer
+        - name: numero_processo_formatado
+          type: string
+        - name: numero_contrato
+          type: integer
+        - name: nome_empresarial_nome_fornecedor
+          type: string
+        - name: numero_item_pedido
+          type: integer
+        - name: codigo_item_material_servico_numerico
+          type: integer
+        - name: item_material_servico
+          type: string
+        - name: unnamed_7
+          type: any
+        - name: unnamed_8
+          type: any
+        - name: unnamed_9
+          type: any
+        - name: codigo_elemento_item_despesa
+          type: integer
+        - name: nome_elemento_item_despesa
+          type: string
+        - name: quantidade_item_pedido
+          type: integer
+        - name: valor_unitario_referencia_item_pedido
+          type: string
+        - name: valor_total_referencia_item_pedido
+          type: string
+    scheme: file
+    title: Insira um título humanamente legível para este recurso.
+  - description: Insira a descrição/explicação detalhada deste recurso.
+    dialect:
+      delimiter: ;
+    encoding: utf-8-sig
+    format: csv
+    hashing: md5
+    name: itens2023
+    path: data/itens2023.csv
+    profile: tabular-data-resource
+    schema:
+      fields:
+        - name: ano_publicacao_contrato
+          type: integer
+        - name: numero_processo_formatado
+          type: string
+        - name: numero_contrato
+          type: integer
+        - name: nome_empresarial_nome_fornecedor
+          type: string
+        - name: numero_item_pedido
+          type: integer
+        - name: codigo_item_material_servico_numerico
+          type: integer
+        - name: item_material_servico
+          type: string
+        - name: unnamed_7
+          type: any
+        - name: unnamed_8
+          type: any
+        - name: unnamed_9
+          type: any
+        - name: codigo_elemento_item_despesa
+          type: integer
+        - name: nome_elemento_item_despesa
+          type: string
+        - name: quantidade_item_pedido
+          type: integer
+        - name: valor_unitario_referencia_item_pedido
+          type: string
+        - name: valor_total_referencia_item_pedido
+          type: string
+    scheme: file
+    title: Insira um título humanamente legível para este recurso.
+  - description: Insira a descrição/explicação detalhada deste recurso.
+    dialect:
+      delimiter: ;
+    encoding: utf-8-sig
+    format: csv
+    hashing: md5
+    name: itens2024
+    path: data/itens2024.csv
+    profile: tabular-data-resource
+    schema:
+      fields:
+        - name: ano_publicacao_contrato
+          type: integer
+        - name: numero_processo_formatado
+          type: string
+        - name: numero_contrato
+          type: integer
+        - name: nome_empresarial_nome_fornecedor
+          type: string
+        - name: numero_item_pedido
+          type: integer
+        - name: codigo_item_material_servico_numerico
+          type: integer
+        - name: item_material_servico
+          type: string
+        - name: unnamed_7
+          type: any
+        - name: unnamed_8
+          type: any
+        - name: unnamed_9
+          type: any
+        - name: codigo_elemento_item_despesa
+          type: integer
+        - name: nome_elemento_item_despesa
+          type: string
+        - name: quantidade_item_pedido
+          type: integer
+        - name: valor_unitario_referencia_item_pedido
+          type: string
+        - name: valor_total_referencia_item_pedido
+          type: string
+    scheme: file
+    title: Insira um título humanamente legível para este recurso.
+  - description: Insira a descrição/explicação detalhada deste recurso.
+    dialect:
+      delimiter: ;
+    encoding: utf-8-sig
+    format: csv
+    hashing: md5
+    name: itens2025
+    path: data/itens2025.csv
+    profile: tabular-data-resource
+    schema:
+      fields:
+        - name: ano_publicacao_contrato
+          type: integer
+        - name: numero_processo_formatado
+          type: string
+        - name: numero_contrato
+          type: integer
+        - name: nome_empresarial_nome_fornecedor
+          type: string
+        - name: unnamed_4
+          type: any
+        - name: numero_item_pedido
+          type: integer
+        - name: codigo_item_material_servico_numerico
+          type: integer
+        - name: item_material_servico
+          type: string
+        - name: unnamed_8
+          type: any
+        - name: unnamed_9
+          type: any
+        - name: unnamed_10
+          type: any
+        - name: codigo_elemento_item_despesa
+          type: integer
+        - name: nome_elemento_item_despesa
+          type: string
+        - name: quantidade_item_pedido
+          type: integer
+        - name: valor_unitario_referencia_item_pedido
+          type: string
+        - name: valor_total_referencia_item_pedido
+          type: string
+    scheme: file
+    title: Insira um título humanamente legível para este recurso.
+  - description: Insira a descrição/explicação detalhada deste recurso.
+    dialect:
+      delimiter: ;
+    encoding: utf-8-sig
+    format: csv
+    hashing: md5
+    name: itens2026
+    path: data/itens2026.csv
+    profile: tabular-data-resource
+    schema:
+      fields:
+        - name: ano_publicacao_contrato
+          type: integer
+        - name: numero_processo_formatado
+          type: string
+        - name: numero_contrato
+          type: integer
+        - name: nome_empresarial_nome_fornecedor
+          type: string
+        - name: numero_item_pedido
+          type: integer
+        - name: codigo_item_material_servico_numerico
+          type: integer
+        - name: item_material_servico
+          type: string
+        - name: unnamed_7
+          type: any
+        - name: unnamed_8
+          type: any
+        - name: unnamed_9
+          type: any
+        - name: codigo_elemento_item_despesa
+          type: integer
+        - name: nome_elemento_item_despesa
+          type: string
+        - name: quantidade_item_pedido
+          type: integer
+        - name: valor_unitario_referencia_item_pedido
+          type: string
+        - name: valor_total_referencia_item_pedido
+          type: string
+    scheme: file
+    title: Insira um título humanamente legível para este recurso.
+title: Portal_contratos
