@@ -703,15 +703,15 @@
           },
           {
             "name": "unnamed_7",
-            "type": "any"
+            "type": "string"
           },
           {
             "name": "unnamed_8",
-            "type": "any"
+            "type": "string"
           },
           {
             "name": "unnamed_9",
-            "type": "any"
+            "type": "string"
           },
           {
             "name": "codigo_elemento_item_despesa",
@@ -780,15 +780,15 @@
           },
           {
             "name": "unnamed_7",
-            "type": "any"
+            "type": "string"
           },
           {
             "name": "unnamed_8",
-            "type": "any"
+            "type": "string"
           },
           {
             "name": "unnamed_9",
-            "type": "any"
+            "type": "string"
           },
           {
             "name": "codigo_elemento_item_despesa",
@@ -857,15 +857,15 @@
           },
           {
             "name": "unnamed_7",
-            "type": "any"
+            "type": "string"
           },
           {
             "name": "unnamed_8",
-            "type": "any"
+            "type": "string"
           },
           {
             "name": "unnamed_9",
-            "type": "any"
+            "type": "string"
           },
           {
             "name": "codigo_elemento_item_despesa",
@@ -922,7 +922,7 @@
           },
           {
             "name": "unnamed_4",
-            "type": "any"
+            "type": "string"
           },
           {
             "name": "numero_item_pedido",
@@ -937,16 +937,16 @@
             "type": "string"
           },
           {
+            "name": "unnamed_7",
+            "type": "string"
+          },
+          {
             "name": "unnamed_8",
-            "type": "any"
+            "type": "string"
           },
           {
             "name": "unnamed_9",
-            "type": "any"
-          },
-          {
-            "name": "unnamed_10",
-            "type": "any"
+            "type": "string"
           },
           {
             "name": "codigo_elemento_item_despesa",
@@ -1015,15 +1015,15 @@
           },
           {
             "name": "unnamed_7",
-            "type": "any"
+            "type": "string"
           },
           {
             "name": "unnamed_8",
-            "type": "any"
+            "type": "string"
           },
           {
             "name": "unnamed_9",
-            "type": "any"
+            "type": "string"
           },
           {
             "name": "codigo_elemento_item_despesa",
