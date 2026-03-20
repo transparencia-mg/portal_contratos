@@ -1,11 +1,10 @@
 {
   "version": "4.16.6",
-  "time": 3.88,
+  "time": 3.958,
   "errors": [],
   "tasks": [
     {
       "resource": {
-        "description": "Insira a descrição/explicação detalhada deste recurso.",
         "dialect": {
           "delimiter": ";"
         },
@@ -132,7 +131,7 @@
           ]
         },
         "scheme": "file",
-        "title": "Insira um título humanamente legível para este recurso.",
+        "title": "Contratos 2022",
         "stats": {
           "hash": "a5813cf60d1a1cdfef85669eb13ad5d5",
           "bytes": 3804080,
@@ -140,7 +139,7 @@
           "rows": 5269
         }
       },
-      "time": 0.422,
+      "time": 0.411,
       "scope": [
         "hash-count-error",
         "byte-count-error",
@@ -170,7 +169,6 @@
     },
     {
       "resource": {
-        "description": "Insira a descrição/explicação detalhada deste recurso.",
         "dialect": {
           "delimiter": ";",
           "quoteChar": "\""
@@ -302,7 +300,7 @@
           ]
         },
         "scheme": "file",
-        "title": "Insira um título humanamente legível para este recurso.",
+        "title": "Contratos 2023",
         "stats": {
           "hash": "3dde033c8b39e0f1fe1662fe475b0e25",
           "bytes": 4031188,
@@ -310,7 +308,7 @@
           "rows": 5408
         }
       },
-      "time": 0.428,
+      "time": 0.432,
       "scope": [
         "hash-count-error",
         "byte-count-error",
@@ -340,7 +338,6 @@
     },
     {
       "resource": {
-        "description": "Insira a descrição/explicação detalhada deste recurso.",
         "dialect": {
           "delimiter": ";"
         },
@@ -467,7 +464,7 @@
           ]
         },
         "scheme": "file",
-        "title": "Insira um título humanamente legível para este recurso.",
+        "title": "Contratos 2024",
         "stats": {
           "hash": "927a186616837da1abe22d7483a38323",
           "bytes": 3761047,
@@ -475,7 +472,7 @@
           "rows": 5308
         }
       },
-      "time": 0.412,
+      "time": 0.419,
       "scope": [
         "hash-count-error",
         "byte-count-error",
@@ -505,7 +502,6 @@
     },
     {
       "resource": {
-        "description": "Insira a descrição/explicação detalhada deste recurso.",
         "dialect": {
           "delimiter": ";"
         },
@@ -640,7 +636,7 @@
           ]
         },
         "scheme": "file",
-        "title": "Insira um título humanamente legível para este recurso.",
+        "title": "Contratos 2025",
         "stats": {
           "hash": "1c99249c9bdd708d9d3a76168d6a8e8a",
           "bytes": 4107120,
@@ -648,7 +644,7 @@
           "rows": 5803
         }
       },
-      "time": 0.458,
+      "time": 0.467,
       "scope": [
         "hash-count-error",
         "byte-count-error",
@@ -678,7 +674,6 @@
     },
     {
       "resource": {
-        "description": "Insira a descrição/explicação detalhada deste recurso.",
         "dialect": {
           "delimiter": ";"
         },
@@ -805,7 +800,7 @@
           ]
         },
         "scheme": "file",
-        "title": "Insira um título humanamente legível para este recurso.",
+        "title": "Contratos 2026",
         "stats": {
           "hash": "23ad189bfa2b38657f536881368e67fb",
           "bytes": 582863,
@@ -813,7 +808,7 @@
           "rows": 783
         }
       },
-      "time": 0.087,
+      "time": 0.089,
       "scope": [
         "hash-count-error",
         "byte-count-error",
@@ -843,7 +838,6 @@
     },
     {
       "resource": {
-        "description": "Insira a descrição/explicação detalhada deste recurso.",
         "dialect": {
           "delimiter": ";"
         },
@@ -918,7 +912,7 @@
           ]
         },
         "scheme": "file",
-        "title": "Insira um título humanamente legível para este recurso.",
+        "title": "Itens dos Contratos 2022",
         "stats": {
           "hash": "ae395976caa3604416fe1697035866ba",
           "bytes": 4328203,
@@ -926,7 +920,7 @@
           "rows": 15371
         }
       },
-      "time": 0.429,
+      "time": 0.448,
       "scope": [
         "hash-count-error",
         "byte-count-error",
@@ -956,7 +950,6 @@
     },
     {
       "resource": {
-        "description": "Insira a descrição/explicação detalhada deste recurso.",
         "dialect": {
           "delimiter": ";"
         },
@@ -1031,7 +1024,7 @@
           ]
         },
         "scheme": "file",
-        "title": "Insira um título humanamente legível para este recurso.",
+        "title": "Itens dos Contratos 2023",
         "stats": {
           "hash": "b01091c9d4f568b3f72de3d2778b04db",
           "bytes": 4343751,
@@ -1039,7 +1032,7 @@
           "rows": 15968
         }
       },
-      "time": 0.445,
+      "time": 0.453,
       "scope": [
         "hash-count-error",
         "byte-count-error",
@@ -1069,7 +1062,6 @@
     },
     {
       "resource": {
-        "description": "Insira a descrição/explicação detalhada deste recurso.",
         "dialect": {
           "delimiter": ";"
         },
@@ -1144,7 +1136,7 @@
           ]
         },
         "scheme": "file",
-        "title": "Insira um título humanamente legível para este recurso.",
+        "title": "Itens dos Contratos 2024",
         "stats": {
           "hash": "7a9dbb82f2af99cfb43e619b50134357",
           "bytes": 4242289,
@@ -1152,7 +1144,7 @@
           "rows": 15187
         }
       },
-      "time": 0.423,
+      "time": 0.442,
       "scope": [
         "hash-count-error",
         "byte-count-error",
@@ -1182,7 +1174,6 @@
     },
     {
       "resource": {
-        "description": "Insira a descrição/explicação detalhada deste recurso.",
         "dialect": {
           "delimiter": ";"
         },
@@ -1261,7 +1252,7 @@
           ]
         },
         "scheme": "file",
-        "title": "Insira um título humanamente legível para este recurso.",
+        "title": "Itens dos Contratos 2025",
         "stats": {
           "hash": "4f4cc0d22b9cd8d0b2d56adf87079490",
           "bytes": 5055405,
@@ -1269,7 +1260,7 @@
           "rows": 18442
         }
       },
-      "time": 0.522,
+      "time": 0.543,
       "scope": [
         "hash-count-error",
         "byte-count-error",
@@ -1299,7 +1290,6 @@
     },
     {
       "resource": {
-        "description": "Insira a descrição/explicação detalhada deste recurso.",
         "dialect": {
           "delimiter": ";"
         },
@@ -1374,7 +1364,7 @@
           ]
         },
         "scheme": "file",
-        "title": "Insira um título humanamente legível para este recurso.",
+        "title": "Itens dos Contratos 2026",
         "stats": {
           "hash": "ab49de03dc6bd5bbc9f9e60d0d8e07a6",
           "bytes": 530712,
@@ -1382,7 +1372,7 @@
           "rows": 1896
         }
       },
-      "time": 0.072,
+      "time": 0.074,
       "scope": [
         "hash-count-error",
         "byte-count-error",
