@@ -1,6 +1,6 @@
 {
   "version": "4.16.6",
-  "time": 3.909,
+  "time": 3.505,
   "errors": [],
   "tasks": [
     {
@@ -133,13 +133,13 @@
         "scheme": "file",
         "title": "Contratos 2022",
         "stats": {
-          "hash": "7fe177a422a6abeb80ad31b73e10cc16",
-          "bytes": 3804030,
+          "hash": "a34933847dd434600d15c6acf03ba72a",
+          "bytes": 3803900,
           "fields": 28,
           "rows": 5269
         }
       },
-      "time": 0.41,
+      "time": 0.369,
       "scope": [
         "hash-count-error",
         "byte-count-error",
@@ -302,13 +302,13 @@
         "scheme": "file",
         "title": "Contratos 2023",
         "stats": {
-          "hash": "7b1b4d2df8e5918fde54f66bd6007fa7",
-          "bytes": 4031170,
+          "hash": "db564142c4669484e1fb696f0999a9d1",
+          "bytes": 4031136,
           "fields": 29,
           "rows": 5408
         }
       },
-      "time": 0.422,
+      "time": 0.384,
       "scope": [
         "hash-count-error",
         "byte-count-error",
@@ -466,13 +466,13 @@
         "scheme": "file",
         "title": "Contratos 2024",
         "stats": {
-          "hash": "c251c2c0eb1bd4dd8ff0a361da5c605e",
-          "bytes": 3761016,
+          "hash": "d33916ab284c7e4f91846bdb7c250765",
+          "bytes": 3761551,
           "fields": 28,
-          "rows": 5308
+          "rows": 5309
         }
       },
-      "time": 0.408,
+      "time": 0.368,
       "scope": [
         "hash-count-error",
         "byte-count-error",
@@ -638,13 +638,13 @@
         "scheme": "file",
         "title": "Contratos 2025",
         "stats": {
-          "hash": "192caa8e2f2b349c6dd73bc35341037f",
-          "bytes": 4113017,
+          "hash": "3066e8edc26a78981fa1dec509b8d1c1",
+          "bytes": 4113056,
           "fields": 30,
           "rows": 5808
         }
       },
-      "time": 0.475,
+      "time": 0.414,
       "scope": [
         "hash-count-error",
         "byte-count-error",
@@ -802,13 +802,13 @@
         "scheme": "file",
         "title": "Contratos 2026",
         "stats": {
-          "hash": "d2efa710840bfda8b9f7eac8aa865548",
-          "bytes": 867241,
+          "hash": "36f42c411053b1d2810abcf8accc205c",
+          "bytes": 1043712,
           "fields": 28,
-          "rows": 1046
+          "rows": 1244
         }
       },
-      "time": 0.108,
+      "time": 0.109,
       "scope": [
         "hash-count-error",
         "byte-count-error",
@@ -914,13 +914,13 @@
         "scheme": "file",
         "title": "Itens dos Contratos 2022",
         "stats": {
-          "hash": "9488718d4dc804d4402a6fd93a6ef416",
-          "bytes": 4328400,
+          "hash": "c9320f8c771df6b32d3e6d91d5e3eff1",
+          "bytes": 4329313,
           "fields": 15,
-          "rows": 15372
+          "rows": 15373
         }
       },
-      "time": 0.432,
+      "time": 0.384,
       "scope": [
         "hash-count-error",
         "byte-count-error",
@@ -1026,13 +1026,13 @@
         "scheme": "file",
         "title": "Itens dos Contratos 2023",
         "stats": {
-          "hash": "b01091c9d4f568b3f72de3d2778b04db",
-          "bytes": 4343751,
+          "hash": "4ce7663b3c50b0498ac86f8a932bf82a",
+          "bytes": 4344024,
           "fields": 15,
           "rows": 15968
         }
       },
-      "time": 0.442,
+      "time": 0.397,
       "scope": [
         "hash-count-error",
         "byte-count-error",
@@ -1138,13 +1138,13 @@
         "scheme": "file",
         "title": "Itens dos Contratos 2024",
         "stats": {
-          "hash": "f5a51eaffbb087ab832a0e46312ecb95",
-          "bytes": 4242497,
+          "hash": "61968d459e6955cb6079724278fa7bc5",
+          "bytes": 4244870,
           "fields": 15,
-          "rows": 15188
+          "rows": 15195
         }
       },
-      "time": 0.432,
+      "time": 0.379,
       "scope": [
         "hash-count-error",
         "byte-count-error",
@@ -1254,13 +1254,13 @@
         "scheme": "file",
         "title": "Itens dos Contratos 2025",
         "stats": {
-          "hash": "9f9e60afcdfc3d20cf0c48b109458ee0",
-          "bytes": 5062956,
+          "hash": "fe4655ed2daa0498c531c60dee30c77d",
+          "bytes": 5068929,
           "fields": 16,
-          "rows": 18475
+          "rows": 18495
         }
       },
-      "time": 0.528,
+      "time": 0.474,
       "scope": [
         "hash-count-error",
         "byte-count-error",
@@ -1478,13 +1478,13 @@
         "scheme": "file",
         "title": "Itens dos Contratos 2026",
         "stats": {
-          "hash": "8a2fb2c89f8d6d00fc4ab2744ddfbb3d",
-          "bytes": 617324,
+          "hash": "7bd35bdf1fb32485b6a01c74c4c9f389",
+          "bytes": 722494,
           "fields": 15,
-          "rows": 2218
+          "rows": 2692
         }
       },
-      "time": 0.078,
+      "time": 0.079,
       "scope": [
         "hash-count-error",
         "byte-count-error",
