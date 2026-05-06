@@ -1134,8 +1134,8 @@ function renderizarVisaoGeral() {
             </div>
         </div>
         <div class="botoes-abaixo">
-            <button class="btn-pesquisa" onclick="aplicarFiltrosVG()"><i class="material-icons">search</i> Pesquisar</button>
-            <button class="btn-secondary-custom" onclick="limparFiltrosVG()"><i class="material-icons">clear</i> Limpar</button>
+            <button class="btn-pesquisa" onclick="aplicarFiltrosVG()"><i class="material-icons">search</i> Atualizar Filtros</button>
+            <button class="btn-secondary-custom" onclick="limparFiltrosVG()"><i class="material-icons">clear</i> Limpar Filtros</button>
         </div>
     </div>
 
@@ -1432,7 +1432,7 @@ function renderizarConsultaContrato() {
             </div>
         </div>
         <div class="botoes-abaixo">
-            <button class="btn-pesquisa" onclick="aplicarFiltrosCC()"><i class="material-icons">search</i> Pesquisar</button>
+            <button class="btn-pesquisa" onclick="aplicarFiltrosCC()"><i class="material-icons">search</i> Atualizar Filtros</button>
             <button class="btn-secondary-custom" onclick="limparFiltrosCC()"><i class="material-icons">clear</i> Limpar Filtros</button>
         </div>
     </div>
@@ -1637,7 +1637,7 @@ function renderizarConsultaItem() {
             </div>
         </div>
         <div class="botoes-abaixo">
-            <button class="btn-pesquisa" onclick="aplicarFiltrosITEM()"><i class="material-icons">search</i> Pesquisar</button>
+            <button class="btn-pesquisa" onclick="aplicarFiltrosITEM()"><i class="material-icons">search</i> Atualizar Filtros</button>
             <button class="btn-secondary-custom" onclick="limparFiltrosITEM()"><i class="material-icons">clear</i> Limpar Filtros</button>
         </div>
     </div>
@@ -1668,8 +1668,9 @@ function renderizarConsultaItem() {
                         <th class="sortable-header" onclick="toggleSortITEM('numero_contrato')">Contrato <i class="material-icons">unfold_more</i></th>
                         <th class="sortable-header" onclick="toggleSortITEM('numero_processo_formatado')">Processo <i class="material-icons">unfold_more</i></th>
                         <th class="sortable-header text-right" onclick="toggleSortITEM('quantidade_item_pedido')">Qtd. <i class="material-icons">unfold_more</i></th>
-                        <th class="sortable-header text-right" onclick="toggleSortITEM('valor_unitario_referencia_item_pedido')">Valor Unit. <i class="material-icons">unfold_more</i></th>
-                        <th class="sortable-header text-right" onclick="toggleSortITEM('valor_total_referencia_item_pedido')">Valor Total <i class="material-icons">unfold_more</i></th>
+                        <th class="sortable-header text-right" onclick="toggleSortITEM('valor_unitario_referencia_item_processo')">Valor Unit. Ref. <i class="material-icons">unfold_more</i></th>
+                        <th class="sortable-header text-right" onclick="toggleSortITEM('valor_total_referencia_item_processo')">Valor Total Ref. <i class="material-icons">unfold_more</i></th>
+                        <th class="sortable-header text-right" onclick="toggleSortITEM('valor_total_homologado')">Valor Homologado <i class="material-icons">unfold_more</i></th>
                         <th class="text-center">Ações</th>
                     </tr>
                 </thead>
@@ -1705,8 +1706,9 @@ function atualizarTabelaItens() {
             <td><a href="${url||'#'}" target="_blank" class="contrato-link" ${!url?'onclick="return false;"':''}>${item['numero_contrato']||'-'}</a></td>
             <td>${item['numero_processo_formatado']||'-'}</td>
             <td class="text-right">${item['quantidade_item_pedido']||'-'}</td>
-            <td class="text-right">${formatarMoeda(item['valor_unitario_referencia_item_pedido'])}</td>
-            <td class="text-right">${formatarMoeda(item['valor_total_referencia_item_pedido'])}</td>
+            <td class="text-right">${formatarMoeda(item['valor_unitario_referencia_item_processo'])}</td>
+            <td class="text-right">${formatarMoeda(item['valor_total_referencia_item_processo'])}</td>
+            <td class="text-right">${formatarMoeda(item['valor_total_homologado'])}</td>
             <td class="text-center">
                 <button class="btn-action" title="Ver contrato" onclick="verDetalhesContrato('${escapar(item['numero_contrato'])}')">
                     <i class="material-icons" style="font-size:15px">visibility</i>
@@ -1714,7 +1716,7 @@ function atualizarTabelaItens() {
             </td>
         </tr>`;
     }).join('');
-    if (!pagina.length) tbody.innerHTML = `<tr><td colspan="8" class="text-center text-muted py-4" style="font-size:13px">Nenhum item encontrado.</td></tr>`;
+    if (!pagina.length) tbody.innerHTML = `<tr><td colspan="9" class="text-center text-muted py-4" style="font-size:13px">Nenhum item encontrado.</td></tr>`;
     const badge = document.getElementById('totalItensBadge');
     if (badge) badge.textContent = `${itensFiltrados.length} itens`;
     renderizarPaginacao('paginacaoITEM', paginacao.itens, mudarPaginaItens);
@@ -1784,7 +1786,7 @@ function renderizarPagamentos() {
             </div>
         </div>
         <div class="botoes-abaixo">
-            <button class="btn-pesquisa" onclick="aplicarFiltrosPG()"><i class="material-icons">search</i> Pesquisar</button>
+            <button class="btn-pesquisa" onclick="aplicarFiltrosPG()"><i class="material-icons">search</i> Atualizar Filtros</button>
             <button class="btn-secondary-custom" onclick="limparFiltrosPG()"><i class="material-icons">clear</i> Limpar Filtros</button>
         </div>
     </div>
@@ -2037,13 +2039,14 @@ window.verDetalhesContrato = function(numeroContrato) {
         <h6>Itens do Contrato (${itensRel.length})</h6>
         <div class="table-fixed-header-container" style="max-height:250px">
             <table class="table" style="font-size:11px">
-                <thead><tr><th>Código</th><th>Descrição</th><th>Qtd.</th><th>Valor Unit.</th><th>Valor Total</th></tr></thead>
+                <thead><tr><th>Código</th><th>Descrição</th><th>Qtd.</th><th>Valor Unit. Ref.</th><th>Valor Total Ref.</th><th>Valor Homologado</th></tr></thead>
                 <tbody>${itensRel.map(item=>`<tr>
                     <td>${item['codigo_item_material_servico_numerico']||'-'}</td>
                     <td>${resumirTexto(item['item_material_servico'],50)}</td>
                     <td class="text-center">${item['quantidade_item_pedido']||'-'}</td>
-                    <td class="text-right">${formatarMoeda(item['valor_unitario_referencia_item_pedido'])}</td>
-                    <td class="text-right">${formatarMoeda(item['valor_total_referencia_item_pedido'])}</td>
+                    <td class="text-right">${formatarMoeda(item['valor_unitario_referencia_item_processo'])}</td>
+                    <td class="text-right">${formatarMoeda(item['valor_total_referencia_item_processo'])}</td>
+                    <td class="text-right">${formatarMoeda(item['valor_total_homologado'])}</td>
                 </tr>`).join('')}</tbody>
             </table>
         </div>
@@ -2077,8 +2080,8 @@ function exportarModalPDF() {
     });
     if (_modalItens && _modalItens.length) {
         doc.autoTable({ startY: doc.lastAutoTable.finalY + 10,
-            head: [['Código','Descrição','Qtd.','Valor Unit.','Valor Total']],
-            body: _modalItens.map(i=>[i['codigo_item_material_servico_numerico']||'-',resumirTexto(i['item_material_servico'],40),i['quantidade_item_pedido']||'-',formatarMoeda(i['valor_unitario_referencia_item_pedido']),formatarMoeda(i['valor_total_referencia_item_pedido'])]),
+            head: [['Código','Descrição','Qtd.','Valor Unit. Ref.','Valor Total Ref.','Valor Homologado']],
+            body: _modalItens.map(i=>[i['codigo_item_material_servico_numerico']||'-',resumirTexto(i['item_material_servico'],40),i['quantidade_item_pedido']||'-',formatarMoeda(i['valor_unitario_referencia_item_processo']),formatarMoeda(i['valor_total_referencia_item_processo']),formatarMoeda(i['valor_total_homologado'])]),
             headStyles:{fillColor:[32,68,93]}, styles:{fontSize:8}
         });
     }
@@ -2091,8 +2094,8 @@ function exportarModalCSV() {
     let csv = Object.entries(c).map(([k,v2])=>`${k};${v2||''}`).join('\n');
     if (_modalItens && _modalItens.length) {
         csv += '\n\nITENS\n';
-        csv += ['codigo_item_material_servico_numerico','item_material_servico','quantidade_item_pedido','valor_unitario_referencia_item_pedido','valor_total_referencia_item_pedido'].join(';') + '\n';
-        csv += _modalItens.map(i=>['codigo_item_material_servico_numerico','item_material_servico','quantidade_item_pedido','valor_unitario_referencia_item_pedido','valor_total_referencia_item_pedido'].map(k=>`"${String(i[k]||'').replace(/"/g,'""')}"`).join(';')).join('\n');
+        csv += ['codigo_item_material_servico_numerico','item_material_servico','quantidade_item_pedido','valor_unitario_referencia_item_processo','valor_total_referencia_item_processo','valor_total_homologado'].join(';') + '\n';
+        csv += _modalItens.map(i=>['codigo_item_material_servico_numerico','item_material_servico','quantidade_item_pedido','valor_unitario_referencia_item_processo','valor_total_referencia_item_processo','valor_total_homologado'].map(k=>`"${String(i[k]||'').replace(/"/g,'""')}"`).join(';')).join('\n');
     }
     const blob = new Blob(['\uFEFF'+csv],{type:'text/csv'}); const a=document.createElement('a'); a.href=URL.createObjectURL(blob);
     a.download=`contrato_${v(c['numero_contrato']).replace(/[\/\\]/g,'-')}.csv`; a.click();
@@ -2234,15 +2237,15 @@ window.exportarTabelaContratosPDF = function() {
 };
 
 window.exportarTabelaItens = function() {
-    const cab=['Código Item','Descrição','Contrato','Processo','Qtd.','Valor Unitário','Valor Total'];
-    const dados = itensFiltrados.slice(0,10000).map(item=>[item['codigo_item_material_servico_numerico'],item['item_material_servico'],item['numero_contrato'],item['numero_processo_formatado'],item['quantidade_item_pedido'],item['valor_unitario_referencia_item_pedido'],item['valor_total_referencia_item_pedido']].map(v2=>{ if(v2&&String(v2).includes(';')) return `"${String(v2).replace(/"/g,'""')}"`;return v2||'';}).join(';'));
+    const cab=['Código Item','Descrição','Contrato','Processo','Qtd.','Valor Unit. Ref.','Valor Total Ref.','Valor Homologado'];
+    const dados = itensFiltrados.slice(0,10000).map(item=>[item['codigo_item_material_servico_numerico'],item['item_material_servico'],item['numero_contrato'],item['numero_processo_formatado'],item['quantidade_item_pedido'],item['valor_unitario_referencia_item_processo'],item['valor_total_referencia_item_processo'],item['valor_total_homologado']].map(v2=>{ if(v2&&String(v2).includes(';')) return `"${String(v2).replace(/"/g,'""')}"`; return v2||'';}).join(';'));
     const csv=[cab.join(';'),...dados].join('\n'); const blob=new Blob(['\uFEFF'+csv],{type:'text/csv'}); const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='itens_contrato.csv'; a.click();
 };
 
 window.exportarTabelaItensPDF = function() {
     const { jsPDF } = window.jspdf; const doc = new jsPDF({orientation:'landscape'});
     doc.setFontSize(11); doc.text('Consulta de Itens — Portal da Transparência MG', 14, 10);
-    doc.autoTable({ head:[['Código','Descrição','Contrato','Processo','Qtd','Valor Unit.','Valor Total']], body:itensFiltrados.slice(0,100).map(item=>[item['codigo_item_material_servico_numerico']||'-',(item['item_material_servico']||'-').substring(0,40),item['numero_contrato']||'-',item['numero_processo_formatado']||'-',item['quantidade_item_pedido']||'-',formatarMoeda(item['valor_unitario_referencia_item_pedido']),formatarMoeda(item['valor_total_referencia_item_pedido'])]), startY:16, headStyles:{fillColor:[32,68,93]}, styles:{fontSize:8},
+    doc.autoTable({ head:[['Código','Descrição','Contrato','Processo','Qtd','Valor Unit. Ref.','Valor Total Ref.','Valor Homologado']], body:itensFiltrados.slice(0,100).map(item=>[item['codigo_item_material_servico_numerico']||'-',(item['item_material_servico']||'-').substring(0,40),item['numero_contrato']||'-',item['numero_processo_formatado']||'-',item['quantidade_item_pedido']||'-',formatarMoeda(item['valor_unitario_referencia_item_processo']),formatarMoeda(item['valor_total_referencia_item_processo']),formatarMoeda(item['valor_total_homologado'])]), startY:16, headStyles:{fillColor:[32,68,93]}, styles:{fontSize:8},
         didDrawPage:()=>{ doc.setFontSize(9); doc.text(`Emitido em: ${new Date().toLocaleString('pt-BR')}`, 14, doc.internal.pageSize.height-5); }
     });
     doc.save('itens_contrato.pdf');
