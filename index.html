@@ -522,6 +522,27 @@
         .column-selector-popup label:hover { background: #f0f6fb; }
 
         /* ============================================================
+           18b. DICIONÁRIO DE DADOS
+        ============================================================ */
+        .dic-tab-btn {
+            background: #f0f4f8;
+            border: none;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #1a3a5c;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            white-space: nowrap;
+        }
+        .dic-tab-btn.active, .dic-tab-btn:hover { background: #1a3a5c; color: white; }
+        .dic-linha { transition: background 0.15s; }
+
+        /* ============================================================
            19. RESPONSIVIDADE MELHORADA
         ============================================================ */
         @media (max-width: 992px) {
@@ -616,6 +637,12 @@
                     </button>
                 </li>
                 <li class="nav-item">
+                    <button class="nav-link" id="dicionario-tab"
+                        data-bs-toggle="tab" data-bs-target="#dicionario">
+                        <i class="material-icons">menu_book</i>Dicionário de Dados
+                    </button>
+                </li>
+                <li class="nav-item">
                     <button class="nav-link" id="downloads-tab"
                         data-bs-toggle="tab" data-bs-target="#downloads">
                         <i class="material-icons">download</i>Downloads
@@ -645,6 +672,9 @@
             </div>
             <div class="tab-pane fade" id="pagamentos" role="tabpanel">
                 <div id="pagamentos-content"></div>
+            </div>
+            <div class="tab-pane fade" id="dicionario" role="tabpanel">
+                <div id="dicionario-content"></div>
             </div>
             <div class="tab-pane fade" id="downloads" role="tabpanel">
                 <div id="downloads-content"></div>
@@ -970,6 +1000,7 @@ async function carregarTodosDados() {
         renderizarConsultaItem();
         renderizarPagamentos();
         renderizarDownloads();
+        renderizarDicionario();
 
     } catch(e) { console.error('Erro fatal:', e); }
     finally { mostrarLoading(false); }
@@ -1183,13 +1214,13 @@ function renderizarVisaoGeral() {
     <div class="row g-3 mb-4">
         <div class="col-md-6">
             <div class="chart-container">
-                <div class="chart-header"><h4 class="chart-title">Contratos por Tipo</h4></div>
+                <div class="chart-header"><h4 class="chart-title">Tipo de Contratos</h4></div>
                 <div class="chart-wrapper"><canvas id="chartTipoContrato"></canvas></div>
             </div>
         </div>
         <div class="col-md-6">
             <div class="chart-container">
-                <div class="chart-header"><h4 class="chart-title">Contratos por Situação</h4></div>
+                <div class="chart-header"><h4 class="chart-title">Situação dos Contratos</h4></div>
                 <div class="chart-wrapper"><canvas id="chartSituacaoContrato"></canvas></div>
             </div>
         </div>
@@ -1332,7 +1363,7 @@ function criarGraficosVisaoGeral(dados) {
         const labels = [...sitMap.keys()];
         chartSituacao = new Chart(ctxS, {
             type: 'doughnut',
-            data: { labels, datasets: [{ data: labels.map(l=>sitMap.get(l)), backgroundColor: ['#28a745','#ffc107','#17a2b8','#dc3545','#6c757d','#fd7e14'], borderWidth: 2 }] },
+            data: { labels, datasets: [{ data: labels.map(l=>sitMap.get(l)), backgroundColor: ['#2f4b63','#39a585','#5f6f7f','#f28c28','#7aa6c2','#8e44ad'], borderWidth: 2 }] },
             options: { responsive: true, maintainAspectRatio: false, cutout: '55%', plugins: { legend: { position: 'bottom', labels: { font: { size: 11 } } } } }
         });
     }
@@ -1443,14 +1474,6 @@ function renderizarConsultaContrato() {
             <button class="btn-export" onclick="exportarTabelaContratos()"><i class="material-icons">description</i> <span>CSV</span></button>
             <button class="btn-export" onclick="exportarTabelaContratosPDF()"><i class="material-icons">print</i> <span>PDF</span></button>
             <button class="btn-export" onclick="copiarLinkDireto()"><i class="material-icons">link</i> <span>Copiar Link</span></button>
-        </div>
-        <div class="toolbar-right">
-            <span class="table-badge" id="totalContratosBadge">${contratosFiltrados.length} contratos</span>
-            <div class="table-search-container">
-                <i class="material-icons" style="font-size:14px;color:#94a3b8;">search</i>
-                <input class="table-search-input" placeholder="Busca rápida…" value="${paginacao.contratos.busca}"
-                    onkeyup="if(event.key==='Enter'){paginacao.contratos.busca=this.value;paginacao.contratos.paginaAtual=1;contratosFiltrados=ordenarDados(filtrarContratos(),sortConfig.contratos.column,sortConfig.contratos.direction);paginacao.contratos.totalPaginas=Math.ceil(contratosFiltrados.length/paginacao.contratos.itensPorPagina);atualizarTabelaContratos();}">
-            </div>
             <div style="position:relative">
                 <button class="btn-export" onclick="toggleColSelectorCC()" id="btnColCC">
                     <i class="material-icons">view_column</i> <span>Colunas</span>
@@ -1469,6 +1492,14 @@ function renderizarConsultaContrato() {
                     ].map(([id,lbl])=>`<label><input type="checkbox" ${colunasVisiveis.contratos[id]?'checked':''} onchange="toggleColCC('${id}',this.checked)"> ${lbl}</label>`).join('')}
                 </div>
             </div>
+            <div class="table-search-container">
+                <i class="material-icons" style="font-size:14px;color:#94a3b8;">search</i>
+                <input class="table-search-input" placeholder="Busca rápida…" value="${paginacao.contratos.busca}"
+                    onkeyup="if(event.key==='Enter'){paginacao.contratos.busca=this.value;paginacao.contratos.paginaAtual=1;contratosFiltrados=ordenarDados(filtrarContratos(),sortConfig.contratos.column,sortConfig.contratos.direction);paginacao.contratos.totalPaginas=Math.ceil(contratosFiltrados.length/paginacao.contratos.itensPorPagina);atualizarTabelaContratos();}">
+            </div>
+        </div>
+        <div class="toolbar-right">
+            <span class="table-badge" id="totalContratosBadge">${contratosFiltrados.length} contratos</span>
         </div>
     </div>
 
@@ -1647,14 +1678,14 @@ function renderizarConsultaItem() {
             <button class="btn-export" onclick="exportarTabelaItens()"><i class="material-icons">description</i> <span>CSV</span></button>
             <button class="btn-export" onclick="exportarTabelaItensPDF()"><i class="material-icons">print</i> <span>PDF</span></button>
             <button class="btn-export" onclick="copiarLinkDireto()"><i class="material-icons">link</i> <span>Copiar Link</span></button>
-        </div>
-        <div class="toolbar-right">
-            <span class="table-badge" id="totalItensBadge">${itensFiltrados.length} itens</span>
             <div class="table-search-container">
                 <i class="material-icons" style="font-size:14px;color:#94a3b8;">search</i>
                 <input class="table-search-input" placeholder="Busca rápida…" value="${paginacao.itens.busca}"
                     onkeyup="if(event.key==='Enter'){paginacao.itens.busca=this.value;paginacao.itens.paginaAtual=1;itensFiltrados=ordenarDados(filtrarItens(),sortConfig.itens.column,sortConfig.itens.direction);paginacao.itens.totalPaginas=Math.ceil(itensFiltrados.length/paginacao.itens.itensPorPagina);atualizarTabelaItens();}">
             </div>
+        </div>
+        <div class="toolbar-right">
+            <span class="table-badge" id="totalItensBadge">${itensFiltrados.length} itens</span>
         </div>
     </div>
 
@@ -1826,14 +1857,14 @@ function renderizarPagamentos() {
             <button class="btn-export" onclick="exportarTabelaPagamentos()"><i class="material-icons">description</i> <span>CSV</span></button>
             <button class="btn-export" onclick="exportarTabelaPagamentosPDF()"><i class="material-icons">print</i> <span>PDF</span></button>
             <button class="btn-export" onclick="copiarLinkDireto()"><i class="material-icons">link</i> <span>Copiar Link</span></button>
-        </div>
-        <div class="toolbar-right">
-            <span class="table-badge" id="totalPagamentosBadge">${pagamentosFiltrados.length} contratos</span>
             <div class="table-search-container">
                 <i class="material-icons" style="font-size:14px;color:#94a3b8;">search</i>
                 <input class="table-search-input" placeholder="Busca rápida…" value="${paginacao.pagamentos.busca}"
                     onkeyup="if(event.key==='Enter'){paginacao.pagamentos.busca=this.value;paginacao.pagamentos.paginaAtual=1;pagamentosFiltrados=ordenarDados(filtrarPagamentos(),sortConfig.pagamentos.column,sortConfig.pagamentos.direction);paginacao.pagamentos.totalPaginas=Math.ceil(pagamentosFiltrados.length/paginacao.pagamentos.itensPorPagina);atualizarTabelaPagamentos();}">
             </div>
+        </div>
+        <div class="toolbar-right">
+            <span class="table-badge" id="totalPagamentosBadge">${pagamentosFiltrados.length} contratos</span>
         </div>
     </div>
 
@@ -2104,116 +2135,465 @@ function exportarModalCSV() {
 // ============================================================
 // 14. DOWNLOADS
 // ============================================================
+// ============================================================
+// 12. DOWNLOADS
+// ============================================================
 function renderizarDownloads() {
     const container = document.getElementById('downloads-content');
     if (!container) return;
 
+    const anos = [2026, 2025, 2024, 2023, 2022];
+
     container.innerHTML = `
-    <div class="filter-container" style="text-align:center;padding:30px 20px;">
-        <i class="material-icons" style="font-size:48px;color:#20445d;">cloud_download</i>
-        <h5 style="margin-top:12px;margin-bottom:6px;color:#1a3a5c;font-weight:700;">Portal de Dados Abertos</h5>
-        <p style="color:#6c757d;font-size:13px;max-width:600px;margin:0 auto 20px;">
-            Acesse os dados completos de Contratos do Estado de Minas Gerais no Portal de Dados Abertos.
-        </p>
-        <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
-            <a href="${PORTAL_DADOS_ABERTOS_URL}" target="_blank" class="btn-pesquisa" style="text-decoration:none;height:42px;">
-                <i class="material-icons">open_in_new</i> Portal Dados MG
-            </a>
+    <!-- Hero Portal de Dados Abertos -->
+    <div class="filter-container" style="border-left:4px solid #20445d;">
+        <div style="display:flex;align-items:flex-start;gap:16px;flex-wrap:wrap;">
+            <div style="background:#20445d;border-radius:10px;padding:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <i class="material-icons" style="font-size:28px;color:white;">cloud_download</i>
+            </div>
+            <div style="flex:1;min-width:180px;">
+                <h5 style="font-size:15px;font-weight:700;color:#20445d;margin:0 0 4px 0;">Portal de Dados Abertos — Contratos MG</h5>
+                <p style="color:#6c757d;font-size:12px;margin:0 0 14px 0;">
+                    Acesse o dataset completo de Contratos do Estado de Minas Gerais no Portal de Dados Abertos, com metadados, licença e histórico de atualizações.
+                </p>
+                <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;">
+                    <a href="${PORTAL_DADOS_ABERTOS_URL}" target="_blank" class="btn-pesquisa" style="text-decoration:none;">
+                        <i class="material-icons">open_in_new</i> Acessar Portal Dados MG
+                    </a>
+                    <a href="https://github.com/transparencia-mg/portal_contratos" target="_blank" class="btn-secondary-custom" style="text-decoration:none;">
+                        <i class="material-icons">code</i> Repositório GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- Info cards -->
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:16px;">
+            <div style="flex:1;min-width:140px;background:#f8fafd;border:1px solid #e2e8f0;border-radius:8px;padding:10px 14px;">
+                <div style="font-size:10px;text-transform:uppercase;color:#94a3b8;font-weight:600;margin-bottom:4px;">Formato</div>
+                <div style="font-size:13px;font-weight:600;color:#1a3a5c;display:flex;align-items:center;gap:4px;">
+                    <i class="material-icons" style="font-size:14px;color:#28a745;">description</i> CSV (UTF-8 BOM)
+                </div>
+            </div>
+            <div style="flex:1;min-width:140px;background:#f8fafd;border:1px solid #e2e8f0;border-radius:8px;padding:10px 14px;">
+                <div style="font-size:10px;text-transform:uppercase;color:#94a3b8;font-weight:600;margin-bottom:4px;">Separador</div>
+                <div style="font-size:13px;font-weight:600;color:#1a3a5c;display:flex;align-items:center;gap:4px;">
+                    <i class="material-icons" style="font-size:14px;color:#17a2b8;">code</i> Ponto e vírgula ( ; )
+                </div>
+            </div>
+            <div style="flex:1;min-width:140px;background:#f8fafd;border:1px solid #e2e8f0;border-radius:8px;padding:10px 14px;">
+                <div style="font-size:10px;text-transform:uppercase;color:#94a3b8;font-weight:600;margin-bottom:4px;">Licença</div>
+                <div style="font-size:13px;font-weight:600;color:#1a3a5c;display:flex;align-items:center;gap:4px;">
+                    <i class="material-icons" style="font-size:14px;color:#ffc107;">verified</i> Dados Abertos
+                </div>
+            </div>
+            <div style="flex:1;min-width:140px;background:#f8fafd;border:1px solid #e2e8f0;border-radius:8px;padding:10px 14px;">
+                <div style="font-size:10px;text-transform:uppercase;color:#94a3b8;font-weight:600;margin-bottom:4px;">Tabelas disponíveis</div>
+                <div style="font-size:13px;font-weight:600;color:#1a3a5c;display:flex;align-items:center;gap:4px;">
+                    <i class="material-icons" style="font-size:14px;color:#20445d;">table_chart</i> Contratos + Itens
+                </div>
+            </div>
         </div>
     </div>
 
-    <div class="filter-container">
-        <h5 style="margin-bottom:14px;font-size:14px;font-weight:700;color:#1a3a5c;">
-            <i class="material-icons" style="vertical-align:middle;margin-right:6px;">info</i>
-            Dicionário de Variáveis — Contratos
-        </h5>
-        <div class="toolbar-left" style="margin-bottom:12px;">
-            <button class="btn-export" onclick="baixarDicionarioCSV()"><i class="material-icons">description</i> CSV</button>
-            <button class="btn-export" onclick="baixarDicionarioPDF()"><i class="material-icons">print</i> PDF</button>
+    <!-- Downloads diretos por ano -->
+    <div class="filter-container" style="border-left:4px solid #28a745;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap;">
+            <div style="background:#28a745;border-radius:8px;padding:7px;display:flex;align-items:center;">
+                <i class="material-icons" style="color:white;font-size:18px;">download</i>
+            </div>
+            <div>
+                <h5 style="font-size:14px;font-weight:700;color:#1a3a5c;margin:0;">Download Direto dos Arquivos CSV</h5>
+                <p style="font-size:11px;color:#6c757d;margin:0;">Arquivos gerados a partir dos dados carregados em memória nesta sessão — reflectem os filtros ativos no momento do download.</p>
+            </div>
         </div>
-        <div class="table-responsive">
-            <table class="table">
-                <thead><tr><th>Campo</th><th>Descrição</th><th>Tipo</th></tr></thead>
+
+        <div style="display:flex;gap:12px;flex-wrap:wrap;">
+            ${anos.map(ano => `
+            <div style="background:#f8fafd;border:1px solid #e2e8f0;border-radius:10px;overflow:hidden;min-width:150px;flex:1;max-width:200px;">
+                <div style="background:#20445d;padding:8px 14px;display:flex;align-items:center;justify-content:space-between;">
+                    <span style="color:white;font-weight:700;font-size:14px;">${ano}</span>
+                    <span style="background:rgba(255,255,255,0.18);color:white;padding:1px 7px;border-radius:8px;font-size:10px;font-weight:600;">CSV</span>
+                </div>
+                <div style="padding:10px 12px;display:flex;flex-direction:column;gap:6px;">
+                    <button class="btn-export" style="width:100%;justify-content:center;" onclick="baixarCSV('contratos',${ano})">
+                        <i class="material-icons">description</i> Contratos
+                    </button>
+                    <button class="btn-export" style="width:100%;justify-content:center;" onclick="baixarCSV('itens',${ano})">
+                        <i class="material-icons">inventory</i> Itens
+                    </button>
+                </div>
+            </div>`).join('')}
+            <!-- Card: todos os anos -->
+            <div style="background:#f8fafd;border:2px dashed #c8d6e0;border-radius:10px;overflow:hidden;min-width:150px;flex:1;max-width:200px;">
+                <div style="background:#54697b;padding:8px 14px;display:flex;align-items:center;justify-content:space-between;">
+                    <span style="color:white;font-weight:700;font-size:13px;">Todos os Anos</span>
+                    <span style="background:rgba(255,255,255,0.18);color:white;padding:1px 7px;border-radius:8px;font-size:10px;font-weight:600;">CSV</span>
+                </div>
+                <div style="padding:10px 12px;display:flex;flex-direction:column;gap:6px;">
+                    <button class="btn-export" style="width:100%;justify-content:center;" onclick="baixarCSV('contratos',null)">
+                        <i class="material-icons">description</i> Contratos
+                    </button>
+                    <button class="btn-export" style="width:100%;justify-content:center;" onclick="baixarCSV('itens',null)">
+                        <i class="material-icons">inventory</i> Itens
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Links diretos GitHub por ano -->
+    <div class="filter-container" style="border-left:4px solid #17a2b8;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap;">
+            <div style="background:#17a2b8;border-radius:8px;padding:7px;display:flex;align-items:center;">
+                <i class="material-icons" style="color:white;font-size:18px;">link</i>
+            </div>
+            <div>
+                <h5 style="font-size:14px;font-weight:700;color:#1a3a5c;margin:0;">Links Diretos — GitHub (arquivos originais)</h5>
+                <p style="font-size:11px;color:#6c757d;margin:0;">Acesse ou compartilhe os arquivos CSV diretamente do repositório de dados.</p>
+            </div>
+        </div>
+        <div style="overflow-x:auto;">
+            <table style="width:100%;border-collapse:collapse;font-size:12px;">
+                <thead>
+                    <tr>
+                        <th style="background:#54697b;color:white;padding:9px 12px;font-size:11px;text-transform:uppercase;font-weight:600;text-align:left;white-space:nowrap;">Ano</th>
+                        <th style="background:#54697b;color:white;padding:9px 12px;font-size:11px;text-transform:uppercase;font-weight:600;text-align:left;">Arquivo — Contratos</th>
+                        <th style="background:#54697b;color:white;padding:9px 12px;font-size:11px;text-transform:uppercase;font-weight:600;text-align:left;">Arquivo — Itens</th>
+                    </tr>
+                </thead>
                 <tbody>
-                    <tr><td><code>numero_contrato</code></td><td>Número identificador do contrato</td><td>Texto</td></tr>
-                    <tr><td><code>numero_processo_formatado</code></td><td>Número do processo licitatório</td><td>Texto</td></tr>
-                    <tr><td><code>nome_orgao_entidade_contratante</code></td><td>Nome do órgão ou entidade contratante</td><td>Texto</td></tr>
-                    <tr><td><code>descricao_tipo_de_contrato</code></td><td>Tipo/modalidade do contrato</td><td>Texto</td></tr>
-                    <tr><td><code>situacao_contrato</code></td><td>Situação atual do contrato</td><td>Texto</td></tr>
-                    <tr><td><code>data_assinatura_contrato</code></td><td>Data de assinatura do contrato</td><td>Data</td></tr>
-                    <tr><td><code>data_inicio_vigencia_contrato</code></td><td>Data de início da vigência</td><td>Data</td></tr>
-                    <tr><td><code>data_termino_vigencia_contrato</code></td><td>Data de término da vigência</td><td>Data</td></tr>
-                    <tr><td><code>objeto_contrato</code></td><td>Descrição do objeto contratado</td><td>Texto</td></tr>
-                    <tr><td><code>nome_empresarial_nome_fornecedor</code></td><td>Nome/razão social do fornecedor</td><td>Texto</td></tr>
-                    <tr><td><code>tipo_pessoa_fornecedor</code></td><td>Pessoa física ou jurídica</td><td>Texto</td></tr>
-                    <tr><td><code>procedimento_contratacao_grupo</code></td><td>Grupo do procedimento de contratação</td><td>Texto</td></tr>
-                    <tr><td><code>procedimento_contratacao_detalhamento_1</code></td><td>Detalhamento do procedimento</td><td>Texto</td></tr>
-                    <tr><td><code>procedimento_contratacao_especializacao</code></td><td>Especialização do procedimento</td><td>Texto</td></tr>
-                    <tr><td><code>valor_total_atualizado</code></td><td>Valor total atualizado do contrato (R$)</td><td>Numérico</td></tr>
-                    <tr><td><code>valor_despesa_empenhada</code></td><td>Valor da despesa empenhada (R$)</td><td>Numérico</td></tr>
-                    <tr><td><code>valor_despesa_liquidada</code></td><td>Valor da despesa liquidada (R$)</td><td>Numérico</td></tr>
-                    <tr><td><code>contrato_termoaditivo_arquivos</code></td><td>URL do documento do contrato</td><td>URL</td></tr>
-                    <tr><td><code>ano_publicacao_contrato</code></td><td>Ano de publicação do contrato</td><td>Numérico</td></tr>
+                    ${anos.map((ano, idx) => `
+                    <tr style="background:${idx%2===1?'#f8fafd':'white'};">
+                        <td style="padding:9px 12px;font-weight:700;color:#20445d;border-bottom:1px solid #f0f4f8;">${ano}</td>
+                        <td style="padding:9px 12px;border-bottom:1px solid #f0f4f8;">
+                            <a href="${GITHUB_BASE}contratos${ano}.csv" target="_blank" class="contrato-link" style="display:inline-flex;align-items:center;gap:4px;">
+                                <i class="material-icons" style="font-size:13px;">open_in_new</i> contratos${ano}.csv
+                            </a>
+                        </td>
+                        <td style="padding:9px 12px;border-bottom:1px solid #f0f4f8;">
+                            <a href="${GITHUB_BASE}itens${ano}.csv" target="_blank" class="contrato-link" style="display:inline-flex;align-items:center;gap:4px;">
+                                <i class="material-icons" style="font-size:13px;">open_in_new</i> itens${ano}.csv
+                            </a>
+                        </td>
+                    </tr>`).join('')}
                 </tbody>
             </table>
         </div>
     </div>
 
-    <div style="display:flex;justify-content:flex-end;margin-top:12px;">
-        <button class="btn-topo" onclick="voltarAoTopo()">
-            <i class="material-icons">arrow_upward</i> Voltar ao topo
-        </button>
+    <div style="display:flex;justify-content:flex-end;margin-top:4px;margin-bottom:8px;">
+        <button class="btn-topo" onclick="voltarAoTopo()"><i class="material-icons">arrow_upward</i> Voltar ao topo</button>
     </div>`;
 
     setTimeout(iframeUpdateHeight, 300);
 }
 
+// ============================================================
+// 12b. DICIONÁRIO DE DADOS
+// ============================================================
+const DICIONARIO_CONTRATOS = {
+    contratos: [
+        { campo: 'ano_publicacao_contrato',                   descricao: 'Ano de publicação do contrato',                                                              tipo: 'Número (AAAA)',  exemplo: '2024' },
+        { campo: 'numero_contrato',                           descricao: 'Número identificador do contrato no sistema',                                                 tipo: 'Texto',          exemplo: '123/2024' },
+        { campo: 'numero_processo_formatado',                 descricao: 'Número do processo licitatório vinculado ao contrato. Chave de ligação com o dataset de licitações.', tipo: 'Texto', exemplo: '691 000004/2024' },
+        { campo: 'nome_orgao_entidade_contratante',           descricao: 'Nome do órgão ou entidade pública contratante',                                               tipo: 'Texto',          exemplo: 'SEPLAG' },
+        { campo: 'codigo_orgao_entidade_contratante',         descricao: 'Código do órgão ou entidade contratante',                                                     tipo: 'Texto/Número',   exemplo: '691' },
+        { campo: 'descricao_tipo_de_contrato',                descricao: 'Tipo ou modalidade do contrato (ex: Contrato, Ata de Registro de Preços)',                    tipo: 'Texto',          exemplo: 'Contrato' },
+        { campo: 'situacao_contrato',                         descricao: 'Situação atual do contrato (ex: Vigente, Encerrado, Rescindido)',                             tipo: 'Texto',          exemplo: 'Vigente' },
+        { campo: 'data_assinatura_contrato',                  descricao: 'Data de assinatura do contrato (DD/MM/AAAA)',                                                  tipo: 'Data',           exemplo: '15/03/2024' },
+        { campo: 'data_inicio_vigencia_contrato',             descricao: 'Data de início da vigência do contrato',                                                       tipo: 'Data',           exemplo: '01/04/2024' },
+        { campo: 'data_termino_vigencia_contrato',            descricao: 'Data de término da vigência do contrato',                                                      tipo: 'Data',           exemplo: '31/03/2025' },
+        { campo: 'objeto_contrato',                           descricao: 'Descrição do objeto/finalidade do contrato',                                                   tipo: 'Texto',          exemplo: 'Fornecimento de materiais de escritório' },
+        { campo: 'nome_empresarial_nome_fornecedor',          descricao: 'Razão social ou nome do fornecedor contratado',                                                tipo: 'Texto',          exemplo: 'EMPRESA LTDA' },
+        { campo: 'cnpj_cpf_fornecedor_formatado',             descricao: 'CNPJ ou CPF do fornecedor formatado (com pontuação)',                                          tipo: 'Texto',          exemplo: '00.000.000/0001-00' },
+        { campo: 'tipo_pessoa_fornecedor',                    descricao: 'Tipo de pessoa do fornecedor (Jurídica ou Física)',                                             tipo: 'Texto',          exemplo: 'Jurídica' },
+        { campo: 'procedimento_contratacao_grupo',            descricao: 'Grupo do procedimento de contratação (ex: Licitação, Dispensa)',                               tipo: 'Texto',          exemplo: 'Licitação' },
+        { campo: 'procedimento_contratacao_detalhamento_1',   descricao: 'Modalidade da contratação (ex: Pregão, Concorrência)',                                         tipo: 'Texto',          exemplo: 'Pregão Eletrônico' },
+        { campo: 'procedimento_contratacao_especializacao',   descricao: 'Especialização do procedimento (ex: Eletrônico, Emergencial)',                                 tipo: 'Texto',          exemplo: 'Eletrônico' },
+        { campo: 'valor_total_atualizado',                    descricao: 'Valor total atualizado do contrato, incluindo eventuais aditivos (R$)',                        tipo: 'Moeda (R$)',     exemplo: '150000.00' },
+        { campo: 'valor_despesa_empenhada',                   descricao: 'Valor total da despesa empenhada vinculada ao contrato (R$)',                                   tipo: 'Moeda (R$)',     exemplo: '120000.00' },
+        { campo: 'valor_despesa_liquidada',                   descricao: 'Valor total da despesa liquidada (bens/serviços entregues e aceitos) (R$)',                    tipo: 'Moeda (R$)',     exemplo: '100000.00' },
+        { campo: 'contrato_termoaditivo_arquivos',            descricao: 'URL para o arquivo do contrato ou termo aditivo publicado',                                     tipo: 'Texto (URL)',    exemplo: 'https://...' },
+    ],
+    itens: [
+        { campo: 'ano_criacao_processo',                      descricao: 'Ano de criação do processo licitatório vinculado ao item',                                     tipo: 'Número (AAAA)',  exemplo: '2024' },
+        { campo: 'numero_contrato',                           descricao: 'Número do contrato ao qual o item pertence. Chave de ligação com a tabela de contratos.',      tipo: 'Texto',          exemplo: '123/2024' },
+        { campo: 'numero_processo_formatado',                 descricao: 'Número do processo licitatório formatado',                                                      tipo: 'Texto',          exemplo: '691 000004/2024' },
+        { campo: 'numero_item_pedido',                        descricao: 'Número sequencial do item dentro do pedido/contrato',                                           tipo: 'Número inteiro', exemplo: '1' },
+        { campo: 'codigo_elemento_item_despesa',              descricao: 'Código do elemento de despesa conforme classificação orçamentária',                             tipo: 'Texto/Número',   exemplo: '339030' },
+        { campo: 'nome_elemento_item_despesa',                descricao: 'Descrição do elemento de despesa',                                                              tipo: 'Texto',          exemplo: 'Material de Consumo' },
+        { campo: 'codigo_item_material_servico',              descricao: 'Código do item de material ou serviço no catálogo',                                             tipo: 'Texto/Número',   exemplo: '000123' },
+        { campo: 'item_material_servico',                     descricao: 'Descrição do item de material ou serviço contratado',                                           tipo: 'Texto',          exemplo: 'Papel A4 resma 500 folhas' },
+        { campo: 'quantidade_item',                           descricao: 'Quantidade do item contratada',                                                                 tipo: 'Número',         exemplo: '100' },
+        { campo: 'valor_unitario_item',                       descricao: 'Valor unitário do item conforme contrato (R$)',                                                  tipo: 'Moeda (R$)',     exemplo: '22.50' },
+        { campo: 'valor_total_item',                          descricao: 'Valor total do item (quantidade × valor unitário) (R$)',                                        tipo: 'Moeda (R$)',     exemplo: '2250.00' },
+    ],
+};
+
+const METADADOS_TABELAS_CONTRATOS = {
+    contratos: {
+        label: 'Contratos',
+        icon: 'description',
+        cor: '#1a3a5c',
+        corClara: '#e8eef5',
+        descricao: 'Contém os dados dos contratos firmados pelo Estado de Minas Gerais, incluindo tipo, partes envolvidas, vigência, situação, valores e documentos vinculados.',
+        chave: 'numero_contrato',
+        granularidade: 'Um registro por contrato',
+        arquivo: 'contratosAAAA.csv',
+    },
+    itens: {
+        label: 'Itens',
+        icon: 'inventory',
+        cor: '#28a745',
+        corClara: '#e8f5ec',
+        descricao: 'Detalha cada item de material ou serviço contratado, com códigos, descrições, quantidades e valores unitários e totais.',
+        chave: 'numero_contrato + numero_item_pedido',
+        granularidade: 'Um registro por item de cada contrato',
+        arquivo: 'itensAAAA.csv',
+    },
+};
+
+function renderizarDicionario() {
+    const container = document.getElementById('dicionario-content');
+    if (!container) return;
+
+    const tabelas = Object.keys(DICIONARIO_CONTRATOS);
+
+    const tipoCores = {
+        'Número (AAAA)': { bg: '#e0f0ff', txt: '#004a99' },
+        'Texto':         { bg: '#f0f4f8', txt: '#334155' },
+        'Texto/Número':  { bg: '#f3f0ff', txt: '#4c1d95' },
+        'Data':          { bg: '#fff3e0', txt: '#b45309' },
+        'Texto (URL)':   { bg: '#e8f8ef', txt: '#15803d' },
+        'Moeda (R$)':    { bg: '#fdf2f8', txt: '#86198f' },
+        'Número inteiro':{ bg: '#e0f0ff', txt: '#004a99' },
+        'Número':        { bg: '#e0f0ff', txt: '#004a99' },
+    };
+
+    const totalCampos = tabelas.reduce((acc, t) => acc + DICIONARIO_CONTRATOS[t].length, 0);
+
+    container.innerHTML = `
+    <!-- Cabeçalho -->
+    <div class="filter-container" style="border-left:4px solid #20445d;">
+        <div style="display:flex;align-items:flex-start;gap:16px;flex-wrap:wrap;">
+            <div style="background:#20445d;border-radius:10px;padding:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <i class="material-icons" style="font-size:28px;color:white;">menu_book</i>
+            </div>
+            <div style="flex:1;min-width:200px;">
+                <h5 style="font-size:15px;font-weight:700;color:#20445d;margin:0 0 4px 0;">Dicionário de Dados — Contratos MG</h5>
+                <p style="color:#6c757d;font-size:12px;margin:0 0 12px 0;">
+                    Documentação completa das colunas de cada tabela do dataset. Navegue pelas tabelas ou use a busca para encontrar campos específicos.
+                </p>
+                <div style="display:flex;gap:16px;flex-wrap:wrap;">
+                    <span style="font-size:11px;color:#475569;display:flex;align-items:center;gap:4px;">
+                        <i class="material-icons" style="font-size:13px;color:#20445d;">table_chart</i>
+                        <strong>${tabelas.length}</strong> tabelas documentadas
+                    </span>
+                    <span style="font-size:11px;color:#475569;display:flex;align-items:center;gap:4px;">
+                        <i class="material-icons" style="font-size:13px;color:#20445d;">list_alt</i>
+                        <strong>${totalCampos}</strong> campos no total
+                    </span>
+                    <span style="font-size:11px;color:#475569;display:flex;align-items:center;gap:4px;">
+                        <i class="material-icons" style="font-size:13px;color:#20445d;">link</i>
+                        Chave de ligação: <code style="background:#e2e8f0;padding:1px 5px;border-radius:3px;font-size:10px;">numero_contrato</code>
+                    </span>
+                </div>
+            </div>
+            <!-- Botões de exportação -->
+            <div style="display:flex;gap:8px;flex-shrink:0;align-items:flex-start;flex-wrap:wrap;">
+                <button class="btn-export" onclick="baixarDicionarioCSV()"><i class="material-icons">description</i> CSV</button>
+                <button class="btn-export" onclick="baixarDicionarioPDF()"><i class="material-icons">print</i> PDF</button>
+            </div>
+        </div>
+        <!-- Busca + abas de tabelas -->
+        <div style="margin-top:16px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
+            <div style="position:relative;flex:1;min-width:200px;max-width:380px;">
+                <i class="material-icons" style="position:absolute;left:10px;top:50%;transform:translateY(-50%);font-size:16px;color:#94a3b8;">search</i>
+                <input type="text" id="dicBusca" class="form-control"
+                    style="height:38px;font-size:12px;padding:4px 12px 4px 32px;border-radius:8px;"
+                    placeholder="Buscar campo, descrição ou tipo..."
+                    oninput="buscarDicionario(this.value)">
+            </div>
+            <div style="display:flex;gap:6px;flex-wrap:wrap;" id="dicTabs">
+                <button class="dic-tab-btn active" onclick="mostrarTabelaDic('todas',this)">
+                    <i class="material-icons" style="font-size:12px;vertical-align:middle;">layers</i> Todas as Tabelas
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tabela unificada de campos -->
+    <div id="dicConteudo">
+        <div style="background:white;border-radius:10px;box-shadow:0 3px 12px rgba(0,0,0,0.06);overflow:hidden;margin-bottom:24px;">
+            <div style="background:#20445d;padding:12px 18px;display:flex;align-items:center;gap:10px;">
+                <i class="material-icons" style="color:white;font-size:18px;">list_alt</i>
+                <span style="color:white;font-weight:700;font-size:14px;">Todos os Campos</span>
+                <span style="background:rgba(255,255,255,0.2);color:white;padding:2px 10px;border-radius:10px;font-size:11px;font-weight:600;">
+                    ${totalCampos} campos
+                </span>
+            </div>
+            <div style="overflow-x:auto;">
+                <table style="width:100%;border-collapse:collapse;font-size:12px;">
+                    <thead>
+                        <tr>
+                            <th style="background:#54697b;color:white;padding:10px 12px;font-size:11px;text-transform:uppercase;font-weight:600;white-space:nowrap;text-align:left;">Campo (nome no CSV)</th>
+                            <th style="background:#54697b;color:white;padding:10px 12px;font-size:11px;text-transform:uppercase;font-weight:600;text-align:left;">Descrição</th>
+                            <th style="background:#54697b;color:white;padding:10px 12px;font-size:11px;text-transform:uppercase;font-weight:600;white-space:nowrap;text-align:left;">Tipo</th>
+                            <th style="background:#54697b;color:white;padding:10px 12px;font-size:11px;text-transform:uppercase;font-weight:600;white-space:nowrap;text-align:left;">Tabela</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${tabelas.flatMap(tabela => {
+                            const meta = METADADOS_TABELAS_CONTRATOS[tabela];
+                            return DICIONARIO_CONTRATOS[tabela].map((row, idx) => {
+                                const tcor = tipoCores[row.tipo] || { bg: '#f0f4f8', txt: '#334155' };
+                                const globalIdx = tabelas.slice(0, tabelas.indexOf(tabela)).reduce((acc, t) => acc + DICIONARIO_CONTRATOS[t].length, idx);
+                                return `
+                        <tr class="dic-linha" data-tabela="${tabela}" style="${globalIdx % 2 === 1 ? 'background:#f8fafd;' : 'background:white;'}">
+                            <td style="padding:9px 12px;border-bottom:1px solid #f0f4f8;white-space:nowrap;">
+                                <code style="background:${meta.corClara};color:${meta.cor};padding:2px 7px;border-radius:4px;font-size:11px;font-weight:600;">${row.campo}</code>
+                            </td>
+                            <td style="padding:9px 12px;border-bottom:1px solid #f0f4f8;color:#334155;line-height:1.4;">${row.descricao}</td>
+                            <td style="padding:9px 12px;border-bottom:1px solid #f0f4f8;white-space:nowrap;">
+                                <span style="background:${tcor.bg};color:${tcor.txt};padding:2px 8px;border-radius:4px;font-size:10px;font-weight:600;">${row.tipo}</span>
+                            </td>
+                            <td style="padding:9px 12px;border-bottom:1px solid #f0f4f8;white-space:nowrap;">
+                                <span style="background:${meta.cor};color:white;padding:2px 10px;border-radius:12px;font-size:10px;font-weight:600;display:inline-flex;align-items:center;gap:3px;">
+                                    <i class="material-icons" style="font-size:11px;">${meta.icon}</i>${meta.label}
+                                </span>
+                            </td>
+                        </tr>`;
+                            });
+                        }).join('')}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Nota de relacionamento -->
+    <div style="background:white;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.04);padding:14px 18px;margin-bottom:16px;border-left:3px solid #ffc107;display:flex;gap:10px;align-items:flex-start;">
+        <i class="material-icons" style="color:#b45309;font-size:18px;flex-shrink:0;margin-top:1px;">info</i>
+        <div>
+            <div style="font-size:12px;font-weight:600;color:#92400e;margin-bottom:3px;">Relacionamento entre tabelas</div>
+            <div style="font-size:12px;color:#78350f;line-height:1.5;">
+                As tabelas <strong>Contratos</strong> e <strong>Itens</strong> são vinculadas pelo campo
+                <code style="background:#fef3c7;color:#92400e;padding:1px 5px;border-radius:3px;font-size:11px;">numero_contrato</code>.
+                Para cada contrato podem existir múltiplos itens na tabela <em>Itens</em>.
+                Utilize esse campo como chave de junção (<em>JOIN</em>) ao cruzar os datasets.
+                O campo <code style="background:#fef3c7;color:#92400e;padding:1px 5px;border-radius:3px;font-size:11px;">numero_processo_formatado</code>
+                permite ainda a ligação com o dataset de Licitações MG.
+            </div>
+        </div>
+    </div>
+
+    <div style="display:flex;justify-content:flex-end;margin-top:4px;margin-bottom:8px;">
+        <button class="btn-topo" onclick="voltarAoTopo()"><i class="material-icons">arrow_upward</i> Voltar ao topo</button>
+    </div>`;
+
+    setTimeout(iframeUpdateHeight, 300);
+}
+
+window.mostrarTabelaDic = function(qual, btnEl) {
+    document.querySelectorAll('.dic-tab-btn').forEach(b => b.classList.remove('active'));
+    if (btnEl) btnEl.classList.add('active');
+    // Na versão unificada só existe "todas" — restaura todas as linhas
+    let totalVisible = 0;
+    document.querySelectorAll('.dic-linha').forEach((row, idx) => {
+        row.style.display = '';
+        row.style.background = idx % 2 === 1 ? '#f8fafd' : 'white';
+        totalVisible++;
+    });
+    const busca = document.getElementById('dicBusca');
+    if (busca) busca.value = '';
+};
+
+window.buscarDicionario = function(termo) {
+    const t = (termo || '').toLowerCase().trim();
+    document.querySelectorAll('.dic-tab-btn').forEach(b => b.classList.remove('active'));
+    const btnTodas = document.querySelector('.dic-tab-btn');
+    if (btnTodas) btnTodas.classList.add('active');
+
+    let visibleIdx = 0;
+    document.querySelectorAll('.dic-linha').forEach(row => {
+        const match = !t || row.textContent.toLowerCase().includes(t);
+        row.style.display = match ? '' : 'none';
+        if (match) {
+            row.style.background = t ? '#fff8dc' : (visibleIdx % 2 === 1 ? '#f8fafd' : 'white');
+            visibleIdx++;
+        }
+    });
+};
+
 function baixarDicionarioCSV() {
-    const linhas = [
-        ['Campo','Descrição','Tipo'],
-        ['numero_contrato','Número identificador do contrato','Texto'],
-        ['numero_processo_formatado','Número do processo licitatório','Texto'],
-        ['nome_orgao_entidade_contratante','Nome do órgão ou entidade contratante','Texto'],
-        ['descricao_tipo_de_contrato','Tipo/modalidade do contrato','Texto'],
-        ['situacao_contrato','Situação atual do contrato','Texto'],
-        ['data_assinatura_contrato','Data de assinatura','Data'],
-        ['data_inicio_vigencia_contrato','Data de início da vigência','Data'],
-        ['data_termino_vigencia_contrato','Data de término da vigência','Data'],
-        ['objeto_contrato','Descrição do objeto contratado','Texto'],
-        ['nome_empresarial_nome_fornecedor','Nome/razão social do fornecedor','Texto'],
-        ['tipo_pessoa_fornecedor','Pessoa física ou jurídica','Texto'],
-        ['procedimento_contratacao_grupo','Grupo do procedimento','Texto'],
-        ['procedimento_contratacao_detalhamento_1','Detalhamento do procedimento','Texto'],
-        ['procedimento_contratacao_especializacao','Especialização do procedimento','Texto'],
-        ['valor_total_atualizado','Valor total atualizado (R$)','Numérico'],
-        ['valor_despesa_empenhada','Valor despesa empenhada (R$)','Numérico'],
-        ['valor_despesa_liquidada','Valor despesa liquidada (R$)','Numérico'],
-    ];
-    const csv = linhas.map(l=>l.join(';')).join('\n');
-    const blob = new Blob(['\uFEFF'+csv],{type:'text/csv'}); const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='dicionario_contratos.csv'; a.click();
+    const linhas = [['Tabela','Campo','Descrição','Tipo','Exemplo']];
+    Object.keys(DICIONARIO_CONTRATOS).forEach(tabela => {
+        DICIONARIO_CONTRATOS[tabela].forEach(row => {
+            linhas.push([tabela, row.campo, row.descricao, row.tipo, row.exemplo]);
+        });
+    });
+    const csv = linhas.map(l => l.map(c => `"${(c||'').replace(/"/g,'""')}"`).join(';')).join('\n');
+    const blob = new Blob(['\uFEFF'+csv], {type:'text/csv'});
+    const a = document.createElement('a'); a.href = URL.createObjectURL(blob);
+    a.download = 'dicionario_contratos.csv'; a.click();
 }
 
 function baixarDicionarioPDF() {
-    const { jsPDF } = window.jspdf; const doc = new jsPDF();
-    doc.setFontSize(14); doc.text('Dicionário de Dados — Contratos Portal MG', 14, 15);
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF({ orientation: 'landscape' });
+    doc.setFontSize(14); doc.setTextColor(32, 68, 93);
+    doc.text('Dicionário de Dados — Contratos Portal MG', 14, 14);
+    doc.setFontSize(9); doc.setTextColor(100, 100, 100);
+    doc.text(`Emitido em: ${new Date().toLocaleString('pt-BR')}`, 14, 20);
+    const body = [];
+    Object.keys(DICIONARIO_CONTRATOS).forEach(tabela => {
+        DICIONARIO_CONTRATOS[tabela].forEach(row => {
+            body.push([tabela, row.campo, row.descricao, row.tipo, row.exemplo]);
+        });
+    });
     doc.autoTable({
-        startY: 25,
-        head: [['Campo','Descrição','Tipo']],
-        body: [
-            ['numero_contrato','Número identificador do contrato','Texto'],
-            ['numero_processo_formatado','Número do processo licitatório','Texto'],
-            ['nome_orgao_entidade_contratante','Órgão ou entidade contratante','Texto'],
-            ['situacao_contrato','Situação atual do contrato','Texto'],
-            ['objeto_contrato','Descrição do objeto contratado','Texto'],
-            ['nome_empresarial_nome_fornecedor','Razão social do fornecedor','Texto'],
-            ['valor_total_atualizado','Valor total atualizado (R$)','Numérico'],
-            ['valor_despesa_empenhada','Valor despesa empenhada (R$)','Numérico'],
-            ['valor_despesa_liquidada','Valor despesa liquidada (R$)','Numérico'],
-        ],
-        headStyles:{fillColor:[32,68,93]}
+        startY: 24,
+        head: [['Tabela', 'Campo', 'Descrição', 'Tipo', 'Exemplo']],
+        body,
+        headStyles: { fillColor: [32, 68, 93] },
+        styles: { fontSize: 8 },
+        columnStyles: { 0: { cellWidth: 22 }, 1: { cellWidth: 55 }, 3: { cellWidth: 25 }, 4: { cellWidth: 30 } }
     });
     doc.save('dicionario_contratos.pdf');
 }
+
+window.baixarCSV = function(tipo, anoFiltro) {
+    let dados, cabecalhos, nomeArquivo;
+    if (tipo === 'contratos') {
+        dados = anoFiltro
+            ? dadosConsolidados.contratos.filter(c => c && (c['ano_publicacao_contrato'] == anoFiltro || c.ano_referencia == anoFiltro))
+            : dadosConsolidados.contratos;
+        cabecalhos = ['ano_publicacao_contrato','numero_contrato','numero_processo_formatado','nome_orgao_entidade_contratante',
+            'codigo_orgao_entidade_contratante','descricao_tipo_de_contrato','situacao_contrato','data_assinatura_contrato',
+            'data_inicio_vigencia_contrato','data_termino_vigencia_contrato','objeto_contrato','nome_empresarial_nome_fornecedor',
+            'cnpj_cpf_fornecedor_formatado','tipo_pessoa_fornecedor','procedimento_contratacao_grupo',
+            'procedimento_contratacao_detalhamento_1','procedimento_contratacao_especializacao',
+            'valor_total_atualizado','valor_despesa_empenhada','valor_despesa_liquidada','contrato_termoaditivo_arquivos'];
+        nomeArquivo = anoFiltro ? `contratos_${anoFiltro}.csv` : 'contratos_completos.csv';
+    } else if (tipo === 'itens') {
+        dados = anoFiltro
+            ? dadosConsolidados.itens.filter(i => i && (i['ano_criacao_processo'] == anoFiltro || i.ano_referencia == anoFiltro))
+            : dadosConsolidados.itens;
+        cabecalhos = ['ano_criacao_processo','numero_contrato','numero_processo_formatado','numero_item_pedido',
+            'codigo_elemento_item_despesa','nome_elemento_item_despesa','codigo_item_material_servico',
+            'item_material_servico','quantidade_item','valor_unitario_item','valor_total_item'];
+        nomeArquivo = anoFiltro ? `itens_${anoFiltro}.csv` : 'itens_completos.csv';
+    } else return;
+    if (!dados || dados.length === 0) { alert('Nenhum dado encontrado para download.'); return; }
+    const linhas = dados.map(item => cabecalhos.map(cab => {
+        let v = item && item[cab] !== undefined && item[cab] !== null ? item[cab] : '';
+        return `"${v.toString().replace(/"/g, '""')}"`;
+    }).join(';'));
+    const csv = [cabecalhos.join(';'), ...linhas].join('\n');
+    const blob = new Blob(['\uFEFF' + csv], { type: 'text/csv' });
+    const a = document.createElement('a'); a.href = URL.createObjectURL(blob);
+    a.download = nomeArquivo; a.click();
+};
 
 // ============================================================
 // 15. EXPORTAÇÕES
