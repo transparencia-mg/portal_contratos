@@ -850,7 +850,12 @@ function verificarEmergencial(contrato) {
 }
 
 function getAnoPublicacao(item) {
-    return item['ano_publicacao_contrato'] || item['ano_criacao_processo'] || new Date().getFullYear();
+    // Para contratos: usa ano_assinatura_contrato; para itens: usa ano_criacao_processo
+    // Fallback para ano_referencia (injetado no carregamento) garantindo que o filtro sempre funcione
+    if (item['ano_assinatura_contrato']) return item['ano_assinatura_contrato'];
+    if (item['ano_criacao_processo'])    return item['ano_criacao_processo'];
+    if (item['ano_publicacao_contrato']) return item['ano_publicacao_contrato'];
+    return item['ano_referencia'] || new Date().getFullYear();
 }
 
 function badgeSituacao(sit) {
@@ -984,8 +989,10 @@ async function carregarTodosDados() {
 
         atualizarAutocompleteData();
 
-        const anosComDados = [...new Set(dadosConsolidados.contratos.map(c => getAnoPublicacao(c)))].filter(Boolean).map(Number).sort((a,b)=>b-a);
-        anoSelecionado = anosComDados.includes(2026) ? 2026 : (anosComDados[0] || 2026);
+        // Recalcula anos disponíveis com base no campo ano_assinatura_contrato real dos dados
+        const anosComDados = [...new Set(dadosConsolidados.contratos.map(c => getAnoPublicacao(c)))].filter(Boolean).map(Number).filter(n => n >= 2000 && n <= 2100).sort((a,b)=>b-a);
+        if (anosComDados.length > 0) anosDisponiveis = anosComDados;
+        anoSelecionado = anosDisponiveis.includes(2026) ? 2026 : (anosDisponiveis[0] || 2026);
 
         dadosFiltrados.contratos = dadosConsolidados.contratos.filter(c => getAnoPublicacao(c) == anoSelecionado);
         dadosFiltrados.itens = dadosConsolidados.itens.filter(i => getAnoPublicacao(i) == anoSelecionado);
@@ -2578,7 +2585,7 @@ window.baixarCSV = function(tipo, anoFiltro) {
     let dados, cabecalhos, nomeArquivo;
     if (tipo === 'contratos') {
         dados = anoFiltro
-            ? dadosConsolidados.contratos.filter(c => c && (c['ano_publicacao_contrato'] == anoFiltro || c.ano_referencia == anoFiltro))
+            ? dadosConsolidados.contratos.filter(c => c && getAnoPublicacao(c) == anoFiltro)
             : dadosConsolidados.contratos;
         cabecalhos = ['ano_publicacao_contrato','numero_contrato','numero_processo_formatado','nome_orgao_entidade_contratante',
             'codigo_orgao_entidade_contratante','descricao_tipo_de_contrato','situacao_contrato','data_assinatura_contrato',
@@ -2589,7 +2596,7 @@ window.baixarCSV = function(tipo, anoFiltro) {
         nomeArquivo = anoFiltro ? `contratos_${anoFiltro}.csv` : 'contratos_completos.csv';
     } else if (tipo === 'itens') {
         dados = anoFiltro
-            ? dadosConsolidados.itens.filter(i => i && (i['ano_criacao_processo'] == anoFiltro || i.ano_referencia == anoFiltro))
+            ? dadosConsolidados.itens.filter(i => i && getAnoPublicacao(i) == anoFiltro)
             : dadosConsolidados.itens;
         cabecalhos = ['ano_criacao_processo','numero_contrato','numero_processo_formatado','numero_item_pedido',
             'codigo_elemento_item_despesa','nome_elemento_item_despesa','codigo_item_material_servico',
