@@ -1570,6 +1570,18 @@ function atualizarTabelaContratos() {
                 val = urlContrato
                     ? `<a href="${urlContrato}" target="_blank" class="contrato-link">${c['numero_contrato']||'-'}</a>`
                     : `<span>${c['numero_contrato']||'-'}</span>`;
+            } else if (col.id === 'numero_processo_formatado') {
+                const proc = c['numero_processo_formatado'] || '';
+                const matchProc = proc.match(/^(\d+)\s+(\d+)\/(\d+)$/);
+                if (matchProc) {
+                    const codigoUnidade = matchProc[1];
+                    const numero = matchProc[2];
+                    const ano = matchProc[3];
+                    const urlProcesso = `https://www1.compras.mg.gov.br/processocompra/processo/consultaProcessoCompra.html?metodo=pesquisar&codigoUnidadeCompra=${codigoUnidade}&numero=${numero}&ano=${ano}`;
+                    val = `<a href="${urlProcesso}" target="_blank" class="contrato-link" title="Consultar processo no Portal de Compras MG">${proc}</a>`;
+                } else {
+                    val = proc || '-';
+                }
             } else if (col.id === 'descricao_tipo_de_contrato') {
                 val = `${c[col.id]||'-'} ${emergencial?'<span class="badge-emergencial">Emergencial</span>':''}`;
             } else if (col.id === 'situacao_contrato') {
@@ -1735,7 +1747,7 @@ function atualizarTabelaItens() {
             <td>${item['codigo_item_material_servico_numerico']||'-'}</td>
             <td>${resumirTexto(item['item_material_servico'],60)}</td>
             <td><a href="${url||'#'}" target="_blank" class="contrato-link" ${!url?'onclick="return false;"':''}>${item['numero_contrato']||'-'}</a></td>
-            <td>${item['numero_processo_formatado']||'-'}</td>
+            <td>${(()=>{ const proc=item['numero_processo_formatado']||''; const m=proc.match(/^(\d+)\s+(\d+)\/(\d+)$/); if(m){const urlP=`https://www1.compras.mg.gov.br/processocompra/processo/consultaProcessoCompra.html?metodo=pesquisar&codigoUnidadeCompra=${m[1]}&numero=${m[2]}&ano=${m[3]}`;return `<a href="${urlP}" target="_blank" class="contrato-link" title="Consultar processo no Portal de Compras MG">${proc}</a>`;}return proc||'-';})()}</td>
             <td class="text-right">${item['quantidade_item_pedido']||'-'}</td>
             <td class="text-right">${formatarMoeda(item['valor_unitario_referencia_item_processo'])}</td>
             <td class="text-right">${formatarMoeda(item['valor_total_referencia_item_processo'])}</td>
@@ -2013,7 +2025,7 @@ window.verDetalhesContrato = function(numeroContrato) {
         <div>
           <div class="server-name">${v(c['numero_contrato'])} ${isEmergencial?'<span class="badge-emergencial">Emergencial</span>':''}</div>
           <div class="server-meta">
-            <span><strong>Processo:</strong> ${v(c['numero_processo_formatado'])}</span>
+            <span><strong>Processo:</strong> ${(()=>{ const proc=c['numero_processo_formatado']||''; const m=proc.match(/^(\d+)\s+(\d+)\/(\d+)$/); if(m){const urlP=`https://www1.compras.mg.gov.br/processocompra/processo/consultaProcessoCompra.html?metodo=pesquisar&codigoUnidadeCompra=${m[1]}&numero=${m[2]}&ano=${m[3]}`;return `<a href="${urlP}" target="_blank" class="contrato-link" title="Consultar processo no Portal de Compras MG">${proc}</a>`;}return proc||'-';})()}</span>
             <span>|</span>
             ${badgeSituacao(c['situacao_contrato'])}
           </div>
@@ -2024,7 +2036,7 @@ window.verDetalhesContrato = function(numeroContrato) {
           <div class="info-section">
             <h6>Identificação</h6>
             <div class="info-row"><div class="info-label-modal">Nº Contrato</div><div class="info-value-modal highlight">${v(c['numero_contrato'])}</div></div>
-            <div class="info-row"><div class="info-label-modal">Nº Processo</div><div class="info-value-modal">${v(c['numero_processo_formatado'])}</div></div>
+            <div class="info-row"><div class="info-label-modal">Nº Processo</div><div class="info-value-modal">${(()=>{ const proc=c['numero_processo_formatado']||''; const m=proc.match(/^(\d+)\s+(\d+)\/(\d+)$/); if(m){const urlP=`https://www1.compras.mg.gov.br/processocompra/processo/consultaProcessoCompra.html?metodo=pesquisar&codigoUnidadeCompra=${m[1]}&numero=${m[2]}&ano=${m[3]}`;return `<a href="${urlP}" target="_blank" class="contrato-link" title="Consultar processo no Portal de Compras MG">${proc}</a>`;}return proc||'-';})()}</div></div>
             <div class="info-row"><div class="info-label-modal">Órgão</div><div class="info-value-modal">${v(c['nome_orgao_entidade_contratante'])}</div></div>
             <div class="info-row"><div class="info-label-modal">Objeto</div><div class="info-value-modal">${v(c['objeto_contrato'])}</div></div>
           </div>
