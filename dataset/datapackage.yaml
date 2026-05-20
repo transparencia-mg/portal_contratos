@@ -12,7 +12,7 @@ resources:
     profile: tabular-data-resource
     schema:
       fields:
-        - name: ano_publicacao_contrato
+        - name: ano_assinatura_contrato
           type: integer
         - name: codigo_orgao_entidade_contratante
           type: integer
@@ -81,7 +81,7 @@ resources:
     profile: tabular-data-resource
     schema:
       fields:
-        - name: ano_publicacao_contrato
+        - name: ano_assinatura_contrato
           type: integer
         - name: codigo_orgao_entidade_contratante
           type: integer
@@ -151,7 +151,7 @@ resources:
     profile: tabular-data-resource
     schema:
       fields:
-        - name: ano_publicacao_contrato
+        - name: ano_assinatura_contrato
           type: integer
         - name: codigo_orgao_entidade_contratante
           type: integer
@@ -219,7 +219,7 @@ resources:
     profile: tabular-data-resource
     schema:
       fields:
-        - name: ano_publicacao_contrato
+        - name: ano_assinatura_contrato
           type: integer
         - name: codigo_orgao_entidade_contratante
           type: integer
@@ -291,7 +291,7 @@ resources:
     profile: tabular-data-resource
     schema:
       fields:
-        - name: ano_publicacao_contrato
+        - name: ano_assinatura_contrato
           type: integer
         - name: codigo_orgao_entidade_contratante
           type: integer
@@ -359,7 +359,7 @@ resources:
     profile: tabular-data-resource
     schema:
       fields:
-        - name: ano_publicacao_contrato
+        - name: ano_assinatura_contrato
           type: integer
         - name: numero_processo_formatado
           type: string
@@ -403,7 +403,7 @@ resources:
     profile: tabular-data-resource
     schema:
       fields:
-        - name: ano_publicacao_contrato
+        - name: ano_assinatura_contrato
           type: integer
         - name: numero_processo_formatado
           type: string
@@ -447,7 +447,7 @@ resources:
     profile: tabular-data-resource
     schema:
       fields:
-        - name: ano_publicacao_contrato
+        - name: ano_assinatura_contrato
           type: integer
         - name: numero_processo_formatado
           type: string
@@ -491,7 +491,7 @@ resources:
     profile: tabular-data-resource
     schema:
       fields:
-        - name: ano_publicacao_contrato
+        - name: ano_assinatura_contrato
           type: integer
         - name: numero_processo_formatado
           type: string
@@ -537,7 +537,7 @@ resources:
     profile: tabular-data-resource
     schema:
       fields:
-        - name: ano_publicacao_contrato
+        - name: ano_assinatura_contrato
           type: integer
         - name: numero_processo_formatado
           type: string
