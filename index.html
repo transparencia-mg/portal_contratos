@@ -790,7 +790,8 @@ let colunasVisiveis = {
         'objeto_contrato': true, 'nome_empresarial_nome_fornecedor': true,
         'tipo_pessoa_fornecedor': true, 'procedimento_contratacao_grupo': true,
         'procedimento_contratacao_detalhamento_1': true,
-        'procedimento_contratacao_especializacao': true, 'valor_total_atualizado': true
+        'procedimento_contratacao_especializacao': true, 'valor_total_atualizado': true,
+        'indicador_fornecedor_estrangeiro': false
     }
 };
 
@@ -1092,6 +1093,7 @@ function filtrarContratos() {
     const procedimento = document.getElementById('filtroProcedimentoCC')?.value;
     const detalhamento = document.getElementById('filtroDetalhamentoCC')?.value;
     const especializacao = document.getElementById('filtroEspecializacaoCC')?.value;
+    const fornecedorEstrangeiro = document.getElementById('filtroFornecedorEstrangeiroCC')?.value;
     const busca = paginacao.contratos.busca.toLowerCase();
     return dadosConsolidados.contratos.filter(c => {
         if (ano        && getAnoPublicacao(c) != ano) return false;
@@ -1105,6 +1107,11 @@ function filtrarContratos() {
         if (procedimento && c['procedimento_contratacao_grupo'] !== procedimento) return false;
         if (detalhamento && c['procedimento_contratacao_detalhamento_1'] !== detalhamento) return false;
         if (especializacao && c['procedimento_contratacao_especializacao'] !== especializacao) return false;
+        if (fornecedorEstrangeiro) {
+            const val = String(c['indicador_fornecedor_estrangeiro']||'').trim().toLowerCase();
+            if (fornecedorEstrangeiro === 'sim' && val !== 'sim') return false;
+            if (fornecedorEstrangeiro === 'nao' && val === 'sim') return false;
+        }
         if (busca) return [c['numero_contrato'],c['numero_processo_formatado'],c['nome_orgao_entidade_contratante'],c['nome_empresarial_nome_fornecedor'],c['objeto_contrato']].some(x=>String(x||'').toLowerCase().includes(busca));
         return true;
     });
@@ -1468,6 +1475,14 @@ function renderizarConsultaContrato() {
                 <input type="text" class="form-control" id="filtroEspecializacaoCC" list="especializacoesListCC" placeholder="Digite ou selecione..." autocomplete="off">
                 <datalist id="especializacoesListCC">${autocompleteData.especializacoes.map(e=>`<option value="${e}">`).join('')}</datalist>
             </div>
+            <div class="filter-group" style="flex:0 0 auto;min-width:160px;max-width:200px">
+                <label class="filter-label"><i class="material-icons" style="font-size:13px;vertical-align:middle"></i> Forn. Estrangeiro</label>
+                <select class="form-select modern-select" id="filtroFornecedorEstrangeiroCC">
+                    <option value="">Todos</option>
+                    <option value="sim">Sim</option>
+                    <option value="nao">Não</option>
+                </select>
+            </div>
         </div>
         <div class="botoes-abaixo">
             <button class="btn-pesquisa" onclick="aplicarFiltrosCC()"><i class="material-icons">search</i> Atualizar Filtros</button>
@@ -1495,7 +1510,7 @@ function renderizarConsultaContrato() {
                         ['objeto_contrato','Objeto'],['nome_empresarial_nome_fornecedor','Fornecedor'],
                         ['tipo_pessoa_fornecedor','Tipo Pessoa'],['procedimento_contratacao_grupo','Proc. Grupo'],
                         ['procedimento_contratacao_detalhamento_1','Detalhamento'],['procedimento_contratacao_especializacao','Especialização'],
-                        ['valor_total_atualizado','Valor']
+                        ['valor_total_atualizado','Valor'],['indicador_fornecedor_estrangeiro','Forn. Estrangeiro']
                     ].map(([id,lbl])=>`<label><input type="checkbox" ${colunasVisiveis.contratos[id]?'checked':''} onchange="toggleColCC('${id}',this.checked)"> ${lbl}</label>`).join('')}
                 </div>
             </div>
@@ -1556,14 +1571,15 @@ function atualizarTabelaContratos() {
         { id:'procedimento_contratacao_grupo',        label:'Proc. Grupo' },
         { id:'procedimento_contratacao_detalhamento_1',label:'Detalhamento' },
         { id:'procedimento_contratacao_especializacao',label:'Especialização' },
-        { id:'valor_total_atualizado',                label:'Valor' }
+        { id:'valor_total_atualizado',                label:'Valor' },
+        { id:'indicador_fornecedor_estrangeiro',                label:'Forn. Estrangeiro' }
     ];
     const cols = colDef.filter(c => colunasVisiveis.contratos[c.id]);
 
-    header.innerHTML = cols.map(c=>`
+    header.innerHTML = '<th class="text-center" style="white-space:nowrap">Ações</th>' + cols.map(c=>`
         <th class="sortable-header" onclick="toggleSortCC('${c.id}')">
             ${c.label} <i class="material-icons">unfold_more</i>
-        </th>`).join('') + '<th class="text-center">Ações</th>';
+        </th>`).join('');
 
     const inicio = (paginacao.contratos.paginaAtual - 1) * paginacao.contratos.itensPorPagina;
     const pagina = contratosFiltrados.slice(inicio, inicio + paginacao.contratos.itensPorPagina);
@@ -1599,15 +1615,20 @@ function atualizarTabelaContratos() {
                 val = formatarData(c[col.id]);
             } else if (col.id.includes('valor')) {
                 val = formatarMoeda(c[col.id]);
+            } else if (col.id === 'indicador_fornecedor_estrangeiro') {
+                const fe = String(c[col.id]||'').trim().toLowerCase();
+                if (fe === 'sim') val = '<span class="badge-sit" style="background:#fff3cd;color:#7a5b00;border:1px solid #ffe082">🌐 Estrangeiro</span>';
+                else if (fe === 'nao' || fe === 'não') val = '<span class="badge-sit badge-encerrado">Nacional</span>';
+                else val = '-';
             } else {
                 val = resumirTexto(c[col.id], 40);
             }
             return `<td>${val}</td>`;
         }).join('');
-        return `<tr>${cells}<td class="text-center">
+        return `<tr><td class="text-center">
             <button class="btn-action" title="Ver detalhes" onclick="verDetalhesContrato('${escapar(c['numero_contrato'])}')">
                 <i class="material-icons" style="font-size:15px">visibility</i>
-            </button></td></tr>`;
+            </button></td>${cells}</tr>`;
     }).join('');
     if (!pagina.length) {
         tbody.innerHTML = `<tr><td colspan="${cols.length+1}" class="text-center text-muted py-4" style="font-size:13px">Nenhum contrato encontrado.</td></tr>`;
@@ -1640,7 +1661,7 @@ window.aplicarFiltrosCC = function() {
 };
 
 window.limparFiltrosCC = function() {
-    ['filtroAnoCC','filtroOrgaoCC','filtroContratoCC','filtroProcessoCC','filtroSituacaoCC','filtroTipoCC','filtroFornecedorCC','filtroTipoPessoaCC','filtroProcedimentoCC','filtroDetalhamentoCC','filtroEspecializacaoCC'].forEach(id=>{const el=document.getElementById(id); if(el) el.value = id==='filtroAnoCC'?anoSelecionado:'';});
+    ['filtroAnoCC','filtroOrgaoCC','filtroContratoCC','filtroProcessoCC','filtroSituacaoCC','filtroTipoCC','filtroFornecedorCC','filtroTipoPessoaCC','filtroProcedimentoCC','filtroDetalhamentoCC','filtroEspecializacaoCC','filtroFornecedorEstrangeiroCC'].forEach(id=>{const el=document.getElementById(id); if(el) el.value = id==='filtroAnoCC'?anoSelecionado:'';});
     paginacao.contratos.busca = '';
     contratosFiltrados = ordenarDados(dadosFiltrados.contratos, sortConfig.contratos.column, sortConfig.contratos.direction);
     paginacao.contratos.paginaAtual = 1;
@@ -1713,6 +1734,7 @@ function renderizarConsultaItem() {
             <table class="table" id="itensTable">
                 <thead>
                     <tr>
+                        <th class="text-center" style="white-space:nowrap">Ações</th>
                         <th class="sortable-header" onclick="toggleSortITEM('codigo_item_material_servico_numerico')">Código <i class="material-icons">unfold_more</i></th>
                         <th class="sortable-header" onclick="toggleSortITEM('item_material_servico')">Descrição <i class="material-icons">unfold_more</i></th>
                         <th class="sortable-header" onclick="toggleSortITEM('numero_contrato')">Contrato <i class="material-icons">unfold_more</i></th>
@@ -1721,7 +1743,6 @@ function renderizarConsultaItem() {
                         <th class="sortable-header text-right" onclick="toggleSortITEM('valor_unitario_referencia_item_processo')">Valor Unit. Ref. <i class="material-icons">unfold_more</i></th>
                         <th class="sortable-header text-right" onclick="toggleSortITEM('valor_total_referencia_item_processo')">Valor Total Ref. <i class="material-icons">unfold_more</i></th>
                         <th class="sortable-header text-right" onclick="toggleSortITEM('valor_total_homologado')">Valor Homologado <i class="material-icons">unfold_more</i></th>
-                        <th class="text-center">Ações</th>
                     </tr>
                 </thead>
                 <tbody id="itensTableBody"></tbody>
@@ -1751,6 +1772,11 @@ function atualizarTabelaItens() {
         const contratoRel = dadosConsolidados.contratos.find(c => String(c['numero_contrato']) === String(item['numero_contrato']));
         const url = contratoRel ? contratoRel['contrato_termoaditivo_arquivos'] : null;
         return `<tr>
+            <td class="text-center">
+                <button class="btn-action" title="Ver contrato" onclick="verDetalhesContrato('${escapar(item['numero_contrato'])}')">
+                    <i class="material-icons" style="font-size:15px">visibility</i>
+                </button>
+            </td>
             <td>${item['codigo_item_material_servico_numerico']||'-'}</td>
             <td>${resumirTexto(item['item_material_servico'],60)}</td>
             <td><a href="${url||'#'}" target="_blank" class="contrato-link" ${!url?'onclick="return false;"':''}>${item['numero_contrato']||'-'}</a></td>
@@ -1759,11 +1785,6 @@ function atualizarTabelaItens() {
             <td class="text-right">${formatarMoeda(item['valor_unitario_referencia_item_processo'])}</td>
             <td class="text-right">${formatarMoeda(item['valor_total_referencia_item_processo'])}</td>
             <td class="text-right">${formatarMoeda(item['valor_total_homologado'])}</td>
-            <td class="text-center">
-                <button class="btn-action" title="Ver contrato" onclick="verDetalhesContrato('${escapar(item['numero_contrato'])}')">
-                    <i class="material-icons" style="font-size:15px">visibility</i>
-                </button>
-            </td>
         </tr>`;
     }).join('');
     if (!pagina.length) tbody.innerHTML = `<tr><td colspan="9" class="text-center text-muted py-4" style="font-size:13px">Nenhum item encontrado.</td></tr>`;
@@ -1892,6 +1913,7 @@ function renderizarPagamentos() {
             <table class="table" id="pagamentosTable">
                 <thead>
                     <tr>
+                        <th class="text-center" style="white-space:nowrap">Ações</th>
                         <th class="sortable-header" onclick="toggleSortPG('numero_contrato')">Contrato <i class="material-icons">unfold_more</i></th>
                         <th class="sortable-header" onclick="toggleSortPG('nome_orgao_entidade_contratante')">Órgão <i class="material-icons">unfold_more</i></th>
                         <th class="sortable-header" onclick="toggleSortPG('nome_empresarial_nome_fornecedor')">Fornecedor <i class="material-icons">unfold_more</i></th>
@@ -1899,7 +1921,6 @@ function renderizarPagamentos() {
                         <th class="sortable-header text-right" onclick="toggleSortPG('valor_despesa_empenhada')">Empenhado <i class="material-icons">unfold_more</i></th>
                         <th class="sortable-header text-right" onclick="toggleSortPG('valor_despesa_liquidada')">Liquidado <i class="material-icons">unfold_more</i></th>
                         <th class="sortable-header text-right" onclick="toggleSortPG('percentual')">% Liq. <i class="material-icons">unfold_more</i></th>
-                        <th class="text-center">Ações</th>
                     </tr>
                 </thead>
                 <tbody id="pagamentosTableBody"></tbody>
@@ -1928,6 +1949,11 @@ function atualizarTabelaPagamentos() {
     tbody.innerHTML = pagina.map(c => {
         const url = c['contrato_termoaditivo_arquivos'];
         return `<tr>
+            <td class="text-center">
+                <button class="btn-action" title="Ver detalhes" onclick="verDetalhesContrato('${escapar(c['numero_contrato'])}')">
+                    <i class="material-icons" style="font-size:15px">visibility</i>
+                </button>
+            </td>
             <td><a href="${url||'#'}" target="_blank" class="contrato-link" ${!url?'onclick="return false;"':''}>${c['numero_contrato']||'-'}</a></td>
             <td>${resumirTexto(c['nome_orgao_entidade_contratante'],40)}</td>
             <td>${resumirTexto(c['nome_empresarial_nome_fornecedor'],40)}</td>
@@ -1935,11 +1961,6 @@ function atualizarTabelaPagamentos() {
             <td class="text-right">${formatarMoeda(c['valor_despesa_empenhada'])}</td>
             <td class="text-right">${formatarMoeda(c['valor_despesa_liquidada'])}</td>
             <td class="text-right">${calcularPercentual(c['valor_despesa_liquidada'],c['valor_despesa_empenhada'])}</td>
-            <td class="text-center">
-                <button class="btn-action" title="Ver detalhes" onclick="verDetalhesContrato('${escapar(c['numero_contrato'])}')">
-                    <i class="material-icons" style="font-size:15px">visibility</i>
-                </button>
-            </td>
         </tr>`;
     }).join('');
     if (!pagina.length) tbody.innerHTML = `<tr><td colspan="8" class="text-center text-muted py-4" style="font-size:13px">Nenhum registro encontrado.</td></tr>`;
