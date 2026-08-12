@@ -1647,7 +1647,7 @@ function toggleSortCC(coluna) {
     atualizarTabelaContratos();
 }
 
-window.mudarPaginaContratos = function(p) {
+window.mudarPaginaContratos = function mudarPaginaContratos(p) {
     if (p < 1 || p > paginacao.contratos.totalPaginas) return;
     paginacao.contratos.paginaAtual = p;
     atualizarTabelaContratos();
@@ -1801,7 +1801,7 @@ function toggleSortITEM(col) {
     atualizarTabelaItens();
 }
 
-window.mudarPaginaItens = function(p) {
+window.mudarPaginaItens = function mudarPaginaItens(p) {
     if (p < 1 || p > paginacao.itens.totalPaginas) return;
     paginacao.itens.paginaAtual = p;
     atualizarTabelaItens();
@@ -1980,7 +1980,7 @@ function toggleSortPG(col) {
     atualizarTabelaPagamentos();
 }
 
-window.mudarPaginaPG = function(p) {
+window.mudarPaginaPG = function mudarPaginaPG(p) {
     if (p < 1 || p > paginacao.pagamentos.totalPaginas) return;
     paginacao.pagamentos.paginaAtual = p;
     atualizarTabelaPagamentos();
