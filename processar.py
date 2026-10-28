@@ -12,7 +12,7 @@ arquivos_gerados = 0
 
 for ano in anos:
 
-    arquivo = UPLOAD / f"NOVACONSULTA_CONTRATOS{ano}.xlsx"
+    arquivo = UPLOAD / f"Portal_contratos{ano}.xlsx"
 
     if not arquivo.exists():
         print(f"Arquivo não encontrado: {arquivo.name}")
