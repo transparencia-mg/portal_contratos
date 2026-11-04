@@ -1,6 +1,6 @@
 {
   "version": "4.16.6",
-  "time": 0.463,
+  "time": 0.724,
   "errors": [],
   "tasks": [
     {
@@ -139,7 +139,7 @@
           "rows": 0
         }
       },
-      "time": 0.039,
+      "time": 0.063,
       "scope": [
         "hash-count-error",
         "byte-count-error",
@@ -8708,7 +8708,7 @@
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=178463",
             "1522397,68",
             "1493349,87",
-            "1431635,01"
+            "1446642,53"
           ],
           "rowNumber": 22,
           "rowPosition": 23,
@@ -8752,7 +8752,7 @@
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=178463",
             "1522397,68",
             "1493349,87",
-            "1431635,01"
+            "1446642,53"
           ],
           "rowNumber": 22,
           "rowPosition": 23,
@@ -8796,7 +8796,7 @@
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=178463",
             "1522397,68",
             "1493349,87",
-            "1431635,01"
+            "1446642,53"
           ],
           "rowNumber": 22,
           "rowPosition": 23,
@@ -8840,7 +8840,7 @@
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=178463",
             "1522397,68",
             "1493349,87",
-            "1431635,01"
+            "1446642,53"
           ],
           "rowNumber": 22,
           "rowPosition": 23,
@@ -8884,7 +8884,7 @@
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=178463",
             "1522397,68",
             "1493349,87",
-            "1431635,01"
+            "1446642,53"
           ],
           "rowNumber": 22,
           "rowPosition": 23,
@@ -8928,7 +8928,7 @@
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=178463",
             "1522397,68",
             "1493349,87",
-            "1431635,01"
+            "1446642,53"
           ],
           "rowNumber": 22,
           "rowPosition": 23,
@@ -8972,7 +8972,7 @@
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=178463",
             "1522397,68",
             "1493349,87",
-            "1431635,01"
+            "1446642,53"
           ],
           "rowNumber": 22,
           "rowPosition": 23,
@@ -9016,7 +9016,7 @@
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=178463",
             "1522397,68",
             "1493349,87",
-            "1431635,01"
+            "1446642,53"
           ],
           "rowNumber": 22,
           "rowPosition": 23,
@@ -9060,7 +9060,7 @@
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=175788",
             "78876,48",
             "67407,04",
-            "61672,32"
+            "63106,0"
           ],
           "rowNumber": 23,
           "rowPosition": 24,
@@ -9104,7 +9104,7 @@
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=175788",
             "78876,48",
             "67407,04",
-            "61672,32"
+            "63106,0"
           ],
           "rowNumber": 23,
           "rowPosition": 24,
@@ -9148,7 +9148,7 @@
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=175788",
             "78876,48",
             "67407,04",
-            "61672,32"
+            "63106,0"
           ],
           "rowNumber": 23,
           "rowPosition": 24,
@@ -9192,7 +9192,7 @@
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=175788",
             "78876,48",
             "67407,04",
-            "61672,32"
+            "63106,0"
           ],
           "rowNumber": 23,
           "rowPosition": 24,
@@ -9236,7 +9236,7 @@
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=175788",
             "78876,48",
             "67407,04",
-            "61672,32"
+            "63106,0"
           ],
           "rowNumber": 23,
           "rowPosition": 24,
@@ -9280,7 +9280,7 @@
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=175788",
             "78876,48",
             "67407,04",
-            "61672,32"
+            "63106,0"
           ],
           "rowNumber": 23,
           "rowPosition": 24,
@@ -9324,7 +9324,7 @@
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=175788",
             "78876,48",
             "67407,04",
-            "61672,32"
+            "63106,0"
           ],
           "rowNumber": 23,
           "rowPosition": 24,
@@ -9368,7 +9368,7 @@
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=175788",
             "78876,48",
             "67407,04",
-            "61672,32"
+            "63106,0"
           ],
           "rowNumber": 23,
           "rowPosition": 24,
@@ -27364,7 +27364,7 @@
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=176713",
             "3114980,14",
             "2563409,46",
-            "2055505,06"
+            "2134256,47"
           ],
           "rowNumber": 75,
           "rowPosition": 76,
@@ -27408,7 +27408,7 @@
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=176713",
             "3114980,14",
             "2563409,46",
-            "2055505,06"
+            "2134256,47"
           ],
           "rowNumber": 75,
           "rowPosition": 76,
@@ -27452,7 +27452,7 @@
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=176713",
             "3114980,14",
             "2563409,46",
-            "2055505,06"
+            "2134256,47"
           ],
           "rowNumber": 75,
           "rowPosition": 76,
@@ -27496,7 +27496,7 @@
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=176713",
             "3114980,14",
             "2563409,46",
-            "2055505,06"
+            "2134256,47"
           ],
           "rowNumber": 75,
           "rowPosition": 76,
@@ -27540,7 +27540,7 @@
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=176713",
             "3114980,14",
             "2563409,46",
-            "2055505,06"
+            "2134256,47"
           ],
           "rowNumber": 75,
           "rowPosition": 76,
@@ -27584,7 +27584,7 @@
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=176713",
             "3114980,14",
             "2563409,46",
-            "2055505,06"
+            "2134256,47"
           ],
           "rowNumber": 75,
           "rowPosition": 76,
@@ -27628,7 +27628,7 @@
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=176713",
             "3114980,14",
             "2563409,46",
-            "2055505,06"
+            "2134256,47"
           ],
           "rowNumber": 75,
           "rowPosition": 76,
@@ -27672,7 +27672,7 @@
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=176713",
             "3114980,14",
             "2563409,46",
-            "2055505,06"
+            "2134256,47"
           ],
           "rowNumber": 75,
           "rowPosition": 76,
@@ -44334,7 +44334,7 @@
           "rows": 0
         }
       },
-      "time": 0.038,
+      "time": 0.059,
       "scope": [
         "hash-count-error",
         "byte-count-error",
@@ -72484,7 +72484,7 @@
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=184724",
             "1439823,63",
             "1439823,63",
-            "1319838,3"
+            "1359833,4"
           ],
           "rowNumber": 69,
           "rowPosition": 70,
@@ -72528,7 +72528,7 @@
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=184724",
             "1439823,63",
             "1439823,63",
-            "1319838,3"
+            "1359833,4"
           ],
           "rowNumber": 69,
           "rowPosition": 70,
@@ -72572,7 +72572,7 @@
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=184724",
             "1439823,63",
             "1439823,63",
-            "1319838,3"
+            "1359833,4"
           ],
           "rowNumber": 69,
           "rowPosition": 70,
@@ -72616,7 +72616,7 @@
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=184724",
             "1439823,63",
             "1439823,63",
-            "1319838,3"
+            "1359833,4"
           ],
           "rowNumber": 69,
           "rowPosition": 70,
@@ -72660,7 +72660,7 @@
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=184724",
             "1439823,63",
             "1439823,63",
-            "1319838,3"
+            "1359833,4"
           ],
           "rowNumber": 69,
           "rowPosition": 70,
@@ -72704,7 +72704,7 @@
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=184724",
             "1439823,63",
             "1439823,63",
-            "1319838,3"
+            "1359833,4"
           ],
           "rowNumber": 69,
           "rowPosition": 70,
@@ -72748,7 +72748,7 @@
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=184724",
             "1439823,63",
             "1439823,63",
-            "1319838,3"
+            "1359833,4"
           ],
           "rowNumber": 69,
           "rowPosition": 70,
@@ -72792,7 +72792,7 @@
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=184724",
             "1439823,63",
             "1439823,63",
-            "1319838,3"
+            "1359833,4"
           ],
           "rowNumber": 69,
           "rowPosition": 70,
@@ -72836,7 +72836,7 @@
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=184724",
             "1439823,63",
             "1439823,63",
-            "1319838,3"
+            "1359833,4"
           ],
           "rowNumber": 69,
           "rowPosition": 70,
@@ -88525,7 +88525,7 @@
           "rows": 0
         }
       },
-      "time": 0.038,
+      "time": 0.062,
       "scope": [
         "hash-count-error",
         "byte-count-error",
@@ -90756,8 +90756,8 @@
             "Pregão",
             "Pregão - Pregão eletrônico",
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=192285",
-            "364111,46",
-            "227140,76",
+            "372632,5",
+            "165904,66",
             "165904,66"
           ],
           "rowNumber": 4,
@@ -90800,8 +90800,8 @@
             "Pregão",
             "Pregão - Pregão eletrônico",
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=192285",
-            "364111,46",
-            "227140,76",
+            "372632,5",
+            "165904,66",
             "165904,66"
           ],
           "rowNumber": 4,
@@ -90844,8 +90844,8 @@
             "Pregão",
             "Pregão - Pregão eletrônico",
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=192285",
-            "364111,46",
-            "227140,76",
+            "372632,5",
+            "165904,66",
             "165904,66"
           ],
           "rowNumber": 4,
@@ -90888,8 +90888,8 @@
             "Pregão",
             "Pregão - Pregão eletrônico",
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=192285",
-            "364111,46",
-            "227140,76",
+            "372632,5",
+            "165904,66",
             "165904,66"
           ],
           "rowNumber": 4,
@@ -90932,8 +90932,8 @@
             "Pregão",
             "Pregão - Pregão eletrônico",
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=192285",
-            "364111,46",
-            "227140,76",
+            "372632,5",
+            "165904,66",
             "165904,66"
           ],
           "rowNumber": 4,
@@ -90976,8 +90976,8 @@
             "Pregão",
             "Pregão - Pregão eletrônico",
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=192285",
-            "364111,46",
-            "227140,76",
+            "372632,5",
+            "165904,66",
             "165904,66"
           ],
           "rowNumber": 4,
@@ -91020,8 +91020,8 @@
             "Pregão",
             "Pregão - Pregão eletrônico",
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=192285",
-            "364111,46",
-            "227140,76",
+            "372632,5",
+            "165904,66",
             "165904,66"
           ],
           "rowNumber": 4,
@@ -91064,8 +91064,8 @@
             "Pregão",
             "Pregão - Pregão eletrônico",
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=192285",
-            "364111,46",
-            "227140,76",
+            "372632,5",
+            "165904,66",
             "165904,66"
           ],
           "rowNumber": 4,
@@ -113284,7 +113284,7 @@
             "Dispensa de Licitação - Por valor",
             "Cotação eletrônica - adm direta, fundação ou autarquia",
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=190050",
-            "104255,68",
+            "107241,4",
             "62127,84",
             "41063,92"
           ],
@@ -113328,7 +113328,7 @@
             "Dispensa de Licitação - Por valor",
             "Cotação eletrônica - adm direta, fundação ou autarquia",
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=190050",
-            "104255,68",
+            "107241,4",
             "62127,84",
             "41063,92"
           ],
@@ -113372,7 +113372,7 @@
             "Dispensa de Licitação - Por valor",
             "Cotação eletrônica - adm direta, fundação ou autarquia",
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=190050",
-            "104255,68",
+            "107241,4",
             "62127,84",
             "41063,92"
           ],
@@ -113416,7 +113416,7 @@
             "Dispensa de Licitação - Por valor",
             "Cotação eletrônica - adm direta, fundação ou autarquia",
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=190050",
-            "104255,68",
+            "107241,4",
             "62127,84",
             "41063,92"
           ],
@@ -113460,7 +113460,7 @@
             "Dispensa de Licitação - Por valor",
             "Cotação eletrônica - adm direta, fundação ou autarquia",
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=190050",
-            "104255,68",
+            "107241,4",
             "62127,84",
             "41063,92"
           ],
@@ -113504,7 +113504,7 @@
             "Dispensa de Licitação - Por valor",
             "Cotação eletrônica - adm direta, fundação ou autarquia",
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=190050",
-            "104255,68",
+            "107241,4",
             "62127,84",
             "41063,92"
           ],
@@ -113548,7 +113548,7 @@
             "Dispensa de Licitação - Por valor",
             "Cotação eletrônica - adm direta, fundação ou autarquia",
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=190050",
-            "104255,68",
+            "107241,4",
             "62127,84",
             "41063,92"
           ],
@@ -113592,7 +113592,7 @@
             "Dispensa de Licitação - Por valor",
             "Cotação eletrônica - adm direta, fundação ou autarquia",
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=190050",
-            "104255,68",
+            "107241,4",
             "62127,84",
             "41063,92"
           ],
@@ -132723,7 +132723,7 @@
           "rows": 0
         }
       },
-      "time": 0.04,
+      "time": 0.061,
       "scope": [
         "hash-count-error",
         "byte-count-error",
@@ -143575,7 +143575,7 @@
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=195606",
             "87750,0",
             "65249,58",
-            "54154,45"
+            "54470,19"
           ],
           "rowNumber": 26,
           "rowPosition": 27,
@@ -143619,7 +143619,7 @@
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=195606",
             "87750,0",
             "65249,58",
-            "54154,45"
+            "54470,19"
           ],
           "rowNumber": 26,
           "rowPosition": 27,
@@ -143663,7 +143663,7 @@
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=195606",
             "87750,0",
             "65249,58",
-            "54154,45"
+            "54470,19"
           ],
           "rowNumber": 26,
           "rowPosition": 27,
@@ -143707,7 +143707,7 @@
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=195606",
             "87750,0",
             "65249,58",
-            "54154,45"
+            "54470,19"
           ],
           "rowNumber": 26,
           "rowPosition": 27,
@@ -143751,7 +143751,7 @@
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=195606",
             "87750,0",
             "65249,58",
-            "54154,45"
+            "54470,19"
           ],
           "rowNumber": 26,
           "rowPosition": 27,
@@ -143795,7 +143795,7 @@
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=195606",
             "87750,0",
             "65249,58",
-            "54154,45"
+            "54470,19"
           ],
           "rowNumber": 26,
           "rowPosition": 27,
@@ -143839,7 +143839,7 @@
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=195606",
             "87750,0",
             "65249,58",
-            "54154,45"
+            "54470,19"
           ],
           "rowNumber": 26,
           "rowPosition": 27,
@@ -143883,7 +143883,7 @@
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=195606",
             "87750,0",
             "65249,58",
-            "54154,45"
+            "54470,19"
           ],
           "rowNumber": 26,
           "rowPosition": 27,
@@ -143927,7 +143927,7 @@
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=195606",
             "87750,0",
             "65249,58",
-            "54154,45"
+            "54470,19"
           ],
           "rowNumber": 26,
           "rowPosition": 27,
@@ -149911,7 +149911,7 @@
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=198097",
             "35540,0",
             "32805,56",
-            "14987,28"
+            "20390,5"
           ],
           "rowNumber": 42,
           "rowPosition": 43,
@@ -149955,7 +149955,7 @@
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=198097",
             "35540,0",
             "32805,56",
-            "14987,28"
+            "20390,5"
           ],
           "rowNumber": 42,
           "rowPosition": 43,
@@ -149999,7 +149999,7 @@
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=198097",
             "35540,0",
             "32805,56",
-            "14987,28"
+            "20390,5"
           ],
           "rowNumber": 42,
           "rowPosition": 43,
@@ -150043,7 +150043,7 @@
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=198097",
             "35540,0",
             "32805,56",
-            "14987,28"
+            "20390,5"
           ],
           "rowNumber": 42,
           "rowPosition": 43,
@@ -150087,7 +150087,7 @@
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=198097",
             "35540,0",
             "32805,56",
-            "14987,28"
+            "20390,5"
           ],
           "rowNumber": 42,
           "rowPosition": 43,
@@ -150131,7 +150131,7 @@
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=198097",
             "35540,0",
             "32805,56",
-            "14987,28"
+            "20390,5"
           ],
           "rowNumber": 42,
           "rowPosition": 43,
@@ -150175,7 +150175,7 @@
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=198097",
             "35540,0",
             "32805,56",
-            "14987,28"
+            "20390,5"
           ],
           "rowNumber": 42,
           "rowPosition": 43,
@@ -150219,7 +150219,7 @@
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=198097",
             "35540,0",
             "32805,56",
-            "14987,28"
+            "20390,5"
           ],
           "rowNumber": 42,
           "rowPosition": 43,
@@ -150263,7 +150263,7 @@
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=198097",
             "35540,0",
             "32805,56",
-            "14987,28"
+            "20390,5"
           ],
           "rowNumber": 42,
           "rowPosition": 43,
@@ -172483,7 +172483,7 @@
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=198140",
             "204676,4",
             "105667,12",
-            "75948,79"
+            "82692,29"
           ],
           "rowNumber": 99,
           "rowPosition": 100,
@@ -172527,7 +172527,7 @@
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=198140",
             "204676,4",
             "105667,12",
-            "75948,79"
+            "82692,29"
           ],
           "rowNumber": 99,
           "rowPosition": 100,
@@ -172571,7 +172571,7 @@
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=198140",
             "204676,4",
             "105667,12",
-            "75948,79"
+            "82692,29"
           ],
           "rowNumber": 99,
           "rowPosition": 100,
@@ -172615,7 +172615,7 @@
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=198140",
             "204676,4",
             "105667,12",
-            "75948,79"
+            "82692,29"
           ],
           "rowNumber": 99,
           "rowPosition": 100,
@@ -172659,7 +172659,7 @@
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=198140",
             "204676,4",
             "105667,12",
-            "75948,79"
+            "82692,29"
           ],
           "rowNumber": 99,
           "rowPosition": 100,
@@ -172703,7 +172703,7 @@
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=198140",
             "204676,4",
             "105667,12",
-            "75948,79"
+            "82692,29"
           ],
           "rowNumber": 99,
           "rowPosition": 100,
@@ -172747,7 +172747,7 @@
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=198140",
             "204676,4",
             "105667,12",
-            "75948,79"
+            "82692,29"
           ],
           "rowNumber": 99,
           "rowPosition": 100,
@@ -172791,7 +172791,7 @@
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=198140",
             "204676,4",
             "105667,12",
-            "75948,79"
+            "82692,29"
           ],
           "rowNumber": 99,
           "rowPosition": 100,
@@ -172835,7 +172835,7 @@
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=198140",
             "204676,4",
             "105667,12",
-            "75948,79"
+            "82692,29"
           ],
           "rowNumber": 99,
           "rowPosition": 100,
@@ -175651,7 +175651,7 @@
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=197156",
             "15827062,63",
             "3255707,91",
-            "2724826,12"
+            "2950855,33"
           ],
           "rowNumber": 107,
           "rowPosition": 108,
@@ -175695,7 +175695,7 @@
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=197156",
             "15827062,63",
             "3255707,91",
-            "2724826,12"
+            "2950855,33"
           ],
           "rowNumber": 107,
           "rowPosition": 108,
@@ -175739,7 +175739,7 @@
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=197156",
             "15827062,63",
             "3255707,91",
-            "2724826,12"
+            "2950855,33"
           ],
           "rowNumber": 107,
           "rowPosition": 108,
@@ -175783,7 +175783,7 @@
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=197156",
             "15827062,63",
             "3255707,91",
-            "2724826,12"
+            "2950855,33"
           ],
           "rowNumber": 107,
           "rowPosition": 108,
@@ -175827,7 +175827,7 @@
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=197156",
             "15827062,63",
             "3255707,91",
-            "2724826,12"
+            "2950855,33"
           ],
           "rowNumber": 107,
           "rowPosition": 108,
@@ -175871,7 +175871,7 @@
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=197156",
             "15827062,63",
             "3255707,91",
-            "2724826,12"
+            "2950855,33"
           ],
           "rowNumber": 107,
           "rowPosition": 108,
@@ -175915,7 +175915,7 @@
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=197156",
             "15827062,63",
             "3255707,91",
-            "2724826,12"
+            "2950855,33"
           ],
           "rowNumber": 107,
           "rowPosition": 108,
@@ -175959,7 +175959,7 @@
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=197156",
             "15827062,63",
             "3255707,91",
-            "2724826,12"
+            "2950855,33"
           ],
           "rowNumber": 107,
           "rowPosition": 108,
@@ -176003,7 +176003,7 @@
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=197156",
             "15827062,63",
             "3255707,91",
-            "2724826,12"
+            "2950855,33"
           ],
           "rowNumber": 107,
           "rowPosition": 108,
@@ -176908,7 +176908,7 @@
           "rows": 0
         }
       },
-      "time": 0.039,
+      "time": 0.061,
       "scope": [
         "hash-count-error",
         "byte-count-error",
@@ -185829,7 +185829,7 @@
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=240084",
             "3476,59",
             "3476,59",
-            "0,0"
+            "3476,59"
           ],
           "rowNumber": 23,
           "rowPosition": 24,
@@ -185873,7 +185873,7 @@
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=240084",
             "3476,59",
             "3476,59",
-            "0,0"
+            "3476,59"
           ],
           "rowNumber": 23,
           "rowPosition": 24,
@@ -185917,7 +185917,7 @@
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=240084",
             "3476,59",
             "3476,59",
-            "0,0"
+            "3476,59"
           ],
           "rowNumber": 23,
           "rowPosition": 24,
@@ -185961,7 +185961,7 @@
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=240084",
             "3476,59",
             "3476,59",
-            "0,0"
+            "3476,59"
           ],
           "rowNumber": 23,
           "rowPosition": 24,
@@ -186005,7 +186005,7 @@
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=240084",
             "3476,59",
             "3476,59",
-            "0,0"
+            "3476,59"
           ],
           "rowNumber": 23,
           "rowPosition": 24,
@@ -186049,7 +186049,7 @@
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=240084",
             "3476,59",
             "3476,59",
-            "0,0"
+            "3476,59"
           ],
           "rowNumber": 23,
           "rowPosition": 24,
@@ -186093,7 +186093,7 @@
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=240084",
             "3476,59",
             "3476,59",
-            "0,0"
+            "3476,59"
           ],
           "rowNumber": 23,
           "rowPosition": 24,
@@ -186137,7 +186137,7 @@
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=240084",
             "3476,59",
             "3476,59",
-            "0,0"
+            "3476,59"
           ],
           "rowNumber": 23,
           "rowPosition": 24,
@@ -192165,7 +192165,7 @@
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=236281",
             "198800,0",
             "144840,0",
-            "0,0"
+            "144840,0"
           ],
           "rowNumber": 41,
           "rowPosition": 42,
@@ -192209,7 +192209,7 @@
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=236281",
             "198800,0",
             "144840,0",
-            "0,0"
+            "144840,0"
           ],
           "rowNumber": 41,
           "rowPosition": 42,
@@ -192253,7 +192253,7 @@
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=236281",
             "198800,0",
             "144840,0",
-            "0,0"
+            "144840,0"
           ],
           "rowNumber": 41,
           "rowPosition": 42,
@@ -192297,7 +192297,7 @@
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=236281",
             "198800,0",
             "144840,0",
-            "0,0"
+            "144840,0"
           ],
           "rowNumber": 41,
           "rowPosition": 42,
@@ -192341,7 +192341,7 @@
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=236281",
             "198800,0",
             "144840,0",
-            "0,0"
+            "144840,0"
           ],
           "rowNumber": 41,
           "rowPosition": 42,
@@ -192385,7 +192385,7 @@
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=236281",
             "198800,0",
             "144840,0",
-            "0,0"
+            "144840,0"
           ],
           "rowNumber": 41,
           "rowPosition": 42,
@@ -192429,7 +192429,7 @@
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=236281",
             "198800,0",
             "144840,0",
-            "0,0"
+            "144840,0"
           ],
           "rowNumber": 41,
           "rowPosition": 42,
@@ -192473,7 +192473,7 @@
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=236281",
             "198800,0",
             "144840,0",
-            "0,0"
+            "144840,0"
           ],
           "rowNumber": 41,
           "rowPosition": 42,
@@ -197785,7 +197785,7 @@
             "1021007 000146/2026",
             "9512486",
             "SIM",
-            "Vigente publicado",
+            "Vencido",
             "Serviço",
             "SEI: 26.0.000002807-9 contratação da Associação Nacional dos Auditores de Controle Externo dos Tribunais de Contas do Brasil (ANTC) para inscrição de 30 (trinta) servidores do Tribunal de Contas do Estado de Minas Gerais (TCEMG) ¿ auditores de controle externo, procuradores de contas e conselheiros ¿ no 9º Congresso Nacional dos Auditores de Controle Externo dos Tribunais de Contas do Brasil (CONACON).",
             "2026-05-29",
@@ -197829,7 +197829,7 @@
             "1021007 000146/2026",
             "9512486",
             "SIM",
-            "Vigente publicado",
+            "Vencido",
             "Serviço",
             "SEI: 26.0.000002807-9 contratação da Associação Nacional dos Auditores de Controle Externo dos Tribunais de Contas do Brasil (ANTC) para inscrição de 30 (trinta) servidores do Tribunal de Contas do Estado de Minas Gerais (TCEMG) ¿ auditores de controle externo, procuradores de contas e conselheiros ¿ no 9º Congresso Nacional dos Auditores de Controle Externo dos Tribunais de Contas do Brasil (CONACON).",
             "2026-05-29",
@@ -197873,7 +197873,7 @@
             "1021007 000146/2026",
             "9512486",
             "SIM",
-            "Vigente publicado",
+            "Vencido",
             "Serviço",
             "SEI: 26.0.000002807-9 contratação da Associação Nacional dos Auditores de Controle Externo dos Tribunais de Contas do Brasil (ANTC) para inscrição de 30 (trinta) servidores do Tribunal de Contas do Estado de Minas Gerais (TCEMG) ¿ auditores de controle externo, procuradores de contas e conselheiros ¿ no 9º Congresso Nacional dos Auditores de Controle Externo dos Tribunais de Contas do Brasil (CONACON).",
             "2026-05-29",
@@ -197917,7 +197917,7 @@
             "1021007 000146/2026",
             "9512486",
             "SIM",
-            "Vigente publicado",
+            "Vencido",
             "Serviço",
             "SEI: 26.0.000002807-9 contratação da Associação Nacional dos Auditores de Controle Externo dos Tribunais de Contas do Brasil (ANTC) para inscrição de 30 (trinta) servidores do Tribunal de Contas do Estado de Minas Gerais (TCEMG) ¿ auditores de controle externo, procuradores de contas e conselheiros ¿ no 9º Congresso Nacional dos Auditores de Controle Externo dos Tribunais de Contas do Brasil (CONACON).",
             "2026-05-29",
@@ -197961,7 +197961,7 @@
             "1021007 000146/2026",
             "9512486",
             "SIM",
-            "Vigente publicado",
+            "Vencido",
             "Serviço",
             "SEI: 26.0.000002807-9 contratação da Associação Nacional dos Auditores de Controle Externo dos Tribunais de Contas do Brasil (ANTC) para inscrição de 30 (trinta) servidores do Tribunal de Contas do Estado de Minas Gerais (TCEMG) ¿ auditores de controle externo, procuradores de contas e conselheiros ¿ no 9º Congresso Nacional dos Auditores de Controle Externo dos Tribunais de Contas do Brasil (CONACON).",
             "2026-05-29",
@@ -198005,7 +198005,7 @@
             "1021007 000146/2026",
             "9512486",
             "SIM",
-            "Vigente publicado",
+            "Vencido",
             "Serviço",
             "SEI: 26.0.000002807-9 contratação da Associação Nacional dos Auditores de Controle Externo dos Tribunais de Contas do Brasil (ANTC) para inscrição de 30 (trinta) servidores do Tribunal de Contas do Estado de Minas Gerais (TCEMG) ¿ auditores de controle externo, procuradores de contas e conselheiros ¿ no 9º Congresso Nacional dos Auditores de Controle Externo dos Tribunais de Contas do Brasil (CONACON).",
             "2026-05-29",
@@ -198049,7 +198049,7 @@
             "1021007 000146/2026",
             "9512486",
             "SIM",
-            "Vigente publicado",
+            "Vencido",
             "Serviço",
             "SEI: 26.0.000002807-9 contratação da Associação Nacional dos Auditores de Controle Externo dos Tribunais de Contas do Brasil (ANTC) para inscrição de 30 (trinta) servidores do Tribunal de Contas do Estado de Minas Gerais (TCEMG) ¿ auditores de controle externo, procuradores de contas e conselheiros ¿ no 9º Congresso Nacional dos Auditores de Controle Externo dos Tribunais de Contas do Brasil (CONACON).",
             "2026-05-29",
@@ -198093,7 +198093,7 @@
             "1021007 000146/2026",
             "9512486",
             "SIM",
-            "Vigente publicado",
+            "Vencido",
             "Serviço",
             "SEI: 26.0.000002807-9 contratação da Associação Nacional dos Auditores de Controle Externo dos Tribunais de Contas do Brasil (ANTC) para inscrição de 30 (trinta) servidores do Tribunal de Contas do Estado de Minas Gerais (TCEMG) ¿ auditores de controle externo, procuradores de contas e conselheiros ¿ no 9º Congresso Nacional dos Auditores de Controle Externo dos Tribunais de Contas do Brasil (CONACON).",
             "2026-05-29",
@@ -209060,7 +209060,7 @@
             "Inexigibilidade - Notória especialização em assessoria ou consultoria técnica e auditoria financeira",
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=235121",
             "1792210,0",
-            "0,0",
+            "500000,0",
             "0,0"
           ],
           "rowNumber": 89,
@@ -209104,7 +209104,7 @@
             "Inexigibilidade - Notória especialização em assessoria ou consultoria técnica e auditoria financeira",
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=235121",
             "1792210,0",
-            "0,0",
+            "500000,0",
             "0,0"
           ],
           "rowNumber": 89,
@@ -209148,7 +209148,7 @@
             "Inexigibilidade - Notória especialização em assessoria ou consultoria técnica e auditoria financeira",
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=235121",
             "1792210,0",
-            "0,0",
+            "500000,0",
             "0,0"
           ],
           "rowNumber": 89,
@@ -209192,7 +209192,7 @@
             "Inexigibilidade - Notória especialização em assessoria ou consultoria técnica e auditoria financeira",
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=235121",
             "1792210,0",
-            "0,0",
+            "500000,0",
             "0,0"
           ],
           "rowNumber": 89,
@@ -209236,7 +209236,7 @@
             "Inexigibilidade - Notória especialização em assessoria ou consultoria técnica e auditoria financeira",
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=235121",
             "1792210,0",
-            "0,0",
+            "500000,0",
             "0,0"
           ],
           "rowNumber": 89,
@@ -209280,7 +209280,7 @@
             "Inexigibilidade - Notória especialização em assessoria ou consultoria técnica e auditoria financeira",
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=235121",
             "1792210,0",
-            "0,0",
+            "500000,0",
             "0,0"
           ],
           "rowNumber": 89,
@@ -209324,7 +209324,7 @@
             "Inexigibilidade - Notória especialização em assessoria ou consultoria técnica e auditoria financeira",
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=235121",
             "1792210,0",
-            "0,0",
+            "500000,0",
             "0,0"
           ],
           "rowNumber": 89,
@@ -209368,7 +209368,7 @@
             "Inexigibilidade - Notória especialização em assessoria ou consultoria técnica e auditoria financeira",
             "https://www1.compras.mg.gov.br/contrato/gestaocontratos/arquivosContrato.html?idContrato=235121",
             "1792210,0",
-            "0,0",
+            "500000,0",
             "0,0"
           ],
           "rowNumber": 89,
@@ -221050,7 +221050,7 @@
           "rows": 0
         }
       },
-      "time": 0.03,
+      "time": 0.048,
       "scope": [
         "hash-count-error",
         "byte-count-error",
@@ -254176,7 +254176,7 @@
           "rows": 0
         }
       },
-      "time": 0.029,
+      "time": 0.048,
       "scope": [
         "hash-count-error",
         "byte-count-error",
@@ -287302,7 +287302,7 @@
           "rows": 0
         }
       },
-      "time": 0.03,
+      "time": 0.048,
       "scope": [
         "hash-count-error",
         "byte-count-error",
@@ -320432,7 +320432,7 @@
           "rows": 0
         }
       },
-      "time": 0.03,
+      "time": 0.048,
       "scope": [
         "hash-count-error",
         "byte-count-error",
@@ -353562,7 +353562,7 @@
           "rows": 0
         }
       },
-      "time": 0.03,
+      "time": 0.048,
       "scope": [
         "hash-count-error",
         "byte-count-error",
